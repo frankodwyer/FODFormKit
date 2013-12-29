@@ -31,7 +31,7 @@
     [super configureCellForRow:row withDelegate:delegate];
     self.delegate = delegate;
     self.textField.inputAccessoryView = [self.delegate textInputAccessoryView];
-    self.textField.text = (NSString*)row.currentValue;
+    self.textField.text = (NSString*)row.workingValue;
     self.textField.placeholder = (NSString*)row.placeHolder;
     self.titleLabel.text = row.title;
 }

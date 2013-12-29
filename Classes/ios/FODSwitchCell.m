@@ -18,7 +18,7 @@
                 withDelegate:(id)delegate {
     [super configureCellForRow:row withDelegate:delegate];
     self.delegate = delegate;
-    self.switchControl.on = [(NSNumber*)row.currentValue boolValue];
+    self.switchControl.on = [(NSNumber*)row.workingValue boolValue];
     self.titleLabel.text = row.title;
 }
 

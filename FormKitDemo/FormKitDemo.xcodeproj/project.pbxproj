@@ -270,6 +270,8 @@
 				01BF2157186F071200F979B8 /* FODPickerCell.m */,
 				016CE6C1186D8C7E00E83DD1 /* FODPickerViewController.h */,
 				016CE6C2186D8C7E00E83DD1 /* FODPickerViewController.m */,
+				010763FB18703513006949DE /* FODSubformCell.h */,
+				010763FC18703513006949DE /* FODSubformCell.m */,
 				016CE6C3186D8C7E00E83DD1 /* FODSwitchCell.h */,
 				016CE6C4186D8C7E00E83DD1 /* FODSwitchCell.m */,
 				016CE6C5186D8C7E00E83DD1 /* FODSwitchCell.xib */,
@@ -277,8 +279,6 @@
 				016CE6C7186D8C7E00E83DD1 /* FODTextInputCell.m */,
 				016CE6C8186D8C7E00E83DD1 /* FODTextInputCell.xib */,
 				016CE6C9186D8C7E00E83DD1 /* FODTextInputCell2.xib */,
-				010763FB18703513006949DE /* FODSubformCell.h */,
-				010763FC18703513006949DE /* FODSubformCell.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";

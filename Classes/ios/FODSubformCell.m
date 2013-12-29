@@ -10,6 +10,13 @@
 
 #import "FODFormViewController.h"
 
+@interface FODSubformCell()<FODFormViewControllerDelegate>
+
+@property (nonatomic,weak) UINavigationController *navigationController;
+
+@end
+
+
 @implementation FODSubformCell
 
 - (void) configureCellForRow:(FODFormRow*)row
@@ -22,13 +29,20 @@
 }
 
 - (void)cellAction:(UINavigationController*)navController {
-//    FODFormViewController *vc = [[FODFormViewController alloc] initWithStyle:UITableViewStyleGrouped
-//                                                                    andModel:(FODFormModel*)self.row
-//                                                                    userInfo:self];
     FODFormViewController *vc = [[FODFormViewController alloc] initWithModel:(FODFormModel*)self.row
                                                                     userInfo:self];
     vc.title = self.row.title;
+    vc.delegate = self;
     [navController pushViewController:vc animated:YES];
+    self.navigationController = navController;
+}
+
+- (void)modelSaved:(FODFormModel *)model userInfo:(id)userInfo {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)formCancelled:(FODFormModel *)model userInfo:(id)userInfo {
+    // no need to pop - we get here if the user pressed back.
 }
 
 @end

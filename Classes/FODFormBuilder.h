@@ -23,6 +23,12 @@
 - (void) startRow:(NSString*)key
           ofClass:(Class)klass
         withTitle:(NSString*)title
+     defaultValue:(id)defaultValue
+      placeHolder:(NSString*)placeHolder;
+
+- (void) startRow:(NSString*)key
+          ofClass:(Class)klass
+        withTitle:(NSString*)title
      defaultValue:(id)defaultValue;
 
 - (void) startRow:(NSString*)key

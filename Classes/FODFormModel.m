@@ -72,7 +72,23 @@
         }
     }];
 
-    return rowResult.currentValue;
+    return rowResult.workingValue;
+}
+
+- (void) undoEdits {
+    [self.sections enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(FODFormSection *section, NSUInteger idx, BOOL *stop) {
+        [section.rows enumerateObjectsUsingBlock:^(FODFormRow *row, NSUInteger idx, BOOL *stop) {
+            row.workingValue = row.initialValue;
+        }];
+    }];
+}
+
+- (void) commitEdits {
+    [self.sections enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(FODFormSection *section, NSUInteger idx, BOOL *stop) {
+        [section.rows enumerateObjectsUsingBlock:^(FODFormRow *row, NSUInteger idx, BOOL *stop) {
+            row.initialValue = row.workingValue;
+        }];
+    }];
 }
 
 @end

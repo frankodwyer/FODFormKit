@@ -19,11 +19,13 @@
 
 @protocol FODFormViewControllerDelegate <NSObject>
 
-@optional
 - (void) modelSaved:(FODFormModel*)model
-             inForm:(FODFormViewController*)form
            userInfo:(id)userInfo;
 
+- (void) formCancelled:(FODFormModel*)model
+              userInfo:(id)userInfo;
+
+@optional
 - (void) pickerValueChanged:(NSString*)key
                       value:(NSString*)value
                         row:(FODFormRow*)row
@@ -44,9 +46,5 @@
 
 - (id)initWithModel:(FODFormModel*)model
            userInfo:(id)userInfo;
-
-//- (id)initWithStyle:(UITableViewStyle)style
-//           andModel:(FODFormModel*)model
-//           userInfo:(id)userInfo;
 
 @end

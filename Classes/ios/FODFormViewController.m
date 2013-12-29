@@ -83,15 +83,28 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.tableView.delegate = nil;
+    self.tableView.dataSource = nil;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    if (self.model.parentForm) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(savePressed:)];
-    } else {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(savePressed:)];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelPressed:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", @"Button label")
+                                                                              style:UIBarButtonItemStyleDone
+                                                                             target:self
+                                                                             action:@selector(savePressed:)];
+
+    if (!self.model.parentForm) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                                 initWithTitle:NSLocalizedString(@"Cancel", @"Button label")
+                                                 style:UIBarButtonItemStyleBordered
+                                                 target:self
+                                                 action:@selector(cancelPressed:)];
     }
 
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
@@ -319,14 +332,21 @@
         }
     }
     [[self.view fod_findFirstResponder] resignFirstResponder];
+    [self.model commitEdits];
     [self.delegate modelSaved:self.model
-                       inForm:self
                      userInfo:self.userInfo];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) cancelPressed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.model undoEdits];
+    [self.delegate formCancelled:self.model
+                        userInfo:self.userInfo];
+}
+
+- (void)didMoveToParentViewController:(UIViewController *)parent {
+    if (!parent) {
+        [self cancelPressed:self];
+    }
 }
 
 #pragma mark - Table view data source
@@ -419,7 +439,7 @@
 - (void)dateSelected:(NSDate *)date userInfo:(id)userInfo {
     self.currentlyEditingIndexPath = nil;
     FODFormRow *row = (FODFormRow*)userInfo;
-    row.currentValue = date;
+    row.workingValue = date;
     [self.tableView reloadData];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -429,7 +449,7 @@
 - (void) valueChangedTo:(NSString *)newValue
                userInfo:(id)userInfo {
     FODFormRow *row = (FODFormRow*)userInfo;
-    row.currentValue = newValue;
+    row.workingValue = newValue;
 }
 
 - (void) startedEditing:(id)userInfo {
@@ -443,7 +463,7 @@
 - (void) switchValueChangedTo:(BOOL)newValue
                      userInfo:(id)userInfo {
     FODFormRow *row = (FODFormRow*)userInfo;
-    row.currentValue = @(newValue);
+    row.workingValue = @(newValue);
     self.currentlyEditingIndexPath = nil;
     [self.tableView reloadData];
 }
@@ -452,7 +472,7 @@
 
 - (void) selectionMade:(NSArray*)selectedItems userInfo:(id)userInfo {
     FODFormRow *row = (FODFormRow*)userInfo;
-    row.currentValue = selectedItems[0];
+    row.workingValue = selectedItems[0];
     if ([self.delegate respondsToSelector:@selector(pickerValueChanged:value:row:inForm:)]) {
         [self.delegate pickerValueChanged:row.key
                                     value:selectedItems[0]

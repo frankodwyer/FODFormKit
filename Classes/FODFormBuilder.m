@@ -42,15 +42,26 @@
 - (void) startRow:(NSString*)key
           ofClass:(Class)klass
         withTitle:(NSString*)title
-     defaultValue:(id)defaultValue {
+     defaultValue:(id)defaultValue
+      placeHolder:(NSString *)placeHolder{
 
     FODFormRow *row = [[klass alloc] init];
     row.title = title;
-    row.currentValue = defaultValue;
+    row.initialValue = defaultValue;
+    row.workingValue = defaultValue;
+    row.placeHolder = placeHolder;
     row.key = key;
     row.indexPath = [NSIndexPath indexPathForRow:self.currentSection.rows.count inSection:self.currentModel.sections.count-1];
     [self.currentSection.rows addObject:row];
 }
+
+- (void) startRow:(NSString*)key
+          ofClass:(Class)klass
+        withTitle:(NSString*)title
+     defaultValue:(id)defaultValue {
+    [self startRow:key ofClass:klass withTitle:title defaultValue:defaultValue placeHolder:nil];
+}
+
 
 - (void)addSubform:(FODFormModel *)form {
     form.indexPath = [NSIndexPath indexPathForRow:self.currentSection.rows.count inSection:self.currentModel.sections.count-1];
@@ -60,12 +71,12 @@
 - (void) startRow:(NSString*)key
           ofClass:(Class)klass
      defaultValue:(id)defaultValue {
-    [self startRow:key ofClass:klass withTitle:nil defaultValue:defaultValue];
+    [self startRow:key ofClass:klass withTitle:nil defaultValue:defaultValue placeHolder:nil];
 }
 
 - (void) startRow:(NSString*)key
           ofClass:(Class)klass {
-    [self startRow:key ofClass:klass withTitle:nil defaultValue:nil];
+    [self startRow:key ofClass:klass withTitle:nil defaultValue:nil placeHolder:nil];
 }
 
 - (FODFormModel*) finishForm {

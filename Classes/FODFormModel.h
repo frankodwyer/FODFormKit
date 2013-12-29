@@ -22,4 +22,7 @@
 
 - (NSUInteger) numberOfSections;
 
+- (void) undoEdits;
+- (void) commitEdits;
+
 @end

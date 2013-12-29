@@ -14,7 +14,8 @@
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,copy) NSIndexPath *indexPath;
 
-@property (nonatomic,copy) id<NSCopying> currentValue;
+@property (nonatomic,copy) id<NSCopying> initialValue;
+@property (nonatomic,copy) id<NSCopying> workingValue;
 @property (nonatomic,copy) id<NSCopying> placeHolder;
 
 @end

@@ -30,7 +30,7 @@
 
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateStyle = NSDateFormatterMediumStyle;
-    self.detailTextLabel.text = [df stringFromDate:(NSDate*)row.currentValue];
+    self.detailTextLabel.text = [df stringFromDate:(NSDate*)row.workingValue];
     self.textLabel.text = row.title;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.delegate = delegate;
@@ -40,6 +40,7 @@
     FODDatePickerViewController *vc = [[FODDatePickerViewController alloc] init];
     vc.userInfo = self.row;
     vc.delegate = self.delegate;
+    vc.title = self.row.title;
     [navController pushViewController:vc animated:YES];
 }
 
