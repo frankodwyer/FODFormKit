@@ -272,10 +272,6 @@
     self.currentlyEditingIndexPath = idx;
 }
 
-- (void) setProgrammaticallyTransitioningCurrentEdit:(BOOL)transitioningEdit {
-    _programmaticallyTransitioningCurrentEdit = transitioningEdit;
-}
-
 - (void) moveToPrevField:(id)sender {
     if (self.programmaticallyTransitioningCurrentEdit) {
         return;
