@@ -37,11 +37,13 @@
     self.navigationController = navController;
 }
 
-- (void)modelSaved:(FODFormModel *)model userInfo:(id)userInfo {
+- (void)formSaved:(FODFormModel *)model
+         userInfo:(id)userInfo {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)formCancelled:(FODFormModel *)model userInfo:(id)userInfo {
+- (void)formCancelled:(FODFormModel *)model
+             userInfo:(id)userInfo {
     // no need to pop - we get here if the user pressed back.
 }
 

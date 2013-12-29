@@ -52,11 +52,13 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)modelSaved:(FODFormModel *)model userInfo:(id)userInfo {
+- (void)formSaved:(FODFormModel *)model
+         userInfo:(id)userInfo {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)formCancelled:(FODFormModel *)model userInfo:(id)userInfo {
+- (void)formCancelled:(FODFormModel *)model
+             userInfo:(id)userInfo {
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

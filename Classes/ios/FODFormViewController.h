@@ -19,8 +19,8 @@
 
 @protocol FODFormViewControllerDelegate <NSObject>
 
-- (void) modelSaved:(FODFormModel*)model
-           userInfo:(id)userInfo;
+- (void) formSaved:(FODFormModel*)model
+          userInfo:(id)userInfo;
 
 - (void) formCancelled:(FODFormModel*)model
               userInfo:(id)userInfo;

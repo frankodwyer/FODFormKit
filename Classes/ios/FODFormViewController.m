@@ -333,8 +333,8 @@
     }
     [[self.view fod_findFirstResponder] resignFirstResponder];
     [self.model commitEdits];
-    [self.delegate modelSaved:self.model
-                     userInfo:self.userInfo];
+    [self.delegate formSaved:self.model
+                    userInfo:self.userInfo];
 }
 
 - (void) cancelPressed:(id)sender {
