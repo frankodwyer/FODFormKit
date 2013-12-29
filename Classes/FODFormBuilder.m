@@ -14,15 +14,21 @@
 
 @implementation FODFormBuilder
 
-- (void) startFormWithTitle:(NSString *)title {
+- (void) startSubformWithTitle:(NSString*)title
+                        andKey:(NSString*)key {
     FODFormModel *form = [[FODFormModel alloc] init];
     form.title = title;
+    form.key = key;
     if (!self.models.count) {
         self.models = [NSMutableArray arrayWithObject:form];
     } else {
         form.parentForm = self.models.lastObject;
         [self.models addObject:form];
     }
+}
+
+- (void) startFormWithTitle:(NSString *)title {
+    [self startSubformWithTitle:title andKey:nil];
 }
 
 - (FODFormModel*)currentModel {

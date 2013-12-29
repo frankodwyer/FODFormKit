@@ -27,7 +27,7 @@
     [builder startRow:@"foo" ofClass:[FODBooleanRow class] withTitle:@"Foo option" defaultValue:@YES];
     [builder startRow:@"bar" ofClass:[FODTextInputRow class] withTitle:@"Bar" defaultValue:@"bar" placeHolder:@"Fooby baz"];
 
-    [builder startFormWithTitle:@"Sub Form"];
+    [builder startSubformWithTitle:@"Sub Form" andKey:@"subform"];
     [builder startSection:@"Section 1"];
     [builder startRow:@"foo" ofClass:[FODBooleanRow class] withTitle:@"Foo option" defaultValue:@NO];
     [builder startRow:@"bar" ofClass:[FODTextInputRow class] withTitle:@"Bar" defaultValue:@"bar" placeHolder:@"Fooby baz"];

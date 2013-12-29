@@ -40,7 +40,7 @@
     return self.sections.count;
 }
 
-- (id)valueForKey:(NSString *)key {
+- (id)rowForKey:(NSString *)key {
     // XX: build a dictionary key -> row for fast lookup?
     __block FODFormRow* rowWithKey = nil;
 
@@ -57,6 +57,10 @@
     return rowWithKey;
 }
 
+- (id) valueForKey:(NSString *)key {
+    return [self rowForKey:key].workingValue;
+}
+
 - (id) valueForKeyPath:(NSString *)keyPath {
     NSArray *keys = [keyPath componentsSeparatedByString:@"."];
 
@@ -65,7 +69,7 @@
 
     [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
 
-        rowResult = [model valueForKey:key];
+        rowResult = [model rowForKey:key];
         if (idx != keys.count-1) {
             NSAssert([rowResult isKindOfClass:[FODFormModel class]], @"Intermediate key '%@' in '%@' is not a FormModel", key, keyPath);
             model = (FODFormModel*)rowResult;

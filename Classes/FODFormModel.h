@@ -18,7 +18,9 @@
 @property (nonatomic, copy) NSMutableArray *sections;
 
 - (id)objectForKeyedSubscript:(id <NSCopying>)key;
-- (id) objectAtIndexedSubscript: (NSInteger) index;
+- (id)objectAtIndexedSubscript: (NSInteger) index;
+
+- (FODFormRow*)rowForKey:(NSString *)key;
 
 - (NSUInteger) numberOfSections;
 

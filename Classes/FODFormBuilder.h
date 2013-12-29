@@ -18,6 +18,9 @@
 
 - (void) startFormWithTitle:(NSString*)title;
 
+- (void) startSubformWithTitle:(NSString*)title
+                        andKey:(NSString*)key;
+
 - (void) startSection:(NSString*)title;
 
 - (void) startRow:(NSString*)key
