@@ -12,11 +12,13 @@
 #import "FODSelectionRow.h"
 #import "FODDateSelectionRow.h"
 #import "FODFormRow.h"
+#import "FODForm.h"
 
 #import "FODTextInputCell.h"
 #import "FODSubformCell.h"
 #import "FODDatePickerCell.h"
 #import "FODPickerCell.h"
+#import "FODExpandingSubformCell.h"
 
 @interface FODCellFactory()
 
@@ -33,6 +35,7 @@
     if (self) {
         _tableView = tableView;
         [_tableView registerNib:self.nibForSwitchCell forCellReuseIdentifier:self.reuseIdentifierForFODBooleanRow];
+        [_tableView registerNib:self.nibForExpandingSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODExpandingSubform];
         [_tableView registerClass:self.classForSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODForm];
         [_tableView registerClass:self.classForDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODDateSelectionRow];
         [_tableView registerClass:self.classForPickerCell forCellReuseIdentifier:self.reuseIdentifierForFODSelectionRow];
@@ -55,6 +58,13 @@
             [_tableView registerNib:self.nibForTextInputCellNoTitle forCellReuseIdentifier:reuseIdentifier];
             return reuseIdentifier;
         }
+    } else if ([row isKindOfClass:[FODForm class]]) {
+        FODForm *form = (FODForm*)row;
+        if (form.expands) {
+            return self.reuseIdentifierForFODExpandingSubform;
+        } else {
+            return self.reuseIdentifierForFODForm;
+        }
     } else {
         NSString *className = NSStringFromClass([row class]);
         SEL selector = NSSelectorFromString([NSString stringWithFormat:@"reuseIdentifierFor%@", className]);
@@ -76,6 +86,10 @@
 
 - (Class) classForPickerCell {
     return [FODPickerCell class];
+}
+
+- (UINib*) nibForExpandingSubformCell {
+    return [UINib nibWithNibName:@"FODExpandingSubformCell" bundle:nil];
 }
 
 - (UINib*) nibForTextInputCellNoTitle {
@@ -102,6 +116,10 @@
 
 - (NSString*)reuseIdentifierForFODForm {
     return @"FODFormCell";
+}
+
+- (NSString*)reuseIdentifierForFODExpandingSubform {
+    return @"FODExpandingSubformCell";
 }
 
 - (NSString *)reuseIdentifierForFODBooleanRow {

@@ -57,6 +57,10 @@
 		016CE6F4186D93E300E83DD1 /* FODTextInputRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6F2186D93E300E83DD1 /* FODTextInputRow.m */; };
 		016CE6F7186D96DC00E83DD1 /* NSDate+Dateutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6F6186D96DC00E83DD1 /* NSDate+Dateutils.m */; };
 		016CE6F8186D96DC00E83DD1 /* NSDate+Dateutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6F6186D96DC00E83DD1 /* NSDate+Dateutils.m */; };
+		0188EDB918717D3100443D33 /* FODExpandingSubformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */; };
+		0188EDBA18717D3100443D33 /* FODExpandingSubformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */; };
+		0188EDBC18717D5000443D33 /* FODExpandingSubformCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */; };
+		0188EDBD18717D5000443D33 /* FODExpandingSubformCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */; };
 		01BF214A186EF31700F979B8 /* FODCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF2149186EF31700F979B8 /* FODCellFactory.m */; };
 		01BF214B186EF31700F979B8 /* FODCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF2149186EF31700F979B8 /* FODCellFactory.m */; };
 		01BF214E186EF35800F979B8 /* FODFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF214D186EF35800F979B8 /* FODFormCell.m */; };
@@ -131,6 +135,9 @@
 		016CE6F2186D93E300E83DD1 /* FODTextInputRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODTextInputRow.m; sourceTree = "<group>"; };
 		016CE6F5186D96DC00E83DD1 /* NSDate+Dateutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Dateutils.h"; sourceTree = "<group>"; };
 		016CE6F6186D96DC00E83DD1 /* NSDate+Dateutils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Dateutils.m"; sourceTree = "<group>"; };
+		0188EDB718717D3100443D33 /* FODExpandingSubformCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODExpandingSubformCell.h; sourceTree = "<group>"; };
+		0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODExpandingSubformCell.m; sourceTree = "<group>"; };
+		0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODExpandingSubformCell.xib; sourceTree = "<group>"; };
 		01BF2148186EF31700F979B8 /* FODCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODCellFactory.h; sourceTree = "<group>"; };
 		01BF2149186EF31700F979B8 /* FODCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODCellFactory.m; sourceTree = "<group>"; };
 		01BF214C186EF35800F979B8 /* FODFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODFormCell.h; sourceTree = "<group>"; };
@@ -279,6 +286,9 @@
 				016CE6C7186D8C7E00E83DD1 /* FODTextInputCell.m */,
 				016CE6C8186D8C7E00E83DD1 /* FODTextInputCell.xib */,
 				016CE6C9186D8C7E00E83DD1 /* FODTextInputCell2.xib */,
+				0188EDB718717D3100443D33 /* FODExpandingSubformCell.h */,
+				0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */,
+				0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -401,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				016CE6CC186D8C7E00E83DD1 /* FODDatePickerViewController.xib in Resources */,
+				0188EDBC18717D5000443D33 /* FODExpandingSubformCell.xib in Resources */,
 				016CE675186CCBFD00E83DD1 /* Images.xcassets in Resources */,
 				016CE667186CCBFD00E83DD1 /* InfoPlist.strings in Resources */,
 				016CE6D8186D8C7E00E83DD1 /* FODTextInputCell.xib in Resources */,
@@ -415,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				016CE6CD186D8C7E00E83DD1 /* FODDatePickerViewController.xib in Resources */,
+				0188EDBD18717D5000443D33 /* FODExpandingSubformCell.xib in Resources */,
 				016CE6D5186D8C7E00E83DD1 /* FODSwitchCell.xib in Resources */,
 				016CE686186CCBFD00E83DD1 /* InfoPlist.strings in Resources */,
 				016CE6DB186D8C7E00E83DD1 /* FODTextInputCell2.xib in Resources */,
@@ -437,6 +449,7 @@
 				016CE6CE186D8C7E00E83DD1 /* FODFormViewController.m in Sources */,
 				016CE6E2186D8F9A00E83DD1 /* FODFormSection.m in Sources */,
 				016CE6DE186D8F8700E83DD1 /* FODFormRow.m in Sources */,
+				0188EDB918717D3100443D33 /* FODExpandingSubformCell.m in Sources */,
 				01BF214A186EF31700F979B8 /* FODCellFactory.m in Sources */,
 				01BF215C186F1CE200F979B8 /* FODFormBuilder.m in Sources */,
 				016CE6F7186D96DC00E83DD1 /* NSDate+Dateutils.m in Sources */,
@@ -462,6 +475,7 @@
 				016CE6D7186D8C7E00E83DD1 /* FODTextInputCell.m in Sources */,
 				016CE6CB186D8C7E00E83DD1 /* FODDatePickerViewController.m in Sources */,
 				01BF2153186EF3B300F979B8 /* FODDatePickerCell.m in Sources */,
+				0188EDBA18717D3100443D33 /* FODExpandingSubformCell.m in Sources */,
 				016CE6CF186D8C7E00E83DD1 /* FODFormViewController.m in Sources */,
 				016CE6F8186D96DC00E83DD1 /* NSDate+Dateutils.m in Sources */,
 				01BF214F186EF35800F979B8 /* FODFormCell.m in Sources */,

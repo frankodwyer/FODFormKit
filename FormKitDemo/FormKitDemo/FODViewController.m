@@ -61,6 +61,52 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (IBAction)formWithExpandingSubform:(id)sender {
+    FODFormBuilder *builder = [[FODFormBuilder alloc] init];
+
+    [builder startFormWithTitle:@"Main Form"];
+    [builder section:@"Section 1"];
+    [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@YES];
+    [builder section:nil];
+    [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
+    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+
+    [builder section:nil];
+
+    { // start subform
+        [builder startFormWithTitle:@"Advanced" andKey:@"advanced" expands:YES];
+        [builder section:@"Section 1"];
+        [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@NO];
+        [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
+        for (int i = 0 ; i < 4; i++) {
+            NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
+            [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
+        }
+        [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+        [builder finishForm];
+    } // finish subform
+
+    [builder section:nil];
+
+    for (int i = 0 ; i < 10; i++) {
+        NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
+        [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
+    }
+
+    [builder section:nil];
+
+    for (int i = 10 ; i < 20; i++) {
+        NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
+        [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
+    }
+
+    FODForm *form = [builder finishForm];
+
+    FODFormViewController *vc = [[FODFormViewController alloc] initWithModel:form userInfo:nil];
+    vc.delegate = self;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)formSaved:(FODForm *)model
          userInfo:(id)userInfo {
     [self.navigationController popViewControllerAnimated:YES];

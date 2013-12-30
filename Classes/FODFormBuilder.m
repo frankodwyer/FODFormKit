@@ -15,11 +15,14 @@
 @implementation FODFormBuilder
 
 - (FODForm*) startFormWithTitle:(NSString*)title
-                         andKey:(NSString*)key {
+                         andKey:(NSString*)key
+                        expands:(BOOL)expands
+{
 
     FODForm *form = [[FODForm alloc] init];
     form.title = title;
     form.key = key;
+    form.expands = expands;
     if (!self.models.count) {
         self.models = [NSMutableArray arrayWithObject:form];
     } else {
@@ -29,8 +32,14 @@
     return form;
 }
 
+- (FODForm*) startFormWithTitle:(NSString*)title
+                         andKey:(NSString*)key
+{
+    return [self startFormWithTitle:title andKey:key expands:NO];
+}
+
 - (FODForm*)startFormWithTitle:(NSString *)title {
-    return [self startFormWithTitle:title andKey:nil];
+    return [self startFormWithTitle:title andKey:nil expands:NO];
 }
 
 - (FODFormSection*) section:(NSString*)title {

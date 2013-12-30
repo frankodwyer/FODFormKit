@@ -424,7 +424,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.currentlyEditingIndexPath = nil;
-    FODFormCell *cell = (FODFormCell*)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    FODFormCell *cell = (FODFormCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [cell cellAction:self.navigationController];
 }

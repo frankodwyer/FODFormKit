@@ -27,9 +27,21 @@
                                     <action selector="formWithSubform:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="i3t-g9-QHx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYY-IY-U63">
+                                <rect key="frame" x="56" y="182" width="209" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Form with Expanding Subform">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="formWithExpandingSubform:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="66s-yH-OEb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tYY-IY-U63" firstAttribute="top" secondItem="ube-rE-UbJ" secondAttribute="bottom" constant="15" id="Ag9-32-NKs"/>
+                            <constraint firstAttribute="centerX" secondItem="tYY-IY-U63" secondAttribute="centerX" id="Cp0-PX-Cou"/>
                             <constraint firstAttribute="centerX" secondItem="ube-rE-UbJ" secondAttribute="centerX" id="Pyn-Yr-B7k"/>
                             <constraint firstItem="ube-rE-UbJ" firstAttribute="top" secondItem="01N-4B-KFA" secondAttribute="bottom" constant="73" id="tbJ-Tz-PYv"/>
                         </constraints>
