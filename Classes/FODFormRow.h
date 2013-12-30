@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FODFormRow : NSObject
+@interface FODFormRow : NSObject<NSCopying>
 
 @property (nonatomic,copy) NSString *key;
 @property (nonatomic,copy) NSString *title;

@@ -95,4 +95,60 @@
     }];
 }
 
+- (NSArray*) insertRowsFromSubform:(FODForm*)form {
+
+    NSIndexPath *insertionPoint = [NSIndexPath indexPathForRow:form.indexPath.row+1 inSection:form.indexPath.section];
+    NSMutableArray *indexPaths = [NSMutableArray array];
+
+    FODFormSection *affectedSection = self.sections[insertionPoint.section];
+
+    for (FODFormSection *section in form.sections) {
+        for (FODFormRow *row in section.rows) {
+            [indexPaths addObject:insertionPoint];
+            FODFormRow *newRow = [row copy];
+            newRow.indexPath = insertionPoint;
+            [affectedSection.rows insertObject:newRow atIndex:insertionPoint.row];
+            insertionPoint = [NSIndexPath indexPathForRow:insertionPoint.row+1 inSection:insertionPoint.section];
+        }
+    }
+
+    // renumber index paths below the inserted rows
+    while (insertionPoint.row < affectedSection.rows.count) {
+        FODFormRow *row = affectedSection.rows[insertionPoint.row];
+        row.indexPath = insertionPoint;
+        insertionPoint = [NSIndexPath indexPathForRow:insertionPoint.row+1 inSection:insertionPoint.section];
+    }
+
+    return indexPaths;
+}
+
+- (NSArray*) removeRowsFromSubform:(FODForm*)form {
+
+    NSIndexPath *deletionPoint = [NSIndexPath indexPathForRow:form.indexPath.row+1 inSection:form.indexPath.section];
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    NSMutableArray *rowsToRemove = [NSMutableArray array];
+
+    FODFormSection *affectedSection = self.sections[deletionPoint.section];
+
+    for (FODFormSection *section in form.sections) {
+        for (FODFormRow *row in section.rows) {
+            [indexPaths addObject:deletionPoint];
+            [rowsToRemove addObject:self[deletionPoint]];
+            deletionPoint = [NSIndexPath indexPathForRow:deletionPoint.row+1 inSection:deletionPoint.section];
+        }
+    }
+
+    // renumber index paths below the deleted rows
+    while (deletionPoint.row < affectedSection.rows.count) {
+        FODFormRow *row = affectedSection.rows[deletionPoint.row];
+        row.indexPath = [NSIndexPath indexPathForRow:row.indexPath.row - indexPaths.count inSection:row.indexPath.section];
+        deletionPoint = [NSIndexPath indexPathForRow:deletionPoint.row+1 inSection:deletionPoint.section];
+    }
+
+    [affectedSection.rows removeObjectsInArray:rowsToRemove];
+
+    return indexPaths;
+
+}
+
 @end

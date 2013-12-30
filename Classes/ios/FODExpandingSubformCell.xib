@@ -23,7 +23,7 @@
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⌄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="qj0-hT-B74">
                         <rect key="frame" x="288" y="0.0" width="25" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="32"/>
                         <color key="textColor" name="secondarySelectedControlColor" catalog="System" colorSpace="catalog"/>
                         <nil key="highlightedColor"/>
                     </label>

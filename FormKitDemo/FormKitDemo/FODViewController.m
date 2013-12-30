@@ -78,14 +78,10 @@
         [builder section:@"Section 1"];
         [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@NO];
         [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
-        for (int i = 0 ; i < 4; i++) {
-            NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
-            [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
-        }
-        [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
         [builder finishForm];
     } // finish subform
 
+    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
     [builder section:nil];
 
     for (int i = 0 ; i < 10; i++) {

@@ -10,4 +10,15 @@
 
 @implementation FODFormRow
 
+- (id) copyWithZone:(NSZone *)zone {
+    FODFormRow *copy = [[[self class] allocWithZone:zone] init];
+    copy.title = [self.title copyWithZone:zone];
+    copy.indexPath = [self.indexPath copyWithZone:zone];
+    copy.key = [self.key copyWithZone:zone];
+    copy.initialValue = [self.initialValue copyWithZone:zone];
+    copy.workingValue = [self.workingValue copyWithZone:zone];
+    copy.placeHolder = [self.placeHolder copyWithZone:zone];
+    return copy;
+}
+
 @end

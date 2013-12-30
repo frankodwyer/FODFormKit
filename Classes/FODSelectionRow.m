@@ -10,4 +10,10 @@
 
 @implementation FODSelectionRow
 
+- (id) copyWithZone:(NSZone *)zone {
+    FODSelectionRow *copy = [super copyWithZone:zone];
+    copy.items = [self.items copyWithZone:zone];
+    return copy;
+}
+
 @end

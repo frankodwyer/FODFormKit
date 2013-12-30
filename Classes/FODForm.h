@@ -28,4 +28,8 @@
 - (void) undoEdits;
 - (void) commitEdits;
 
+// returns array of the affected index paths
+- (NSArray*) insertRowsFromSubform:(FODForm*)form;
+- (NSArray*) removeRowsFromSubform:(FODForm*)form;
+
 @end

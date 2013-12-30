@@ -10,6 +10,6 @@
 
 @interface FODSelectionRow : FODFormRow
 
-@property (nonatomic,readonly) NSArray *items;
+@property (nonatomic,strong) NSArray *items;
 
 @end
