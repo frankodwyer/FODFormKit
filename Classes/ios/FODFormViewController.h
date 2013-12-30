@@ -44,7 +44,7 @@
 @property (nonatomic, strong) FODCellFactory *cellFactory;
 @property (nonatomic, strong) UITableView *tableView;
 
-- (id)initWithModel:(FODForm*)model
+- (id)initWithForm:(FODForm*)model
            userInfo:(id)userInfo;
 
 @end

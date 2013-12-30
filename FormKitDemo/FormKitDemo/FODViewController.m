@@ -56,7 +56,7 @@
 
     FODForm *form = [builder finishForm];
 
-    FODFormViewController *vc = [[FODFormViewController alloc] initWithModel:form userInfo:nil];
+    FODFormViewController *vc = [[FODFormViewController alloc] initWithForm:form userInfo:nil];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -98,7 +98,7 @@
 
     FODForm *form = [builder finishForm];
 
-    FODFormViewController *vc = [[FODFormViewController alloc] initWithModel:form userInfo:nil];
+    FODFormViewController *vc = [[FODFormViewController alloc] initWithForm:form userInfo:nil];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -29,7 +29,7 @@
 }
 
 - (void)cellAction:(UINavigationController*)navController {
-    FODFormViewController *vc = [[FODFormViewController alloc] initWithModel:(FODForm*)self.row
+    FODFormViewController *vc = [[FODFormViewController alloc] initWithForm:(FODForm*)self.row
                                                                     userInfo:self];
     vc.title = self.row.title;
     vc.delegate = self;
