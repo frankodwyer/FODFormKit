@@ -110,6 +110,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.cellFactory = [[FODCellFactory alloc] initWithTableView:self.tableView];
     [self.view addSubview:self.tableView];
     
