@@ -66,6 +66,7 @@
 @interface FODFormViewController()
 
 @property (nonatomic) BOOL keyboardIsComingUp;
+@property (nonatomic) CGFloat keyboardHeight;
 
 @end
 
@@ -377,38 +378,40 @@
 
 #pragma mark Keyboard Management
 
-- (void)keyboardWillShow:(NSNotification*)notification {
-    NSDictionary* userInfo = [notification userInfo];
-
-    CGRect keyboardFrame = [[userInfo objectForKey:@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
-
-    self.keyboardIsComingUp = YES;
-
+- (void)keyboardHeightChangedWithUserInfo:(NSDictionary*)userInfo {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:[[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
     [UIView setAnimationCurve:[[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue]];
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(self.tableView.contentInset.top, 0.0, keyboardFrame.size.height, 0.0);
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(self.tableView.contentInset.top, 0.0, self.keyboardHeight, 0.0);
     self.tableView.contentInset = contentInsets;
     self.tableView.scrollIndicatorInsets = contentInsets;
     [UIView commitAnimations];
     [self scrollToCurrentlyEditingIndexPath];
 }
 
+- (void)keyboardWillShow:(NSNotification*)notification {
+
+    NSDictionary* userInfo = [notification userInfo];
+    CGRect keyboardFrame = [[userInfo objectForKey:@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    self.keyboardIsComingUp = YES;
+
+    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
+        self.keyboardHeight = keyboardFrame.size.width;
+    } else {
+        self.keyboardHeight = keyboardFrame.size.height;
+    }
+
+    [self keyboardHeightChangedWithUserInfo:userInfo];
+}
+
 - (void)keyboardDidShow:(NSNotification*)note {
     self.keyboardIsComingUp = NO;
-    //[self scrollToCurrentlyEditing];
 }
 
 - (void)keyboardWillHide:(NSNotification*)notification {
     NSDictionary* userInfo = [notification userInfo];
-
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:[[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
-    [UIView setAnimationCurve:[[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue]];
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(self.tableView.contentInset.top, 0.0, 0.0, 0.0);
-    self.tableView.contentInset = contentInsets;
-    self.tableView.scrollIndicatorInsets = contentInsets;
-    [UIView commitAnimations];
+    self.keyboardHeight = 0;
+    [self keyboardHeightChangedWithUserInfo:userInfo];
 }
 
 #pragma mark - Table view delegate
