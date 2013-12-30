@@ -151,9 +151,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
 }
 
-- (void)setForm:(FODForm *)model {
-    if (_form != model) {
-        _form = model;
+- (void)setForm:(FODForm *)form {
+    if (_form != form) {
+        _form = form;
         [self.tableView reloadData];
     }
 }
@@ -319,8 +319,8 @@
 #pragma mark - form saving
 
 - (void) savePressed:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(validateForm:inForm:)]) {
-        NSString *errorMessage = [self.delegate validateForm:self.form inForm:self];
+    if ([self.delegate respondsToSelector:@selector(validateForm:inFormViewController:)]) {
+        NSString *errorMessage = [self.delegate validateForm:self.form inFormViewController:self];
         if (errorMessage) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                             message:errorMessage

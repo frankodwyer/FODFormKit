@@ -9,7 +9,7 @@
 #import "FODFormBuilder.h"
 
 @interface FODFormBuilder ()
-@property (nonatomic, strong) NSMutableArray *models;
+@property (nonatomic, strong) NSMutableArray *formStack;
 @end
 
 @implementation FODFormBuilder
@@ -23,11 +23,11 @@
     form.title = title;
     form.key = key;
     form.expands = expands;
-    if (!self.models.count) {
-        self.models = [NSMutableArray arrayWithObject:form];
+    if (!self.formStack.count) {
+        self.formStack = [NSMutableArray arrayWithObject:form];
     } else {
-        form.parentForm = self.models.lastObject;
-        [self.models addObject:form];
+        form.parentForm = self.formStack.lastObject;
+        [self.formStack addObject:form];
     }
     return form;
 }
@@ -45,7 +45,7 @@
 - (FODFormSection*) section:(NSString*)title {
     FODFormSection *section = [[FODFormSection alloc] init];
     section.title = title;
-    [self.currentModel.sections addObject:section];
+    [self.currentForm.sections addObject:section];
     return section;
 }
 
@@ -61,7 +61,7 @@
     row.workingValue = defaultValue;
     row.placeHolder = placeHolder;
     row.key = key;
-    row.indexPath = [NSIndexPath indexPathForRow:self.currentSection.rows.count inSection:self.currentModel.sections.count-1];
+    row.indexPath = [NSIndexPath indexPathForRow:self.currentSection.rows.count inSection:self.currentForm.sections.count-1];
     [self.currentSection.rows addObject:row];
     return row;
 }
@@ -89,24 +89,24 @@
 }
 
 - (FODForm*) finishForm {
-    FODForm *result = self.currentModel;
-    [self.models removeLastObject];
+    FODForm *result = self.currentForm;
+    [self.formStack removeLastObject];
 
-    if (self.models.count >= 1) { // this was a subform, hook it up to parent.
+    if (self.formStack.count >= 1) { // this was a subform, hook it up to parent.
         result.indexPath = [NSIndexPath indexPathForRow:self.currentSection.rows.count
-                                              inSection:self.currentModel.sections.count-1];
+                                              inSection:self.currentForm.sections.count-1];
         [self.currentSection.rows addObject:result];
     }
 
     return result;
 }
 
-- (FODForm*)currentModel {
-    return self.models.lastObject;
+- (FODForm*)currentForm {
+    return self.formStack.lastObject;
 }
 
 - (FODFormSection*)currentSection {
-    return [self.currentModel.sections lastObject];
+    return [self.currentForm.sections lastObject];
 }
 
 @end

@@ -31,8 +31,8 @@
                         row:(FODFormRow*)row
                      inForm:(FODFormViewController*)form;
 
-- (NSString*) validateForm:(FODForm*)model
-                    inForm:(FODFormViewController*)form;
+- (NSString*) validateForm:(FODForm*)form
+      inFormViewController:(FODFormViewController*)formViewController;
 
 @end
 

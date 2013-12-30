@@ -1,5 +1,5 @@
 //
-//  FODFormModel.m
+//  FODForm.m
 //  FormKitDemo
 //
 //  Created by Frank on 26/12/2013.
@@ -64,15 +64,15 @@
 - (id) valueForKeyPath:(NSString *)keyPath {
     NSArray *keys = [keyPath componentsSeparatedByString:@"."];
 
-    __block FODForm *model = self;
+    __block FODForm *form = self;
     __block FODFormRow *rowResult = nil;
 
     [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
 
-        rowResult = [model rowForKey:key];
+        rowResult = [form rowForKey:key];
         if (idx != keys.count-1) {
-            NSAssert([rowResult isKindOfClass:[FODForm class]], @"Intermediate key '%@' in '%@' is not a FormModel", key, keyPath);
-            model = (FODForm*)rowResult;
+            NSAssert([rowResult isKindOfClass:[FODForm class]], @"Intermediate key '%@' in '%@' is not a FODForm", key, keyPath);
+            form = (FODForm*)rowResult;
         }
     }];
 
