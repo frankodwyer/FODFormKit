@@ -72,12 +72,12 @@
 
 @implementation FODFormViewController
 
-- (id)initWithForm:(FODForm*)model
+- (id)initWithForm:(FODForm*)form
            userInfo:(id)userInfo
 {
     self = [super init];
     if (self) {
-        _model = model;
+        _form = form;
         _userInfo = userInfo;
     }
     return self;
@@ -99,7 +99,7 @@
                                                                              target:self
                                                                              action:@selector(savePressed:)];
 
-    if (!self.model.parentForm) {
+    if (!self.form.parentForm) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                  initWithTitle:NSLocalizedString(@"Cancel", @"Button label")
                                                  style:UIBarButtonItemStyleBordered
@@ -151,9 +151,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
 }
 
-- (void)setModel:(FODForm *)model {
-    if (_model != model) {
-        _model = model;
+- (void)setForm:(FODForm *)model {
+    if (_form != model) {
+        _form = model;
         [self.tableView reloadData];
     }
 }
@@ -161,7 +161,7 @@
 #pragma mark handle moving from one text field to another
 
 - (BOOL) isEditableAtIndexPath:(NSIndexPath*)indexPath {
-    return [self.model[indexPath] isKindOfClass:[FODTextInputRow class]];
+    return [self.form[indexPath] isKindOfClass:[FODTextInputRow class]];
 }
 
 - (void) scrollToCurrentlyEditingIndexPath {
@@ -320,7 +320,7 @@
 
 - (void) savePressed:(id)sender {
     if ([self.delegate respondsToSelector:@selector(validateForm:inForm:)]) {
-        NSString *errorMessage = [self.delegate validateForm:self.model inForm:self];
+        NSString *errorMessage = [self.delegate validateForm:self.form inForm:self];
         if (errorMessage) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                             message:errorMessage
@@ -332,14 +332,14 @@
         }
     }
     [[self.view fod_findFirstResponder] resignFirstResponder];
-    [self.model commitEdits];
-    [self.delegate formSaved:self.model
+    [self.form commitEdits];
+    [self.delegate formSaved:self.form
                     userInfo:self.userInfo];
 }
 
 - (void) cancelPressed:(id)sender {
-    [self.model undoEdits];
-    [self.delegate formCancelled:self.model
+    [self.form undoEdits];
+    [self.delegate formCancelled:self.form
                         userInfo:self.userInfo];
 }
 
@@ -352,19 +352,19 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.model.numberOfSections;
+    return self.form.numberOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.model[section] numberOfRows];
+    return [self.form[section] numberOfRows];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [self.model[section] title];
+    return [self.form[section] title];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    FODFormRow *row = self.model[indexPath];
+    FODFormRow *row = self.form[indexPath];
     FODFormCell *cell = [self.cellFactory cellForRow:row];
     [cell configureCellForRow:row
                  withDelegate:self];
@@ -430,7 +430,7 @@
 }
 
 - (BOOL) tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    FODFormRow *row = self.model[indexPath];
+    FODFormRow *row = self.form[indexPath];
     return [row isKindOfClass:[FODDateSelectionRow class]] || [row isKindOfClass:[FODSelectionRow class]] || [row isKindOfClass:[FODForm class]];
 }
 

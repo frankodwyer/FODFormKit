@@ -19,10 +19,10 @@
 
 @protocol FODFormViewControllerDelegate <NSObject>
 
-- (void) formSaved:(FODForm*)model
+- (void) formSaved:(FODForm*)form
           userInfo:(id)userInfo;
 
-- (void) formCancelled:(FODForm*)model
+- (void) formCancelled:(FODForm*)form
               userInfo:(id)userInfo;
 
 @optional
@@ -38,13 +38,13 @@
 
 @interface FODFormViewController : UIViewController <FODTextInputCellDelegate, FODSwitchCellDelegate, FODPickerViewControllerDelegate, UIAlertViewDelegate, FODDatePickerDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) FODForm *model;
+@property (nonatomic, strong) FODForm *form;
 @property (nonatomic, weak) id<FODFormViewControllerDelegate> delegate;
 @property (nonatomic, strong) id userInfo;
 @property (nonatomic, strong) FODCellFactory *cellFactory;
 @property (nonatomic, strong) UITableView *tableView;
 
-- (id)initWithForm:(FODForm*)model
+- (id)initWithForm:(FODForm*)form
            userInfo:(id)userInfo;
 
 @end
