@@ -12,17 +12,17 @@
 #import "FODSwitchCell.h"
 #import "FODPickerViewController.h"
 #import "FODDatePickerViewController.h"
-#import "FODFormModel.h"
+#import "FODForm.h"
 #import "FODCellFactory.h"
 
 @class FODFormViewController;
 
 @protocol FODFormViewControllerDelegate <NSObject>
 
-- (void) formSaved:(FODFormModel*)model
+- (void) formSaved:(FODForm*)model
           userInfo:(id)userInfo;
 
-- (void) formCancelled:(FODFormModel*)model
+- (void) formCancelled:(FODForm*)model
               userInfo:(id)userInfo;
 
 @optional
@@ -31,20 +31,20 @@
                         row:(FODFormRow*)row
                      inForm:(FODFormViewController*)form;
 
-- (NSString*) validateForm:(FODFormModel*)model
+- (NSString*) validateForm:(FODForm*)model
                     inForm:(FODFormViewController*)form;
 
 @end
 
 @interface FODFormViewController : UIViewController <FODTextInputCellDelegate, FODSwitchCellDelegate, FODPickerViewControllerDelegate, UIAlertViewDelegate, FODDatePickerDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) FODFormModel *model;
+@property (nonatomic, strong) FODForm *model;
 @property (nonatomic, weak) id<FODFormViewControllerDelegate> delegate;
 @property (nonatomic, strong) id userInfo;
 @property (nonatomic, strong) FODCellFactory *cellFactory;
 @property (nonatomic, strong) UITableView *tableView;
 
-- (id)initWithModel:(FODFormModel*)model
+- (id)initWithModel:(FODForm*)model
            userInfo:(id)userInfo;
 
 @end

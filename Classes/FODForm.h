@@ -12,9 +12,9 @@
 #import "FODFormSection.h"
 #import "FODFormRow.h"
 
-@interface FODFormModel : FODFormRow
+@interface FODForm : FODFormRow
 
-@property (nonatomic, weak) FODFormModel *parentForm;
+@property (nonatomic, weak) FODForm *parentForm;
 @property (nonatomic, copy) NSMutableArray *sections;
 
 - (id)objectForKeyedSubscript:(id <NSCopying>)key;

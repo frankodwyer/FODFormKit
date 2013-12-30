@@ -29,7 +29,7 @@
 }
 
 - (void)cellAction:(UINavigationController*)navController {
-    FODFormViewController *vc = [[FODFormViewController alloc] initWithModel:(FODFormModel*)self.row
+    FODFormViewController *vc = [[FODFormViewController alloc] initWithModel:(FODForm*)self.row
                                                                     userInfo:self];
     vc.title = self.row.title;
     vc.delegate = self;
@@ -37,12 +37,12 @@
     self.navigationController = navController;
 }
 
-- (void)formSaved:(FODFormModel *)model
+- (void)formSaved:(FODForm *)model
          userInfo:(id)userInfo {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)formCancelled:(FODFormModel *)model
+- (void)formCancelled:(FODForm *)model
              userInfo:(id)userInfo {
     // no need to pop - we get here if the user pressed back.
 }

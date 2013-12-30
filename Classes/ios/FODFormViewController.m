@@ -9,7 +9,7 @@
 
 #import "FODFormViewController.h"
 
-#import "FODFormModel.h"
+#import "FODForm.h"
 #import "FODDateSelectionRow.h"
 #import "FODSelectionRow.h"
 #import "FODTextInputRow.h"
@@ -72,7 +72,7 @@
 
 @implementation FODFormViewController
 
-- (id)initWithModel:(FODFormModel*)model
+- (id)initWithModel:(FODForm*)model
            userInfo:(id)userInfo
 {
     self = [super init];
@@ -151,7 +151,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
 }
 
-- (void)setModel:(FODFormModel *)model {
+- (void)setModel:(FODForm *)model {
     if (_model != model) {
         _model = model;
         [self.tableView reloadData];
@@ -431,7 +431,7 @@
 
 - (BOOL) tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     FODFormRow *row = self.model[indexPath];
-    return [row isKindOfClass:[FODDateSelectionRow class]] || [row isKindOfClass:[FODSelectionRow class]] || [row isKindOfClass:[FODFormModel class]];
+    return [row isKindOfClass:[FODDateSelectionRow class]] || [row isKindOfClass:[FODSelectionRow class]] || [row isKindOfClass:[FODForm class]];
 }
 
 #pragma mark form delegates

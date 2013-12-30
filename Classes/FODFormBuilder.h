@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FODFormModel.h"
+#import "FODForm.h"
 #import "FODBooleanRow.h"
 #import "FODDateSelectionRow.h"
 #import "FODSelectionRow.h"
@@ -16,33 +16,31 @@
 
 @interface FODFormBuilder : NSObject
 
-- (void) startFormWithTitle:(NSString*)title;
+- (FODForm*) startFormWithTitle:(NSString*)title;
 
-- (void) startSubformWithTitle:(NSString*)title
-                        andKey:(NSString*)key;
+- (FODForm*) startFormWithTitle:(NSString*)title
+                         andKey:(NSString*)key;
 
-- (void) startSection:(NSString*)title;
+- (FODFormSection*) section:(NSString*)title;
 
-- (void) startRow:(NSString*)key
-          ofClass:(Class)klass
-        withTitle:(NSString*)title
-     defaultValue:(id)defaultValue
-      placeHolder:(NSString*)placeHolder;
+- (FODFormRow*) rowWithKey:(NSString*)key
+                   ofClass:(Class)klass
+                  andTitle:(NSString*)title
+                  andValue:(id)defaultValue
+            andPlaceHolder:(NSString*)placeHolder;
 
-- (void) startRow:(NSString*)key
-          ofClass:(Class)klass
-        withTitle:(NSString*)title
-     defaultValue:(id)defaultValue;
+- (FODFormRow*) rowWithKey:(NSString*)key
+                   ofClass:(Class)klass
+                  andTitle:(NSString*)title
+                  andValue:(id)defaultValue;
 
-- (void) startRow:(NSString*)key
-          ofClass:(Class)klass
-     defaultValue:(id)defaultValue;
+- (FODFormRow*) rowWithKey:(NSString*)key
+                   ofClass:(Class)klass
+                  andValue:(id)defaultValue;
 
-- (void) startRow:(NSString*)key
-          ofClass:(Class)klass;
+- (FODFormRow*) rowWithKey:(NSString*)key
+                   ofClass:(Class)klass;
 
-- (void) addSubform:(FODFormModel*)form;
-
-- (FODFormModel*) finishForm;
+- (FODForm*) finishForm;
 
 @end

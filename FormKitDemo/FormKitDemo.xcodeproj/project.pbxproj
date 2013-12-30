@@ -23,8 +23,8 @@
 		016CE67E186CCBFD00E83DD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016CE660186CCBFD00E83DD1 /* UIKit.framework */; };
 		016CE686186CCBFD00E83DD1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 016CE684186CCBFD00E83DD1 /* InfoPlist.strings */; };
 		016CE688186CCBFD00E83DD1 /* FormKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE687186CCBFD00E83DD1 /* FormKitDemoTests.m */; };
-		016CE69A186CCE7900E83DD1 /* FODFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE699186CCE7900E83DD1 /* FODFormModel.m */; };
-		016CE69B186CCE7900E83DD1 /* FODFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE699186CCE7900E83DD1 /* FODFormModel.m */; };
+		016CE69A186CCE7900E83DD1 /* FODForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE699186CCE7900E83DD1 /* FODForm.m */; };
+		016CE69B186CCE7900E83DD1 /* FODForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE699186CCE7900E83DD1 /* FODForm.m */; };
 		016CE6CA186D8C7E00E83DD1 /* FODDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6BD186D8C7E00E83DD1 /* FODDatePickerViewController.m */; };
 		016CE6CB186D8C7E00E83DD1 /* FODDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6BD186D8C7E00E83DD1 /* FODDatePickerViewController.m */; };
 		016CE6CC186D8C7E00E83DD1 /* FODDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016CE6BE186D8C7E00E83DD1 /* FODDatePickerViewController.xib */; };
@@ -101,8 +101,8 @@
 		016CE683186CCBFD00E83DD1 /* FormKitDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FormKitDemoTests-Info.plist"; sourceTree = "<group>"; };
 		016CE685186CCBFD00E83DD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		016CE687186CCBFD00E83DD1 /* FormKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormKitDemoTests.m; sourceTree = "<group>"; };
-		016CE698186CCE7900E83DD1 /* FODFormModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODFormModel.h; sourceTree = "<group>"; };
-		016CE699186CCE7900E83DD1 /* FODFormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODFormModel.m; sourceTree = "<group>"; };
+		016CE698186CCE7900E83DD1 /* FODForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODForm.h; sourceTree = "<group>"; };
+		016CE699186CCE7900E83DD1 /* FODForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODForm.m; sourceTree = "<group>"; };
 		016CE6BC186D8C7E00E83DD1 /* FODDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODDatePickerViewController.h; sourceTree = "<group>"; };
 		016CE6BD186D8C7E00E83DD1 /* FODDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODDatePickerViewController.m; sourceTree = "<group>"; };
 		016CE6BE186D8C7E00E83DD1 /* FODDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODDatePickerViewController.xib; sourceTree = "<group>"; };
@@ -299,8 +299,8 @@
 				016CE6EA186D93C100E83DD1 /* FODDateSelectionRow.m */,
 				01BF215A186F1CE200F979B8 /* FODFormBuilder.h */,
 				01BF215B186F1CE200F979B8 /* FODFormBuilder.m */,
-				016CE698186CCE7900E83DD1 /* FODFormModel.h */,
-				016CE699186CCE7900E83DD1 /* FODFormModel.m */,
+				016CE698186CCE7900E83DD1 /* FODForm.h */,
+				016CE699186CCE7900E83DD1 /* FODForm.m */,
 				016CE6DC186D8F8700E83DD1 /* FODFormRow.h */,
 				016CE6DD186D8F8700E83DD1 /* FODFormRow.m */,
 				016CE6E0186D8F9A00E83DD1 /* FODFormSection.h */,
@@ -445,7 +445,7 @@
 				016CE6E7186D93AE00E83DD1 /* FODSelectionRow.m in Sources */,
 				016CE673186CCBFD00E83DD1 /* FODViewController.m in Sources */,
 				016CE6D2186D8C7E00E83DD1 /* FODSwitchCell.m in Sources */,
-				016CE69A186CCE7900E83DD1 /* FODFormModel.m in Sources */,
+				016CE69A186CCE7900E83DD1 /* FODForm.m in Sources */,
 				016CE6EF186D93D200E83DD1 /* FODBooleanRow.m in Sources */,
 				016CE6F3186D93E300E83DD1 /* FODTextInputRow.m in Sources */,
 				016CE6EB186D93C100E83DD1 /* FODDateSelectionRow.m in Sources */,
@@ -477,7 +477,7 @@
 				01BF215D186F1CE200F979B8 /* FODFormBuilder.m in Sources */,
 				016CE6E3186D8F9A00E83DD1 /* FODFormSection.m in Sources */,
 				010763FE18703513006949DE /* FODSubformCell.m in Sources */,
-				016CE69B186CCE7900E83DD1 /* FODFormModel.m in Sources */,
+				016CE69B186CCE7900E83DD1 /* FODForm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

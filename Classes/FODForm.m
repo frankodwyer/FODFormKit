@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
 //
 
-#import "FODFormModel.h"
+#import "FODForm.h"
 
-@interface FODFormModel()
+@interface FODForm()
 @end
 
-@implementation FODFormModel
+@implementation FODForm
 
 - (id)init
 {
@@ -64,15 +64,15 @@
 - (id) valueForKeyPath:(NSString *)keyPath {
     NSArray *keys = [keyPath componentsSeparatedByString:@"."];
 
-    __block FODFormModel *model = self;
+    __block FODForm *model = self;
     __block FODFormRow *rowResult = nil;
 
     [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
 
         rowResult = [model rowForKey:key];
         if (idx != keys.count-1) {
-            NSAssert([rowResult isKindOfClass:[FODFormModel class]], @"Intermediate key '%@' in '%@' is not a FormModel", key, keyPath);
-            model = (FODFormModel*)rowResult;
+            NSAssert([rowResult isKindOfClass:[FODForm class]], @"Intermediate key '%@' in '%@' is not a FormModel", key, keyPath);
+            model = (FODForm*)rowResult;
         }
     }];
 

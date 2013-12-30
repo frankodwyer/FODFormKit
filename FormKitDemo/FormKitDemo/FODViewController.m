@@ -10,7 +10,7 @@
 
 #import "FODFormViewController.h"
 #import "FODFormBuilder.h"
-#import "FODFormModel.h"
+#import "FODForm.h"
 
 @interface FODViewController()<FODFormViewControllerDelegate>
 
@@ -23,41 +23,50 @@
     FODFormBuilder *builder = [[FODFormBuilder alloc] init];
 
     [builder startFormWithTitle:@"Main Form"];
-    [builder startSection:@"Section 1"];
-    [builder startRow:@"foo" ofClass:[FODBooleanRow class] withTitle:@"Foo option" defaultValue:@YES];
-    [builder startRow:@"bar" ofClass:[FODTextInputRow class] withTitle:@"Bar" defaultValue:@"bar" placeHolder:@"Fooby baz"];
+    [builder section:@"Section 1"];
+    [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@YES];
+    [builder section:nil];
+    [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
+    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
 
-    [builder startSubformWithTitle:@"Sub Form" andKey:@"subform"];
-    [builder startSection:@"Section 1"];
-    [builder startRow:@"foo" ofClass:[FODBooleanRow class] withTitle:@"Foo option" defaultValue:@NO];
-    [builder startRow:@"bar" ofClass:[FODTextInputRow class] withTitle:@"Bar" defaultValue:@"bar" placeHolder:@"Fooby baz"];
-    for (int i = 0 ; i < 4; i++) {
+    { // start subform
+        [builder startFormWithTitle:@"Sub Form" andKey:@"subform"];
+        [builder section:@"Section 1"];
+        [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@NO];
+        [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
+        for (int i = 0 ; i < 4; i++) {
+            NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
+            [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
+        }
+        [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+        [builder finishForm];
+    } // finish subform
+
+    for (int i = 0 ; i < 10; i++) {
         NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
-        [builder startRow:foobar ofClass:[FODTextInputRow class] withTitle:nil defaultValue:foobar placeHolder:@"Fooby baz"];
+        [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
     }
-    [builder startRow:@"date" ofClass:[FODDateSelectionRow class] withTitle:@"When" defaultValue:nil];
-    FODFormModel *subform = [builder finishForm];
-    [builder addSubform:subform];
 
-    for (int i = 0 ; i < 20; i++) {
+    [builder section:nil];
+
+    for (int i = 10 ; i < 20; i++) {
         NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
-        [builder startRow:foobar ofClass:[FODTextInputRow class] withTitle:nil defaultValue:foobar placeHolder:@"Fooby baz"];
+        [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
     }
-    [builder startRow:@"date" ofClass:[FODDateSelectionRow class] withTitle:@"When" defaultValue:nil];
-    FODFormModel *form = [builder finishForm];
 
-    //    FODFormViewController *vc = [[FODFormViewController alloc] initWithStyle:UITableViewStyleGrouped andModel:form userInfo:nil];
+    FODForm *form = [builder finishForm];
+
     FODFormViewController *vc = [[FODFormViewController alloc] initWithModel:form userInfo:nil];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)formSaved:(FODFormModel *)model
+- (void)formSaved:(FODForm *)model
          userInfo:(id)userInfo {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)formCancelled:(FODFormModel *)model
+- (void)formCancelled:(FODForm *)model
              userInfo:(id)userInfo {
     [self.navigationController popViewControllerAnimated:YES];
 }

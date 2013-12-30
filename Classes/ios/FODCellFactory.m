@@ -33,7 +33,7 @@
     if (self) {
         _tableView = tableView;
         [_tableView registerNib:self.nibForSwitchCell forCellReuseIdentifier:self.reuseIdentifierForFODBooleanRow];
-        [_tableView registerClass:self.classForSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODFormModel];
+        [_tableView registerClass:self.classForSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODForm];
         [_tableView registerClass:self.classForDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODDateSelectionRow];
         [_tableView registerClass:self.classForPickerCell forCellReuseIdentifier:self.reuseIdentifierForFODSelectionRow];
     }
@@ -100,7 +100,7 @@
     return @"FODDatePickerCell";
 }
 
-- (NSString*)reuseIdentifierForFODFormModel {
+- (NSString*)reuseIdentifierForFODForm {
     return @"FODFormCell";
 }
 
