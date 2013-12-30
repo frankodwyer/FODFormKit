@@ -169,6 +169,7 @@
     if (!self.currentlyEditingIndexPath) {
         return;
     }
+
     CGRect currentCellRect = [self.tableView rectForRowAtIndexPath:self.currentlyEditingIndexPath];
     CGFloat currentCellRectMiddleY = currentCellRect.origin.y + currentCellRect.size.height/2;
     CGFloat visRectHeight = self.tableView.frame.size.height - self.tableView.contentInset.bottom - self.tableView.contentInset.top;
@@ -196,24 +197,14 @@
     // update ivar and *afterwards* resign the previous first responder (this will trigger valueChangedTo delegate)
     UITextField *previousFirstResponder = self.currentlyEditingField;
     _currentlyEditingIndexPath = currentlyEditing;
-    if (!currentlyEditing) {
-        [previousFirstResponder resignFirstResponder];
-    }
-
     if (!_currentlyEditingIndexPath) {
+        [previousFirstResponder resignFirstResponder];
         return;
     }
 
-    // update first responder
+    // update scroll position
     if (self.programmaticallyTransitioningCurrentEdit) {
-        NSArray *visibleRows = self.tableView.indexPathsForVisibleRows;
-        if ([visibleRows containsObject:self.currentlyEditingIndexPath]) {
-            self.programmaticallyTransitioningCurrentEdit = NO;
-            [self makeCurrentlyEditingFieldFirstResponder];
-        }
-        [self scrollToCurrentlyEditingIndexPath];
-    } else if (previousFirstResponder) {
-        [self scrollToCurrentlyEditingIndexPath];
+        [self scrollToCurrentlyEditingIndexPath]; // end of scroll animation will update first responder
     }
 }
 
