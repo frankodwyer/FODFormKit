@@ -70,19 +70,19 @@
     [builder section:nil];
     [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
     [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When Inline" andValue:nil].displayInline = YES;
-    [builder rowWithKey:@"date2" ofClass:[FODDateSelectionRow class] andTitle:@"When Push" andValue:nil];
+    [builder rowWithKey:@"date2" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
 
     [builder section:nil];
 
     { // start subform
         [builder startFormWithTitle:@"Advanced" andKey:@"advanced"].displayInline = YES;
         [builder section:@"Section 1"];
-        [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@NO];
-        [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
+        [builder rowWithKey:@"advanced_foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@NO];
+        [builder rowWithKey:@"advanced_bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
         [builder finishForm];
     } // finish subform
 
-    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+    [builder rowWithKey:@"date3" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
     [builder section:nil];
 
     for (int i = 0 ; i < 10; i++) {
