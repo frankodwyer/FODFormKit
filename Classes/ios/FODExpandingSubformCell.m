@@ -29,33 +29,32 @@
     self.titleLabel.text = row.title;
 }
 
+- (void)cellAction:(UINavigationController *)navController {
+    self.expanded = !self.expanded;
+}
+
+- (void) setExpanded:(BOOL)expanded {
+    _expanded = expanded;
+    [UIView beginAnimations:@"rotate" context:nil];
+    [UIView setAnimationDuration:0.5];
+    if (expanded) {
+        self.translation = CGPointMake(0, 5);
+        self.rotation = 180;
+        [self addAllFormRowsToParentForm];
+    } else {
+        self.translation = CGPointMake(0, -5);
+        self.rotation = 0;
+        [self removeAllFormRowsFromParentForm];
+    }
+    [UIView commitAnimations];
+}
+
 - (void) setRotation:(CGFloat)rotation {
     _rotation = rotation;
     CGAffineTransform transform = CGAffineTransformMakeTranslation(self.translation.x, self.translation.y);
     transform = CGAffineTransformRotate(transform, DegreesToRadians(rotation));
     transform = CGAffineTransformTranslate(transform,-self.translation.x,-self.translation.y);
     self.arrowLabel.transform = transform;
-}
-
-- (void)cellAction:(UINavigationController *)navController {
-    [UIView beginAnimations:@"rotate" context:nil];
-    [UIView setAnimationDuration:0.5];
-    if (self.rotation == 0) {
-        self.translation = CGPointMake(0, 5);
-        self.rotation = 180;
-        self.expanded = YES;
-    } else {
-        self.translation = CGPointMake(0, -5);
-        self.rotation = 0;
-        self.expanded = NO;
-    }
-    [UIView commitAnimations];
-
-    if (self.expanded) {
-        [self addAllFormRowsToParentForm];
-    } else {
-        [self removeAllFormRowsFromParentForm];
-    }
 }
 
 - (FODForm*)form {
