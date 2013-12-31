@@ -31,4 +31,7 @@
 - (NSArray*) insertRowsFromSubform:(FODForm*)form;
 - (NSArray*) removeRowsFromSubform:(FODForm*)form;
 
+- (void) row:(FODFormRow*)row wasAddedInSection:(FODFormSection*)section;
+- (void) row:(FODFormRow*)row wasRemovedFromSection:(FODFormSection*)section;
+
 @end

@@ -9,6 +9,9 @@
 #import "FODForm.h"
 
 @interface FODForm()
+
+@property (nonatomic,strong) NSMutableDictionary *keysToRows;
+
 @end
 
 @implementation FODForm
@@ -17,6 +20,7 @@
 {
     self = [super init];
     if (self) {
+        _keysToRows = [NSMutableDictionary dictionary];
         _sections = [NSMutableArray array];
     }
     return self;
@@ -40,28 +44,24 @@
     return self.sections.count;
 }
 
-- (id)rowForKey:(NSString *)key {
-    // XX: build a dictionary key -> row for fast lookup?
-    __block FODFormRow* rowWithKey = nil;
+- (void) row:(FODFormRow*)row wasAddedInSection:(FODFormSection*)section {
+    NSAssert(!self.keysToRows[row.key], @"Cannot add key '%@' a second time, as it is already in use by this form ('%@')", row.key, self.title);
+    self.keysToRows[row.key] = row;
+}
 
-    [self.sections enumerateObjectsUsingBlock:^(FODFormSection *section, NSUInteger idx, BOOL *stop) {
-        for (FODFormRow* row in section) {
-            if ([row.key isEqualToString:key]) {
-                rowWithKey = row;
-                *stop = YES;
-                break;
-            }
-        }
-    }];
+- (void) row:(FODFormRow*)row wasRemovedFromSection:(FODFormSection*)section {
+    [self.keysToRows removeObjectForKey:row.key];
+}
 
-    return rowWithKey;
+- (FODFormRow*)rowForKey:(NSString *)key {
+    return self.keysToRows[key];
 }
 
 - (id) valueForKey:(NSString *)key {
     return [self rowForKey:key].workingValue;
 }
 
-- (id) valueForKeyPath:(NSString *)keyPath {
+- (FODFormRow*) rowForKeyPath:(NSString *)keyPath {
     NSArray *keys = [keyPath componentsSeparatedByString:@"."];
 
     __block FODForm *form = self;
@@ -76,7 +76,11 @@
         }
     }];
 
-    return rowResult.workingValue;
+    return rowResult;
+}
+
+- (id) valueForKeyPath:(NSString *)keyPath {
+    return [self rowForKeyPath:keyPath].workingValue;
 }
 
 - (void) undoEdits {
@@ -111,7 +115,7 @@
             [indexPaths addObject:insertionPoint];
             FODFormRow *newRow = [row copy];
             newRow.indexPath = insertionPoint;
-            [affectedSection.rows insertObject:newRow atIndex:insertionPoint.row];
+            [affectedSection insertRow:newRow atIndex:insertionPoint.row];
             insertionPoint = [NSIndexPath indexPathForRow:insertionPoint.row+1 inSection:insertionPoint.section];
         }
     }
@@ -149,10 +153,9 @@
         deletionPoint = [NSIndexPath indexPathForRow:deletionPoint.row+1 inSection:deletionPoint.section];
     }
 
-    [affectedSection.rows removeObjectsInArray:rowsToRemove];
+    [affectedSection removeRowsInArray:rowsToRemove];
 
     return indexPaths;
-
 }
 
 @end

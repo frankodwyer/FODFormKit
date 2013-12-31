@@ -35,7 +35,7 @@
 }
 
 - (FODFormSection*) section:(NSString*)title {
-    FODFormSection *section = [[FODFormSection alloc] init];
+    FODFormSection *section = [[FODFormSection alloc] initWithForm:self.currentForm];
     section.title = title;
     [self.currentForm.sections addObject:section];
     return section;
@@ -54,7 +54,7 @@
     row.placeHolder = placeHolder;
     row.key = key;
     row.indexPath = [NSIndexPath indexPathForRow:self.currentSection.rows.count inSection:self.currentForm.sections.count-1];
-    [self.currentSection.rows addObject:row];
+    [self.currentSection addRow:row];
     return row;
 }
 
@@ -87,7 +87,7 @@
     if (self.formStack.count >= 1) { // this was a subform, hook it up to parent.
         result.indexPath = [NSIndexPath indexPathForRow:self.currentSection.rows.count
                                               inSection:self.currentForm.sections.count-1];
-        [self.currentSection.rows addObject:result];
+        [self.currentSection addRow:result];
     }
 
     return result;
