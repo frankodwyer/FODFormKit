@@ -165,7 +165,8 @@
 #pragma mark handle moving from one text field to another
 
 - (BOOL) isEditableAtIndexPath:(NSIndexPath*)indexPath {
-    return [self.form[indexPath] isKindOfClass:[FODTextInputRow class]];
+    FODFormCell* cell = (FODFormCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    return cell.isEditable;
 }
 
 - (void) scrollToIndexPath:(NSIndexPath*)indexPath {
@@ -237,6 +238,9 @@
 }
 
 - (void) resignFirstResponderIfNotVisible {
+    if (!self.currentlyEditingIndexPath) {
+        return;
+    }
     CGRect cellRect = [self.tableView rectForRowAtIndexPath:self.currentlyEditingIndexPath];
     cellRect = [self.tableView convertRect:cellRect toView:self.tableView.superview];
     CGRect visibleTableViewFrame = UIEdgeInsetsInsetRect(self.tableView.frame, self.tableView.contentInset);
@@ -442,6 +446,9 @@
 #pragma mark form delegates
 
 - (void)adjustHeight:(CGFloat)newHeight forRowAtIndexPath:(NSIndexPath*)indexPath {
+    if ([self tableView:self.tableView heightForRowAtIndexPath:indexPath] == newHeight) {
+        return;
+    }
     self.rowHeights[indexPath.fod_indexPathKey] = @(newHeight);
     [self.tableView beginUpdates];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
