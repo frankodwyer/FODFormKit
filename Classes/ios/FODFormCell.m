@@ -14,6 +14,14 @@
 
 @implementation FODFormCell
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.detailTextLabel.textColor = [UIColor blueColor];
+    }
+    return self;
+}
+
 - (void) configureCellForRow:(FODFormRow*)row
                 withDelegate:(id)delegate {
 

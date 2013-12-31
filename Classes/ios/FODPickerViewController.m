@@ -20,12 +20,11 @@
     if (self.multipleSelection) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed:)];
     }
-
 }
 
 - (NSMutableSet*) selectedItemsSet {
     if (!_selectedItemsSet) {
-        _selectedItemsSet = [[NSMutableSet alloc] initWithCapacity:self.items.count];
+        _selectedItemsSet = [NSMutableSet setWithArray:self.initialSelection];
     }
     return _selectedItemsSet;
 }

@@ -70,6 +70,8 @@
     [builder startFormWithTitle:@"Main Form"];
     [builder section:@"Section 1"];
     [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@YES];
+    FODSelectionRow *row = (FODSelectionRow*)[builder rowWithKey:@"picker" ofClass:[FODSelectionRow class] andTitle:@"Select a wibble" andValue:nil];
+    row.items = @[@"wibble1", @"wibble2", @"wibble3"];
     [builder section:nil];
     [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
     [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When Inline" andValue:nil].displayInline = YES;

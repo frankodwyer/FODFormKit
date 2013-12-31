@@ -13,6 +13,7 @@
 #import "FODDateSelectionRow.h"
 #import "FODSelectionRow.h"
 #import "FODTextInputRow.h"
+#import "FODSelectionRow.h"
 
 @interface FODFormBuilder : NSObject
 

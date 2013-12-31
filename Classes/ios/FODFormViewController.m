@@ -490,7 +490,7 @@
     [self.tableView reloadData];
 }
 
-#pragma picker delegate
+#pragma mark picker delegate
 
 - (void) selectionMade:(NSArray*)selectedItems userInfo:(id)userInfo {
     FODFormRow *row = (FODFormRow*)userInfo;
@@ -502,6 +502,7 @@
                                    inForm:self];
     }
     [self.tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
