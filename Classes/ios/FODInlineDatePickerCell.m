@@ -40,13 +40,10 @@
     }
     [super setExpanded:expanded];
     if (self.expanded) {
-//        self.datePicker = [[UIDatePicker alloc] init];
-//        [self.datePicker setDatePickerMode:UIDatePickerModeDate];
-//        self.datePicker.frame = CGRectMake(0, 44, self.bounds.size.width, 200);
         self.datePicker = [[FODDatePickerViewController alloc] init];
-        self.datePicker.view.frame = CGRectMake(0,44, self.bounds.size.width,380+44);
         self.datePicker.usedInline = YES;
         self.datePicker.startValue = (NSDate*)self.row.workingValue;
+        self.datePicker.view.frame = CGRectMake(0,44, self.bounds.size.width,380+44);
         [self.contentView addSubview:self.datePicker.view];
         [self.delegate adjustHeight:380+44
                   forRowAtIndexPath:self.row.indexPath];
