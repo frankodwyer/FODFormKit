@@ -7,6 +7,7 @@
 //
 
 #import "FODFormRow.h"
+#import "FODFormBuilder.h"
 
 @implementation FODFormRow
 
@@ -23,7 +24,6 @@
     if (self.viewState.count) { // only make a copy if there are entries - lazy load otherwise
         copy.viewState = [self.viewState copy];
     }
-    copy.form = self.form;
     return copy;
 }
 
@@ -33,5 +33,40 @@
     }
     return _viewState;
 }
+
+- (void) configureWithPlist:(id)plist {
+    // subclasses can restore additional properties using this
+}
+
+// serializes to a property list format (array or dictionary)
+- (id) toPlist {
+    return @{
+             @"class":NSStringFromClass([self class]),
+             @"title":self.title ?: @"",
+             @"key":self.key ?: @"",
+             @"initialValue":self.initialValue ?: @"",
+             @"placeHolder":self.placeHolder ?: @"",
+             @"displayInline":@(self.displayInline)};
+}
+
+// constructs from an in memory plist
++ (FODFormRow*) fromPlist:(id)plist
+              withBuilder:(FODFormBuilder*)builder {
+
+    NSString *className = plist[@"class"];
+
+    FODFormRow* row = [builder rowWithKey:plist[@"key"]
+                                  ofClass:NSClassFromString(className)
+                                 andTitle:plist[@"title"]
+                                 andValue:plist[@"initialValue"]
+                           andPlaceHolder:plist[@"placeHolder"]];
+
+    row.displayInline = [plist[@"displayInline"] boolValue];
+
+    [row configureWithPlist:plist];
+
+    return row;
+}
+
 
 @end

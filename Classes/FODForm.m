@@ -7,6 +7,7 @@
 //
 
 #import "FODForm.h"
+#import "FODFormBuilder.h"
 
 @interface FODForm()
 
@@ -14,7 +15,8 @@
 
 @end
 
-@implementation FODForm
+@implementation
+FODForm
 
 - (id)init
 {
@@ -158,6 +160,44 @@
     [affectedSection removeRowsInArray:rowsToRemove];
 
     return indexPaths;
+}
+
+// serializes the form to a property list format
+- (id) toPlist {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    if (self.title) {
+        result[@"title"] = self.title;
+    }
+    if (self.key) {
+        result[@"key"] = self.key;
+    }
+    NSMutableArray *sections = [NSMutableArray arrayWithCapacity:self.sections.count];
+    [self.sections enumerateObjectsUsingBlock:^(FODFormSection* section, NSUInteger idx, BOOL *stop) {
+        [sections addObject:section.toPlist];
+    }];
+    result[@"sections"] = sections;
+    return [NSDictionary dictionaryWithDictionary:result];
+}
+
++ (FODForm*) formFromPlist:(id)plist
+               withBuilder:(FODFormBuilder*)builder {
+
+    [builder startFormWithTitle:plist[@"title"]
+                         andKey:plist[@"key"]];
+
+    NSArray *sections = plist[@"sections"];
+    for (id sectionPlist in sections) {
+        [FODFormSection fromPlist:sectionPlist
+                      withBuilder:builder];
+    }
+
+    return [builder finishForm];
+}
+
+// constructs a form from an in memory plist
++ (FODForm*) formFromPlist:(id)plist {
+    return [self formFromPlist:plist
+               withBuilder:[[FODFormBuilder alloc] init]];
 }
 
 @end

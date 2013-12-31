@@ -16,4 +16,16 @@
     return copy;
 }
 
+- (void) configureWithPlist:(id)plist {
+    self.items = plist[@"items"];
+}
+
+// serializes to a property list format (array or dictionary)
+- (id) toPlist {
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:[super toPlist]];
+    result[@"items"] = self.items;
+    return [NSDictionary dictionaryWithDictionary:result];
+}
+
+
 @end

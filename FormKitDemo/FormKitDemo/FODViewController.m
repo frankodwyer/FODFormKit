@@ -56,6 +56,8 @@
 
     FODForm *form = [builder finishForm];
 
+    NSLog(@"Form:%@", form.toPlist);
+
     FODFormViewController *vc = [[FODFormViewController alloc] initWithForm:form userInfo:nil];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
@@ -98,6 +100,8 @@
     }
 
     FODForm *form = [builder finishForm];
+
+    NSLog(@"Form:%@", form.toPlist);
 
     FODFormViewController *vc = [[FODFormViewController alloc] initWithForm:form userInfo:nil];
     vc.delegate = self;

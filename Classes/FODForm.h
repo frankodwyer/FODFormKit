@@ -34,4 +34,11 @@
 - (void) row:(FODFormRow*)row wasAddedInSection:(FODFormSection*)section;
 - (void) row:(FODFormRow*)row wasRemovedFromSection:(FODFormSection*)section;
 
+
+// serializes to a property list format (array or dictionary)
+- (id) toPlist;
+
+// constructs from an in memory plist
++ (FODForm*) formFromPlist:(id)plist;
+
 @end

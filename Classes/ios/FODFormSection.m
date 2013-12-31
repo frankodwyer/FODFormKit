@@ -8,6 +8,7 @@
 
 #import "FODFormSection.h"
 #import "FODForm.h"
+#import "FODFormBuilder.h"
 
 @interface FODFormSection()
 @property (nonatomic,strong) NSMutableArray *mutRows;
@@ -63,6 +64,35 @@
 
 - (NSArray *)rows {
     return [NSArray arrayWithArray:self.mutRows];
+}
+
+// serializes to a property list format (array or dictionary)
+- (id) toPlist {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    if (self.title) {
+        result[@"title"] = self.title;
+    }
+    NSMutableArray *rows = [NSMutableArray arrayWithCapacity:self.mutRows.count];
+    [self.rows enumerateObjectsUsingBlock:^(FODFormRow* row, NSUInteger idx, BOOL *stop) {
+        [rows addObject:row.toPlist];
+    }];
+    result[@"rows"] = rows;
+    return [NSDictionary dictionaryWithDictionary:result];
+}
+
+// constructs from an in memory plist
++ (FODFormSection*) fromPlist:(id)plist
+           withBuilder:(FODFormBuilder*)builder {
+
+    FODFormSection *section = [builder section:plist[@"title"]];
+
+    NSArray *rows = plist[@"rows"];
+    for (id rowPlist in rows) {
+        [FODFormRow fromPlist:rowPlist
+                  withBuilder:builder];
+    }
+
+    return section;
 }
 
 @end
