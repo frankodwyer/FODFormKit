@@ -7,31 +7,62 @@
 //
 
 #import "FODFormSection.h"
+#import "FODForm.h"
 
 @interface FODFormSection()
+@property (nonatomic,strong) NSMutableArray *mutRows;
+@property (nonatomic,weak) FODForm *form;
 @end
 
 @implementation FODFormSection
 
-- (id)init
+- (id)initWithForm:(FODForm*)form
 {
     self = [super init];
     if (self) {
-        _rows = [NSMutableArray array];
+        _form = form;
+        _mutRows = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (id) objectAtIndexedSubscript:(NSInteger)index {
-    return self.rows[index];
+    return self.mutRows[index];
 }
 
 - (NSUInteger) numberOfRows {
-    return self.rows.count;
+    return self.mutRows.count;
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len {
-    return [self.rows countByEnumeratingWithState:state objects:buffer count:len];
+    return [self.mutRows countByEnumeratingWithState:state objects:buffer count:len];
+}
+
+- (void)addRow:(FODFormRow *)row {
+    NSAssert(row.indexPath.row == self.mutRows.count, @"Programming error: indexPath for row is %@, expected row index to be %@", row.indexPath, @(self.mutRows.count));
+    [self.mutRows addObject:row];
+    [self.form row:row wasAddedInSection:self];
+}
+
+- (void)removeRow:(FODFormRow *)row {
+    [self.mutRows removeObject:row];
+    [self.form row:row wasRemovedFromSection:self];
+}
+
+- (void) insertRow:(FODFormRow*)row atIndex:(NSUInteger)index {
+    [self.mutRows insertObject:row atIndex:index];
+    [self.form row:row wasAddedInSection:self];
+}
+
+- (void) removeRowsInArray:(NSArray*)rows {
+    [self.mutRows removeObjectsInArray:rows];
+    [rows enumerateObjectsUsingBlock:^(id row, NSUInteger idx, BOOL *stop) {
+        [self.form row:row wasRemovedFromSection:self];
+    }];
+}
+
+- (NSArray *)rows {
+    return [NSArray arrayWithArray:self.mutRows];
 }
 
 @end
