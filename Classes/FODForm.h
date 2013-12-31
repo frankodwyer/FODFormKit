@@ -39,6 +39,6 @@
 - (id) toPlist;
 
 // constructs from an in memory plist
-+ (FODForm*) formFromPlist:(id)plist;
++ (FODForm*) fromPlist:(id)plist;
 
 @end

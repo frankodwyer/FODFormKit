@@ -55,17 +55,21 @@
 
     NSString *className = plist[@"class"];
 
-    FODFormRow* row = [builder rowWithKey:plist[@"key"]
-                                  ofClass:NSClassFromString(className)
-                                 andTitle:plist[@"title"]
-                                 andValue:plist[@"initialValue"]
-                           andPlaceHolder:plist[@"placeHolder"]];
+    if ([className isEqualToString:@"FODForm"]) {
+        return [FODForm fromPlist:plist withBuilder:builder];
+    } else {
+        FODFormRow* row = [builder rowWithKey:plist[@"key"]
+                                      ofClass:NSClassFromString(className)
+                                     andTitle:plist[@"title"]
+                                     andValue:plist[@"initialValue"]
+                               andPlaceHolder:plist[@"placeHolder"]];
+        row.displayInline = [plist[@"displayInline"] boolValue];
 
-    row.displayInline = [plist[@"displayInline"] boolValue];
+        [row configureWithPlist:plist];
 
-    [row configureWithPlist:plist];
+        return row;
+    }
 
-    return row;
 }
 
 

@@ -165,25 +165,22 @@ FODForm
 // serializes the form to a property list format
 - (id) toPlist {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    if (self.title) {
-        result[@"title"] = self.title;
-    }
-    if (self.key) {
-        result[@"key"] = self.key;
-    }
+    [result addEntriesFromDictionary:[super toPlist]];
+
     NSMutableArray *sections = [NSMutableArray arrayWithCapacity:self.sections.count];
     [self.sections enumerateObjectsUsingBlock:^(FODFormSection* section, NSUInteger idx, BOOL *stop) {
         [sections addObject:section.toPlist];
     }];
     result[@"sections"] = sections;
+
     return [NSDictionary dictionaryWithDictionary:result];
 }
 
-+ (FODForm*) formFromPlist:(id)plist
-               withBuilder:(FODFormBuilder*)builder {
++ (FODFormRow*) fromPlist:(id)plist
+              withBuilder:(FODFormBuilder*)builder {
 
     [builder startFormWithTitle:plist[@"title"]
-                         andKey:plist[@"key"]];
+                         andKey:plist[@"key"]].displayInline = [plist[@"displayInline"] boolValue];
 
     NSArray *sections = plist[@"sections"];
     for (id sectionPlist in sections) {
@@ -195,9 +192,9 @@ FODForm
 }
 
 // constructs a form from an in memory plist
-+ (FODForm*) formFromPlist:(id)plist {
-    return [self formFromPlist:plist
-               withBuilder:[[FODFormBuilder alloc] init]];
++ (FODForm*) fromPlist:(id)plist {
+    return (FODForm*)[self fromPlist:plist
+                         withBuilder:[[FODFormBuilder alloc] init]];
 }
 
 @end

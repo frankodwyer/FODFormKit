@@ -58,6 +58,7 @@
 
     NSLog(@"Form:%@", form.toPlist);
 
+    NSLog(@"Form to and from plist passes test? %@", @([[[FODForm fromPlist:form.toPlist] toPlist] isEqual:form.toPlist]));
     FODFormViewController *vc = [[FODFormViewController alloc] initWithForm:form userInfo:nil];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
@@ -103,6 +104,7 @@
 
     NSLog(@"Form:%@", form.toPlist);
 
+    NSLog(@"Form to and from plist passes test? %@", @([[[FODForm fromPlist:form.toPlist] toPlist] isEqual:form.toPlist]));
     FODFormViewController *vc = [[FODFormViewController alloc] initWithForm:form userInfo:nil];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
