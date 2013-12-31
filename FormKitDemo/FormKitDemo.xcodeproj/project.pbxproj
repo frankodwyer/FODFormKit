@@ -208,6 +208,7 @@
 		016CE662186CCBFD00E83DD1 /* FormKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0188EDBE18723E6800443D33 /* iPad */,
 				016CE66B186CCBFD00E83DD1 /* FODAppDelegate.h */,
 				016CE66C186CCBFD00E83DD1 /* FODAppDelegate.m */,
 				016CE671186CCBFD00E83DD1 /* FODViewController.h */,
@@ -321,6 +322,13 @@
 				016CE6F2186D93E300E83DD1 /* FODTextInputRow.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		0188EDBE18723E6800443D33 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		01BF2147186EF2B600F979B8 /* common */ = {
@@ -613,8 +621,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FormKitDemo/FormKitDemo-Prefix.pch";
 				INFOPLIST_FILE = "FormKitDemo/FormKitDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -627,8 +636,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FormKitDemo/FormKitDemo-Prefix.pch";
 				INFOPLIST_FILE = "FormKitDemo/FormKitDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
