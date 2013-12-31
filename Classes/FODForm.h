@@ -16,7 +16,6 @@
 
 @property (nonatomic, weak) FODForm *parentForm;
 @property (nonatomic, copy) NSMutableArray *sections;
-@property (nonatomic, assign) BOOL expands;
 
 - (id)objectForKeyedSubscript:(id <NSCopying>)key;
 - (id)objectAtIndexedSubscript: (NSInteger) index;

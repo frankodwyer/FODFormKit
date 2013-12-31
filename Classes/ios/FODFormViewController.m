@@ -114,7 +114,8 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.cellFactory = [[FODCellFactory alloc] initWithTableView:self.tableView];
+    self.cellFactory = [[FODCellFactory alloc] initWithTableView:self.tableView
+                                         andParentViewController:self];
     [self.view addSubview:self.tableView];
     
     // create a toolbar to go above the textfield keyboard with previous/next navigators.

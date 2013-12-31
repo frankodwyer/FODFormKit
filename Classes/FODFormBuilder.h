@@ -21,10 +21,6 @@
 - (FODForm*) startFormWithTitle:(NSString*)title
                          andKey:(NSString*)key;
 
-- (FODForm*) startFormWithTitle:(NSString*)title
-                         andKey:(NSString*)key
-                        expands:(BOOL)expands;
-
 - (FODFormSection*) section:(NSString*)title;
 
 - (FODFormRow*) rowWithKey:(NSString*)key

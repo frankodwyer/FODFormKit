@@ -26,6 +26,7 @@
 @property (nonatomic,readonly) BOOL isEditable;
 @property (nonatomic,weak) id<FODFormCellDelegate> delegate;
 @property (nonatomic,weak) UITableView *tableView;
+@property (nonatomic,weak) UIViewController *parentViewController;
 
 - (void) configureCellForRow:(FODFormRow*)row
                 withDelegate:(id)delegate;

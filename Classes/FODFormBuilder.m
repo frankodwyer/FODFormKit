@@ -16,13 +16,11 @@
 
 - (FODForm*) startFormWithTitle:(NSString*)title
                          andKey:(NSString*)key
-                        expands:(BOOL)expands
 {
 
     FODForm *form = [[FODForm alloc] init];
     form.title = title;
     form.key = key;
-    form.expands = expands;
     if (!self.formStack.count) {
         self.formStack = [NSMutableArray arrayWithObject:form];
     } else {
@@ -32,14 +30,8 @@
     return form;
 }
 
-- (FODForm*) startFormWithTitle:(NSString*)title
-                         andKey:(NSString*)key
-{
-    return [self startFormWithTitle:title andKey:key expands:NO];
-}
-
 - (FODForm*)startFormWithTitle:(NSString *)title {
-    return [self startFormWithTitle:title andKey:nil expands:NO];
+    return [self startFormWithTitle:title andKey:nil];
 }
 
 - (FODFormSection*) section:(NSString*)title {

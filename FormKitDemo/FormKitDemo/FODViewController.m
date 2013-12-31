@@ -69,12 +69,13 @@
     [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@YES];
     [builder section:nil];
     [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
-    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil].displayInline = YES;
+    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When Inline" andValue:nil].displayInline = YES;
+    [builder rowWithKey:@"date2" ofClass:[FODDateSelectionRow class] andTitle:@"When Push" andValue:nil];
 
     [builder section:nil];
 
     { // start subform
-        [builder startFormWithTitle:@"Advanced" andKey:@"advanced" expands:YES];
+        [builder startFormWithTitle:@"Advanced" andKey:@"advanced"].displayInline = YES;
         [builder section:@"Section 1"];
         [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@NO];
         [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];

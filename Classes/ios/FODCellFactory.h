@@ -13,7 +13,8 @@
 
 @interface FODCellFactory : NSObject
 
-- (id) initWithTableView:(UITableView*)tableView;
+- (id) initWithTableView:(UITableView*)tableView
+ andParentViewController:(UIViewController*)parentViewController;
 
 - (FODFormCell*) cellForRow:(FODFormRow*)row;
 
