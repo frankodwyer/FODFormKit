@@ -45,7 +45,9 @@
 }
 
 - (FODFormCell*) cellForRow:(FODFormRow*)row {
-    return ([self.tableView dequeueReusableCellWithIdentifier:[self reuseIdentifierForRow:row]]);
+    FODFormCell *result = ([self.tableView dequeueReusableCellWithIdentifier:[self reuseIdentifierForRow:row]]);
+    result.tableView = self.tableView;
+    return result;
 }
 
 - (NSString*)reuseIdentifierForRow:(FODFormRow*)row {

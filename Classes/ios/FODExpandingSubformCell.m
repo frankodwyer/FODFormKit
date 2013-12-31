@@ -35,10 +35,6 @@
     return (FODForm*)self.row;
 }
 
-- (UITableView*)tableView {
-    return (UITableView*) self.superview.superview;
-}
-
 - (void) addAllFormRowsToParentForm {
     [self.tableView beginUpdates];
     NSArray *expandedIndexPaths = [self.form.parentForm insertRowsFromSubform:self.form];
