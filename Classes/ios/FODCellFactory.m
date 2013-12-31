@@ -23,19 +23,19 @@
 @interface FODCellFactory()
 
 @property (weak, nonatomic) UITableView *tableView;
-@property (weak, nonatomic) UIViewController *parentViewController;
+@property (weak, nonatomic) FODFormViewController *formViewController;
 
 @end
 
 
 @implementation FODCellFactory
 
-- (id) initWithTableView:(UITableView*)tableView andParentViewController:(UIViewController *)parentViewController
+- (id) initWithTableView:(UITableView*)tableView andFormViewController:(FODFormViewController *)formViewController
 {
     self = [super init];
     if (self) {
         _tableView = tableView;
-        _parentViewController = parentViewController;
+        _formViewController = formViewController;
         [_tableView registerNib:self.nibForSwitchCell forCellReuseIdentifier:self.reuseIdentifierForFODBooleanRow];
         [_tableView registerNib:self.nibForExpandingSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODExpandingSubform];
         [_tableView registerNib:self.nibForInlineDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODInlineDatePicker];
@@ -49,7 +49,7 @@
 - (FODFormCell*) cellForRow:(FODFormRow*)row {
     FODFormCell *result = ([self.tableView dequeueReusableCellWithIdentifier:[self reuseIdentifierForRow:row]]);
     result.tableView = self.tableView;
-    result.parentViewController = self.parentViewController;
+    result.formViewController = self.formViewController;
     return result;
 }
 

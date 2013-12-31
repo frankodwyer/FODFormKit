@@ -8,6 +8,7 @@
 
 #import "FODInlineDatePickerCell.h"
 #import "FODDatePickerViewController.h"
+#import "FODFormViewController.h"
 
 @interface FODInlineDatePickerCell ()<FODDatePickerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
@@ -18,18 +19,35 @@
 
 @implementation FODInlineDatePickerCell
 
-- (void)dealloc
-{
-    [self.datePicker willMoveToParentViewController:nil];
-    [self.datePicker removeFromParentViewController];
-}
-
 - (void)configureCellForRow:(FODFormRow *)row
                withDelegate:(id)delegate {
 
     [super configureCellForRow:row withDelegate:delegate];
     self.date = (NSDate*)row.workingValue;
     self.expanded = row.expanded;
+    if (self.expanded) {
+        self.datePicker = [[FODDatePickerViewController alloc] init];
+        self.datePicker.usedInline = YES;
+        self.datePicker.startValue = (NSDate*)self.row.workingValue;
+        self.datePicker.view.frame = CGRectMake(0,44, self.bounds.size.width,390+44);
+        [self.contentView addSubview:self.datePicker.view];
+        [self.formViewController addChildViewController:self.datePicker];
+        [self.datePicker didMoveToParentViewController:self.formViewController];
+        self.datePicker.delegate = self;
+    } else {
+        self.datePicker = nil;
+    }
+}
+
+- (void) setExpanded:(BOOL)expanded {
+    [super setExpanded:expanded];
+    if (self.expanded) {
+        [self.delegate adjustHeight:390+44
+                  forRowAtIndexPath:self.row.indexPath];
+    } else {
+        [self.delegate adjustHeight:44
+                  forRowAtIndexPath:self.row.indexPath];
+    }
 }
 
 - (void) setDate:(NSDate *)date {
@@ -40,29 +58,31 @@
     self.valueLabel.text = [df stringFromDate:date];
 }
 
-- (void) setExpanded:(BOOL)expanded {
-    if (self.expanded == expanded) {
-        return;
+- (void) removeDatePicker:(FODDatePickerViewController*)vc {
+    if (vc) {
+        [vc.view removeFromSuperview];
+        [vc willMoveToParentViewController:nil];
+        [vc removeFromParentViewController];
     }
-    [super setExpanded:expanded];
-    if (self.expanded) {
-        self.datePicker = [[FODDatePickerViewController alloc] init];
-        self.datePicker.usedInline = YES;
-        self.datePicker.startValue = (NSDate*)self.row.workingValue;
-        self.datePicker.view.frame = CGRectMake(0,44, self.bounds.size.width,390+44);
-        [self.contentView addSubview:self.datePicker.view];
-        [self.parentViewController addChildViewController:self.datePicker];
-        [self.datePicker didMoveToParentViewController:self.parentViewController];
-        [self.delegate adjustHeight:390+44
-                  forRowAtIndexPath:self.row.indexPath];
-        self.datePicker.delegate = self;
+}
+
+// we need to hold the date picker state in the row model in case of cell reuse/allocation
+- (void) setDatePicker:(FODDatePickerViewController *)datePicker {
+    FODDatePickerViewController *previousValue = self.datePicker;
+
+    if (datePicker) {
+        self.row.viewState[@"datePicker"] = datePicker;
     } else {
-        [self.datePicker.view removeFromSuperview];
-        [self.datePicker removeFromParentViewController];
-        self.datePicker = nil;
-        [self.delegate adjustHeight:44
-                  forRowAtIndexPath:self.row.indexPath];
+        [self.row.viewState removeObjectForKey:@"datePicker"];
     }
+
+    if (previousValue) {
+        [self removeDatePicker:previousValue];
+    }
+}
+
+- (FODDatePickerViewController *)datePicker {
+    return self.row.viewState[@"datePicker"];
 }
 
 - (void) dateSelected:(NSDate*)date

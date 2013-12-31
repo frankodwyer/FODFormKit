@@ -22,8 +22,8 @@
     self.titleLabel.text = row.title;
 }
 
-- (void) setExpanded:(BOOL)expanded {
-    [super setExpanded:expanded];
+- (void)cellAction:(UINavigationController *)navController {
+    [super cellAction:navController];
     if (self.expanded) {
         [self addAllFormRowsToParentForm];
     } else {

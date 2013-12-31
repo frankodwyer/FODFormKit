@@ -1,9 +1,8 @@
 //
-//  FODDynamicTableViewController.m
-//  fodUIKit
+//  FODFormViewController
 //
 //  Created by Frank on 29/09/2012.
-//  Copyright (c) 2012 Desirepath. All rights reserved.
+//  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
 //
 
 
@@ -115,7 +114,7 @@
     self.tableView.delegate = self;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.cellFactory = [[FODCellFactory alloc] initWithTableView:self.tableView
-                                         andParentViewController:self];
+                                           andFormViewController:self];
     [self.view addSubview:self.tableView];
     
     // create a toolbar to go above the textfield keyboard with previous/next navigators.

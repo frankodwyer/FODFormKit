@@ -84,6 +84,7 @@
         [section.rows enumerateObjectsUsingBlock:^(FODFormRow *row, NSUInteger idx, BOOL *stop) {
             row.workingValue = row.initialValue;
             row.expanded = NO;
+            row.viewState = nil;
         }];
     }];
 }
@@ -93,6 +94,7 @@
         [section.rows enumerateObjectsUsingBlock:^(FODFormRow *row, NSUInteger idx, BOOL *stop) {
             row.initialValue = row.workingValue;
             row.expanded = NO;
+            row.viewState = nil;
         }];
     }];
 }

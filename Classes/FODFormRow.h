@@ -8,18 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+@class FODForm;
+
 @interface FODFormRow : NSObject<NSCopying>
 
 @property (nonatomic,copy) NSString *key;
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,copy) NSIndexPath *indexPath;
+@property (nonatomic,weak) FODForm *form;
 
 @property (nonatomic,copy) id<NSCopying> initialValue;
 @property (nonatomic,copy) id<NSCopying> workingValue;
 @property (nonatomic,copy) id<NSCopying> placeHolder;
 @property (nonatomic,assign) BOOL expanded;
-
-@property (nonatomic) BOOL displayInline; // the row should be displayed inline (currently only date picker does this)
+@property (nonatomic,strong) NSMutableDictionary *viewState;
+@property (nonatomic) BOOL displayInline; // the row should be displayed inline (currently only date picker and subforms can do this)
 
 @end
 

@@ -3,7 +3,7 @@
 //  bigpicture
 //
 //  Created by frank on 5/26/13.
-//  Copyright (c) 2013 Desirepath. All rights reserved.
+//  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
 //
 
 #import "FODDatePickerViewController.h"

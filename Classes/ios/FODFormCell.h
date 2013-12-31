@@ -12,6 +12,7 @@
 #import "FODDatePickerViewController.h"
 #import "FODPickerViewController.h"
 
+@class FODFormViewController;
 @protocol FODSwitchCellDelegate;
 @protocol FODTextInputCellDelegate;
 
@@ -26,7 +27,7 @@
 @property (nonatomic,readonly) BOOL isEditable;
 @property (nonatomic,weak) id<FODFormCellDelegate> delegate;
 @property (nonatomic,weak) UITableView *tableView;
-@property (nonatomic,weak) UIViewController *parentViewController;
+@property (nonatomic,weak) FODFormViewController *formViewController;
 
 - (void) configureCellForRow:(FODFormRow*)row
                 withDelegate:(id)delegate;

@@ -18,7 +18,20 @@
     copy.initialValue = [self.initialValue copyWithZone:zone];
     copy.workingValue = [self.workingValue copyWithZone:zone];
     copy.placeHolder = [self.placeHolder copyWithZone:zone];
+    copy.expanded = self.expanded;
+    copy.displayInline = self.displayInline;
+    if (self.viewState.count) { // only make a copy if there are entries - lazy load otherwise
+        copy.viewState = [self.viewState copy];
+    }
+    copy.form = self.form;
     return copy;
+}
+
+- (NSMutableDictionary *)viewState {
+    if (!_viewState) {
+        _viewState = [[NSMutableDictionary alloc] init];
+    }
+    return _viewState;
 }
 
 @end
