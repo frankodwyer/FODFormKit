@@ -177,7 +177,7 @@
 
     CGFloat newOffsetY = currentCellRectMiddleY - visRectHeight/2 - self.tableView.contentInset.top;
 
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         self.tableView.contentOffset = CGPointMake(0, newOffsetY);
     } completion:^(BOOL finished) {
         if (finished) {
