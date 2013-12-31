@@ -446,7 +446,9 @@
     [self.tableView beginUpdates];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
-    [self scrollToIndexPath:indexPath];
+    if (newHeight != self.tableView.rowHeight) {
+        [self scrollToIndexPath:indexPath];
+    }
 }
 
 - (void)dateSelected:(NSDate *)date userInfo:(id)userInfo {
