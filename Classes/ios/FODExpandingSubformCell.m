@@ -9,14 +9,7 @@
 #import "FODExpandingSubformCell.h"
 #import "FODForm.h"
 
-#define DegreesToRadians(x) ((x) * M_PI / 180.0)
-
 @interface FODExpandingSubformCell ()
-
-@property (weak, nonatomic) IBOutlet UILabel *arrowLabel;
-@property (nonatomic,assign) CGFloat rotation;
-@property (nonatomic,assign) CGPoint translation;
-@property (nonatomic,assign) BOOL expanded;
 
 @end
 
@@ -29,32 +22,13 @@
     self.titleLabel.text = row.title;
 }
 
-- (void)cellAction:(UINavigationController *)navController {
-    self.expanded = !self.expanded;
-}
-
 - (void) setExpanded:(BOOL)expanded {
-    _expanded = expanded;
-    [UIView beginAnimations:@"rotate" context:nil];
-    [UIView setAnimationDuration:0.5];
-    if (expanded) {
-        self.translation = CGPointMake(0, 5);
-        self.rotation = 180;
+    [super setExpanded:expanded];
+    if (self.expanded) {
         [self addAllFormRowsToParentForm];
     } else {
-        self.translation = CGPointMake(0, -5);
-        self.rotation = 0;
         [self removeAllFormRowsFromParentForm];
     }
-    [UIView commitAnimations];
-}
-
-- (void) setRotation:(CGFloat)rotation {
-    _rotation = rotation;
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(self.translation.x, self.translation.y);
-    transform = CGAffineTransformRotate(transform, DegreesToRadians(rotation));
-    transform = CGAffineTransformTranslate(transform,-self.translation.x,-self.translation.y);
-    self.arrowLabel.transform = transform;
 }
 
 - (FODForm*)form {

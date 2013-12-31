@@ -12,8 +12,6 @@
 
 @interface FODDatePickerCell ()
 
-@property (nonatomic, weak) id<FODDatePickerDelegate> delegate;
-
 @end
 
 
@@ -33,7 +31,6 @@
     self.detailTextLabel.text = [df stringFromDate:(NSDate*)row.workingValue];
     self.textLabel.text = row.title;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.delegate = delegate;
 }
 
 - (void)cellAction:(UINavigationController*)navController {

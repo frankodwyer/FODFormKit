@@ -18,7 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch *switchControl;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) id<FODSwitchCellDelegate> delegate;
 
 - (IBAction)switchValueChanged:(id)sender;
 

@@ -44,14 +44,6 @@
     return YES;
 }
 
-- (void) setDelegate:(id<FODTextInputCellDelegate>)delegate {
-    _delegate = delegate;
-}
-
-- (void)setKeyboardType:(UIKeyboardType)keyboardType {
-    self.textField.keyboardType = keyboardType;
-}
-
 - (void)cellAction:(UINavigationController*)navController {
     if (!self.textField.isFirstResponder) {
         [self.textField becomeFirstResponder];

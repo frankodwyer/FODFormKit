@@ -21,6 +21,7 @@
     self.textLabel.text = nil;
     self.row = row;
     self.accessoryType = UITableViewCellAccessoryNone;
+    self.delegate = delegate;
 }
 
 - (void)cellAction:(UINavigationController*)navController {

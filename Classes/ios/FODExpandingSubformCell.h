@@ -7,9 +7,8 @@
 //
 
 #import "FODFormCell.h"
+#import "FODExpandingCell.h"
 
-@interface FODExpandingSubformCell : FODFormCell
-
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@interface FODExpandingSubformCell : FODExpandingCell
 
 @end

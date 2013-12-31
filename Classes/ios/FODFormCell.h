@@ -9,11 +9,22 @@
 #import <UIKit/UIKit.h>
 
 #import "FODFormRow.h"
+#import "FODDatePickerViewController.h"
+#import "FODPickerViewController.h"
+
+@protocol FODSwitchCellDelegate;
+@protocol FODTextInputCellDelegate;
+
+@protocol FODFormCellDelegate<FODDatePickerDelegate, FODPickerViewControllerDelegate, FODSwitchCellDelegate, FODTextInputCellDelegate>
+- (void)adjustHeight:(CGFloat)newHeight forRowAtIndexPath:(NSIndexPath*)indexPath;
+@end
+
 
 @interface FODFormCell : UITableViewCell
 
 @property (nonatomic,strong) FODFormRow *row;
 @property (nonatomic,readonly) BOOL isEditable;
+@property (nonatomic,weak) id<FODFormCellDelegate> delegate;
 
 - (void) configureCellForRow:(FODFormRow*)row
                 withDelegate:(id)delegate;

@@ -28,7 +28,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
-@property (weak, nonatomic) id<FODTextInputCellDelegate> delegate;
 @property (nonatomic) UIKeyboardType keyboardType;
 
 @end

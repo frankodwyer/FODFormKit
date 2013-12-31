@@ -36,7 +36,7 @@
 
 @end
 
-@interface FODFormViewController : UIViewController <FODTextInputCellDelegate, FODSwitchCellDelegate, FODPickerViewControllerDelegate, UIAlertViewDelegate, FODDatePickerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface FODFormViewController : UIViewController <FODFormCellDelegate, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) FODForm *form;
 @property (nonatomic, weak) id<FODFormViewControllerDelegate> delegate;

@@ -17,6 +17,9 @@
 @property (nonatomic,copy) id<NSCopying> initialValue;
 @property (nonatomic,copy) id<NSCopying> workingValue;
 @property (nonatomic,copy) id<NSCopying> placeHolder;
+@property (nonatomic,assign) BOOL expanded;
+
+@property (nonatomic) BOOL displayInline; // the row should be displayed inline (currently only date picker does this)
 
 @end
 

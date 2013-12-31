@@ -22,13 +22,14 @@
 
 @interface FODFormViewController ()
 
-@property (nonatomic) UIToolbar *toolbar;
-@property (nonatomic) UIBarButtonItem *prevButton; // previous button on toolbar
-@property (nonatomic) UIBarButtonItem *nextButton; // next button on toolbar
-@property (nonatomic) NSIndexPath *currentlyEditingIndexPath;
+@property (nonatomic, strong) UIToolbar *toolbar;
+@property (nonatomic, strong) UIBarButtonItem *prevButton; // previous button on toolbar
+@property (nonatomic, strong) UIBarButtonItem *nextButton; // next button on toolbar
+@property (nonatomic, strong) NSIndexPath *currentlyEditingIndexPath;
 @property (nonatomic) BOOL programmaticallyTransitioningCurrentEdit;
 @property (nonatomic, readonly) UITextField *currentlyEditingField;
-@property (nonatomic) NSMutableDictionary *textFields;
+@property (nonatomic, strong) NSMutableDictionary *textFields;
+@property (nonatomic, strong) NSMutableDictionary *rowHeights;
 @end
 
 @implementation UIView(FOD)
@@ -80,6 +81,7 @@
     if (self) {
         _form = form;
         _userInfo = userInfo;
+        _rowHeights = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -414,6 +416,14 @@
 
 #pragma mark - Table view delegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.rowHeights[indexPath.fod_indexPathKey]) {
+        return [self.rowHeights[indexPath.fod_indexPathKey] floatValue];
+    } else {
+        return tableView.rowHeight;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.currentlyEditingIndexPath = nil;
@@ -428,6 +438,14 @@
 }
 
 #pragma mark form delegates
+
+- (void)adjustHeight:(CGFloat)newHeight forRowAtIndexPath:(NSIndexPath*)indexPath {
+    self.rowHeights[indexPath.fod_indexPathKey] = @(newHeight);
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
 
 - (void)dateSelected:(NSDate *)date userInfo:(id)userInfo {
     self.currentlyEditingIndexPath = nil;

@@ -11,7 +11,6 @@
 
 @interface FODPickerCell ()
 
-@property (nonatomic,weak) id<FODPickerViewControllerDelegate> delegate;
 @end
 
 

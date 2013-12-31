@@ -38,7 +38,7 @@
             NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
             [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
         }
-        [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+        [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil].displayInline = YES;
         [builder finishForm];
     } // finish subform
 
