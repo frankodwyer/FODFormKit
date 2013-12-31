@@ -69,7 +69,7 @@
     [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@YES];
     [builder section:nil];
     [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
-    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil].displayInline = YES;
 
     [builder section:nil];
 

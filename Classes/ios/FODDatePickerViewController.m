@@ -79,6 +79,9 @@
 
 - (void) dateChanged:(id)sender {
     self.navigationItem.rightBarButtonItem.enabled = YES;
+    if (self.usedInline) {
+        [self savePressed:self];
+    }
     [self.tableView reloadData];
 }
 

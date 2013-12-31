@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) id<FODDatePickerDelegate> delegate;
 
+@property (nonatomic,assign) BOOL usedInline;
 @property (strong, nonatomic) NSDate *startValue;
 @property (strong, nonatomic) id userInfo;
 @property (strong, nonatomic) NSArray *shortCutItems;

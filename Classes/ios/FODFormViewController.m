@@ -168,12 +168,8 @@
     return [self.form[indexPath] isKindOfClass:[FODTextInputRow class]];
 }
 
-- (void) scrollToCurrentlyEditingIndexPath {
-    if (!self.currentlyEditingIndexPath) {
-        return;
-    }
-
-    CGRect currentCellRect = [self.tableView rectForRowAtIndexPath:self.currentlyEditingIndexPath];
+- (void) scrollToIndexPath:(NSIndexPath*)indexPath {
+    CGRect currentCellRect = [self.tableView rectForRowAtIndexPath:indexPath];
     CGFloat currentCellRectMiddleY = currentCellRect.origin.y + currentCellRect.size.height/2;
     CGFloat visRectHeight = self.tableView.frame.size.height - self.tableView.contentInset.bottom - self.tableView.contentInset.top;
 
@@ -189,6 +185,12 @@
             }
         }
     }];
+}
+
+- (void) scrollToCurrentlyEditingIndexPath {
+    if (self.currentlyEditingIndexPath) {
+        [self scrollToIndexPath:self.currentlyEditingIndexPath];
+    }
 }
 
 - (void)setCurrentlyEditingIndexPath:(NSIndexPath *)currentlyEditing {
@@ -444,7 +446,7 @@
     [self.tableView beginUpdates];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    [self scrollToIndexPath:indexPath];
 }
 
 - (void)dateSelected:(NSDate *)date userInfo:(id)userInfo {

@@ -9,9 +9,10 @@
 #import "FODInlineDatePickerCell.h"
 #import "FODDatePickerViewController.h"
 
-@interface FODInlineDatePickerCell ()
+@interface FODInlineDatePickerCell ()<FODDatePickerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
-@property (strong,nonatomic) UIDatePicker *datePicker;
+@property (strong,nonatomic) FODDatePickerViewController    *datePicker;
+@property (strong,nonatomic) NSDate *date;
 @end
 
 
@@ -21,11 +22,16 @@
                withDelegate:(id)delegate {
 
     [super configureCellForRow:row withDelegate:delegate];
+    self.date = (NSDate*)row.workingValue;
+    self.expanded = row.expanded;
+}
 
+- (void) setDate:(NSDate *)date {
+    _date = date;
+    self.row.workingValue = date;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateStyle = NSDateFormatterMediumStyle;
-    self.valueLabel.text = [df stringFromDate:(NSDate*)row.workingValue];
-    self.expanded = row.expanded;
+    self.valueLabel.text = [df stringFromDate:date];
 }
 
 - (void) setExpanded:(BOOL)expanded {
@@ -34,18 +40,29 @@
     }
     [super setExpanded:expanded];
     if (self.expanded) {
-        self.datePicker = [[UIDatePicker alloc] init];
-        [self.datePicker setDatePickerMode:UIDatePickerModeDate];
-        self.datePicker.frame = CGRectMake(0, 44, self.bounds.size.width, 200);
-        [self.contentView addSubview:self.datePicker];
-        [self.delegate adjustHeight:200
+//        self.datePicker = [[UIDatePicker alloc] init];
+//        [self.datePicker setDatePickerMode:UIDatePickerModeDate];
+//        self.datePicker.frame = CGRectMake(0, 44, self.bounds.size.width, 200);
+        self.datePicker = [[FODDatePickerViewController alloc] init];
+        self.datePicker.view.frame = CGRectMake(0,44, self.bounds.size.width,380+44);
+        self.datePicker.usedInline = YES;
+        self.datePicker.startValue = (NSDate*)self.row.workingValue;
+        [self.contentView addSubview:self.datePicker.view];
+        [self.delegate adjustHeight:380+44
                   forRowAtIndexPath:self.row.indexPath];
+        self.datePicker.delegate = self;
     } else {
-        [self.datePicker removeFromSuperview];
+        [self.datePicker.view removeFromSuperview];
         self.datePicker = nil;
         [self.delegate adjustHeight:44
                   forRowAtIndexPath:self.row.indexPath];
     }
+}
+
+- (void) dateSelected:(NSDate*)date
+             userInfo:(id)userInfo {
+
+    self.date = date;
 }
 
 @end
