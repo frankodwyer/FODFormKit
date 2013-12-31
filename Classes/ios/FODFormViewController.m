@@ -204,9 +204,7 @@
     }
 
     // update scroll position
-    if (self.programmaticallyTransitioningCurrentEdit) {
-        [self scrollToCurrentlyEditingIndexPath]; // end of scroll animation will update first responder
-    }
+    [self scrollToCurrentlyEditingIndexPath]; // end of scroll animation will update first responder if necessary
 }
 
 - (UITextField *)currentlyEditingField {
