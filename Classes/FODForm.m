@@ -110,6 +110,7 @@
 
     FODFormSection *affectedSection = self.sections[insertionPoint.section];
 
+    // XXX: move this logic into FODFormSection class and add an efficent way to insert multiple rows with renumbering of indexPaths
     for (FODFormSection *section in form.sections) {
         for (FODFormRow *row in section.rows) {
             [indexPaths addObject:insertionPoint];
@@ -138,6 +139,7 @@
 
     FODFormSection *affectedSection = self.sections[deletionPoint.section];
 
+    // XXX: move this logic into FODFormSection class and add an efficent way to remove multiple rows with renumbering of indexPath
     for (FODFormSection *section in form.sections) {
         for (FODFormRow *row in section.rows) {
             [indexPaths addObject:deletionPoint];
