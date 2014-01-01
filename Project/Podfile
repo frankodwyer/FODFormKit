@@ -1,7 +1,11 @@
+platform :ios, '7.0'
+
 pod "FODFormKit", :path => "../FODFormKit.podspec"
 
-target "Demo" do
-end
+xcodeproj '../FormKitDemo/FormKitDemo.xcodeproj'
 
-target "DemoTests" do
-end
+#target "FormKitDemo" do
+#end
+
+#target "FormKitDemoTests" do
+#end

@@ -7,17 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		010763FD18703513006949DE /* FODSubformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 010763FC18703513006949DE /* FODSubformCell.m */; };
-		010763FE18703513006949DE /* FODSubformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 010763FC18703513006949DE /* FODSubformCell.m */; };
 		016B72461874046400ECF8FF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 016B72451874046400ECF8FF /* Podfile */; };
-		016B724C18740B0800ECF8FF /* FODInlineEditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B724B18740B0800ECF8FF /* FODInlineEditorCell.m */; };
-		016B724D18740B0800ECF8FF /* FODInlineEditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B724B18740B0800ECF8FF /* FODInlineEditorCell.m */; };
-		016B72501874105300ECF8FF /* FODInlinePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B724F1874105300ECF8FF /* FODInlinePickerCell.m */; };
-		016B72511874105300ECF8FF /* FODInlinePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B724F1874105300ECF8FF /* FODInlinePickerCell.m */; };
-		016B72531874106500ECF8FF /* FODInlinePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016B72521874106500ECF8FF /* FODInlinePickerCell.xib */; };
-		016B72541874106500ECF8FF /* FODInlinePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016B72521874106500ECF8FF /* FODInlinePickerCell.xib */; };
-		016B7268187436B500ECF8FF /* FODFormSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B7267187436B500ECF8FF /* FODFormSection.m */; };
-		016B7269187436B500ECF8FF /* FODFormSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B7267187436B500ECF8FF /* FODFormSection.m */; };
 		016CE65D186CCBFD00E83DD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016CE65C186CCBFD00E83DD1 /* Foundation.framework */; };
 		016CE65F186CCBFD00E83DD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016CE65E186CCBFD00E83DD1 /* CoreGraphics.framework */; };
 		016CE661186CCBFD00E83DD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016CE660186CCBFD00E83DD1 /* UIKit.framework */; };
@@ -32,58 +22,7 @@
 		016CE67E186CCBFD00E83DD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016CE660186CCBFD00E83DD1 /* UIKit.framework */; };
 		016CE686186CCBFD00E83DD1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 016CE684186CCBFD00E83DD1 /* InfoPlist.strings */; };
 		016CE688186CCBFD00E83DD1 /* FormKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE687186CCBFD00E83DD1 /* FormKitDemoTests.m */; };
-		016CE69A186CCE7900E83DD1 /* FODForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE699186CCE7900E83DD1 /* FODForm.m */; };
-		016CE69B186CCE7900E83DD1 /* FODForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE699186CCE7900E83DD1 /* FODForm.m */; };
-		016CE6CA186D8C7E00E83DD1 /* FODDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6BD186D8C7E00E83DD1 /* FODDatePickerViewController.m */; };
-		016CE6CB186D8C7E00E83DD1 /* FODDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6BD186D8C7E00E83DD1 /* FODDatePickerViewController.m */; };
-		016CE6CC186D8C7E00E83DD1 /* FODDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016CE6BE186D8C7E00E83DD1 /* FODDatePickerViewController.xib */; };
-		016CE6CD186D8C7E00E83DD1 /* FODDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016CE6BE186D8C7E00E83DD1 /* FODDatePickerViewController.xib */; };
-		016CE6CE186D8C7E00E83DD1 /* FODFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6C0186D8C7E00E83DD1 /* FODFormViewController.m */; };
-		016CE6CF186D8C7E00E83DD1 /* FODFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6C0186D8C7E00E83DD1 /* FODFormViewController.m */; };
-		016CE6D0186D8C7E00E83DD1 /* FODPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6C2186D8C7E00E83DD1 /* FODPickerViewController.m */; };
-		016CE6D1186D8C7E00E83DD1 /* FODPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6C2186D8C7E00E83DD1 /* FODPickerViewController.m */; };
-		016CE6D2186D8C7E00E83DD1 /* FODSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6C4186D8C7E00E83DD1 /* FODSwitchCell.m */; };
-		016CE6D3186D8C7E00E83DD1 /* FODSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6C4186D8C7E00E83DD1 /* FODSwitchCell.m */; };
-		016CE6D4186D8C7E00E83DD1 /* FODSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016CE6C5186D8C7E00E83DD1 /* FODSwitchCell.xib */; };
-		016CE6D5186D8C7E00E83DD1 /* FODSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016CE6C5186D8C7E00E83DD1 /* FODSwitchCell.xib */; };
-		016CE6D6186D8C7E00E83DD1 /* FODTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6C7186D8C7E00E83DD1 /* FODTextInputCell.m */; };
-		016CE6D7186D8C7E00E83DD1 /* FODTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6C7186D8C7E00E83DD1 /* FODTextInputCell.m */; };
-		016CE6D8186D8C7E00E83DD1 /* FODTextInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016CE6C8186D8C7E00E83DD1 /* FODTextInputCell.xib */; };
-		016CE6D9186D8C7E00E83DD1 /* FODTextInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016CE6C8186D8C7E00E83DD1 /* FODTextInputCell.xib */; };
-		016CE6DA186D8C7E00E83DD1 /* FODTextInputCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016CE6C9186D8C7E00E83DD1 /* FODTextInputCell2.xib */; };
-		016CE6DB186D8C7E00E83DD1 /* FODTextInputCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016CE6C9186D8C7E00E83DD1 /* FODTextInputCell2.xib */; };
-		016CE6DE186D8F8700E83DD1 /* FODFormRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6DD186D8F8700E83DD1 /* FODFormRow.m */; };
-		016CE6DF186D8F8700E83DD1 /* FODFormRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6DD186D8F8700E83DD1 /* FODFormRow.m */; };
-		016CE6E7186D93AE00E83DD1 /* FODSelectionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6E6186D93AE00E83DD1 /* FODSelectionRow.m */; };
-		016CE6E8186D93AE00E83DD1 /* FODSelectionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6E6186D93AE00E83DD1 /* FODSelectionRow.m */; };
-		016CE6EB186D93C100E83DD1 /* FODDateSelectionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6EA186D93C100E83DD1 /* FODDateSelectionRow.m */; };
-		016CE6EC186D93C100E83DD1 /* FODDateSelectionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6EA186D93C100E83DD1 /* FODDateSelectionRow.m */; };
-		016CE6EF186D93D200E83DD1 /* FODBooleanRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6EE186D93D200E83DD1 /* FODBooleanRow.m */; };
-		016CE6F0186D93D200E83DD1 /* FODBooleanRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6EE186D93D200E83DD1 /* FODBooleanRow.m */; };
-		016CE6F3186D93E300E83DD1 /* FODTextInputRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6F2186D93E300E83DD1 /* FODTextInputRow.m */; };
-		016CE6F4186D93E300E83DD1 /* FODTextInputRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6F2186D93E300E83DD1 /* FODTextInputRow.m */; };
-		016CE6F7186D96DC00E83DD1 /* NSDate+Dateutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6F6186D96DC00E83DD1 /* NSDate+Dateutils.m */; };
-		016CE6F8186D96DC00E83DD1 /* NSDate+Dateutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 016CE6F6186D96DC00E83DD1 /* NSDate+Dateutils.m */; };
-		0188EDB918717D3100443D33 /* FODExpandingSubformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */; };
-		0188EDBA18717D3100443D33 /* FODExpandingSubformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */; };
-		0188EDBC18717D5000443D33 /* FODExpandingSubformCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */; };
-		0188EDBD18717D5000443D33 /* FODExpandingSubformCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */; };
-		0188EDC1187241D700443D33 /* FODInlineDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188EDC0187241D700443D33 /* FODInlineDatePickerCell.m */; };
-		0188EDC2187241D700443D33 /* FODInlineDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188EDC0187241D700443D33 /* FODInlineDatePickerCell.m */; };
-		0188EDC4187241FD00443D33 /* FODInlineDatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188EDC3187241FD00443D33 /* FODInlineDatePickerCell.xib */; };
-		0188EDC5187241FD00443D33 /* FODInlineDatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188EDC3187241FD00443D33 /* FODInlineDatePickerCell.xib */; };
-		0188EDC81872431C00443D33 /* FODExpandingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188EDC71872431C00443D33 /* FODExpandingCell.m */; };
-		0188EDC91872431C00443D33 /* FODExpandingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188EDC71872431C00443D33 /* FODExpandingCell.m */; };
-		01BF214A186EF31700F979B8 /* FODCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF2149186EF31700F979B8 /* FODCellFactory.m */; };
-		01BF214B186EF31700F979B8 /* FODCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF2149186EF31700F979B8 /* FODCellFactory.m */; };
-		01BF214E186EF35800F979B8 /* FODFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF214D186EF35800F979B8 /* FODFormCell.m */; };
-		01BF214F186EF35800F979B8 /* FODFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF214D186EF35800F979B8 /* FODFormCell.m */; };
-		01BF2153186EF3B300F979B8 /* FODDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF2151186EF3B300F979B8 /* FODDatePickerCell.m */; };
-		01BF2155186F067100F979B8 /* FODDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF2151186EF3B300F979B8 /* FODDatePickerCell.m */; };
-		01BF2158186F071200F979B8 /* FODPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF2157186F071200F979B8 /* FODPickerCell.m */; };
-		01BF2159186F071200F979B8 /* FODPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF2157186F071200F979B8 /* FODPickerCell.m */; };
-		01BF215C186F1CE200F979B8 /* FODFormBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF215B186F1CE200F979B8 /* FODFormBuilder.m */; };
-		01BF215D186F1CE200F979B8 /* FODFormBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF215B186F1CE200F979B8 /* FODFormBuilder.m */; };
+		7EAEAE66BF394ED6A4D65AF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB85ACE72E3B4C67A71D15E7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,18 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		010763FB18703513006949DE /* FODSubformCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODSubformCell.h; sourceTree = "<group>"; };
-		010763FC18703513006949DE /* FODSubformCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODSubformCell.m; sourceTree = "<group>"; };
 		016B72441874045700ECF8FF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		016B72451874046400ECF8FF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Project/Podfile; sourceTree = "<group>"; };
+		016B72451874046400ECF8FF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Project/Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		016B72471874048700ECF8FF /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = text; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		016B72481874048700ECF8FF /* FODFormKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = FODFormKit.podspec; path = ../FODFormKit.podspec; sourceTree = "<group>"; };
 		016B72491874048700ECF8FF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		016B724A18740B0800ECF8FF /* FODInlineEditorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODInlineEditorCell.h; sourceTree = "<group>"; };
-		016B724B18740B0800ECF8FF /* FODInlineEditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODInlineEditorCell.m; sourceTree = "<group>"; };
-		016B724E1874105300ECF8FF /* FODInlinePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODInlinePickerCell.h; sourceTree = "<group>"; };
-		016B724F1874105300ECF8FF /* FODInlinePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODInlinePickerCell.m; sourceTree = "<group>"; };
-		016B72521874106500ECF8FF /* FODInlinePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODInlinePickerCell.xib; sourceTree = "<group>"; };
 		016B725F18742F8300ECF8FF /* inline-date-editor-expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inline-date-editor-expanded.png"; path = "../screenshots/inline-date-editor-expanded.png"; sourceTree = "<group>"; };
 		016B726018742F8300ECF8FF /* inline-picker-expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inline-picker-expanded.png"; path = "../screenshots/inline-picker-expanded.png"; sourceTree = "<group>"; };
 		016B726118742F8300ECF8FF /* inline-subform-expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inline-subform-expanded.png"; path = "../screenshots/inline-subform-expanded.png"; sourceTree = "<group>"; };
@@ -116,8 +48,6 @@
 		016B726318742F8300ECF8FF /* textfield-navigation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "textfield-navigation.png"; path = "../screenshots/textfield-navigation.png"; sourceTree = "<group>"; };
 		016B726418742F8300ECF8FF /* form-with-subform-pushed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "form-with-subform-pushed.png"; path = "../screenshots/form-with-subform-pushed.png"; sourceTree = "<group>"; };
 		016B726518742F8300ECF8FF /* form-with-subform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "form-with-subform.png"; path = "../screenshots/form-with-subform.png"; sourceTree = "<group>"; };
-		016B7266187436B500ECF8FF /* FODFormSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODFormSection.h; sourceTree = "<group>"; };
-		016B7267187436B500ECF8FF /* FODFormSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODFormSection.m; sourceTree = "<group>"; };
 		016CE659186CCBFD00E83DD1 /* FormKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		016CE65C186CCBFD00E83DD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		016CE65E186CCBFD00E83DD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,52 +67,8 @@
 		016CE683186CCBFD00E83DD1 /* FormKitDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FormKitDemoTests-Info.plist"; sourceTree = "<group>"; };
 		016CE685186CCBFD00E83DD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		016CE687186CCBFD00E83DD1 /* FormKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormKitDemoTests.m; sourceTree = "<group>"; };
-		016CE698186CCE7900E83DD1 /* FODForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODForm.h; sourceTree = "<group>"; };
-		016CE699186CCE7900E83DD1 /* FODForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODForm.m; sourceTree = "<group>"; };
-		016CE6BC186D8C7E00E83DD1 /* FODDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODDatePickerViewController.h; sourceTree = "<group>"; };
-		016CE6BD186D8C7E00E83DD1 /* FODDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODDatePickerViewController.m; sourceTree = "<group>"; };
-		016CE6BE186D8C7E00E83DD1 /* FODDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODDatePickerViewController.xib; sourceTree = "<group>"; };
-		016CE6BF186D8C7E00E83DD1 /* FODFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODFormViewController.h; sourceTree = "<group>"; };
-		016CE6C0186D8C7E00E83DD1 /* FODFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODFormViewController.m; sourceTree = "<group>"; };
-		016CE6C1186D8C7E00E83DD1 /* FODPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODPickerViewController.h; sourceTree = "<group>"; };
-		016CE6C2186D8C7E00E83DD1 /* FODPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODPickerViewController.m; sourceTree = "<group>"; };
-		016CE6C3186D8C7E00E83DD1 /* FODSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODSwitchCell.h; sourceTree = "<group>"; };
-		016CE6C4186D8C7E00E83DD1 /* FODSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODSwitchCell.m; sourceTree = "<group>"; };
-		016CE6C5186D8C7E00E83DD1 /* FODSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODSwitchCell.xib; sourceTree = "<group>"; };
-		016CE6C6186D8C7E00E83DD1 /* FODTextInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODTextInputCell.h; sourceTree = "<group>"; };
-		016CE6C7186D8C7E00E83DD1 /* FODTextInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODTextInputCell.m; sourceTree = "<group>"; };
-		016CE6C8186D8C7E00E83DD1 /* FODTextInputCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODTextInputCell.xib; sourceTree = "<group>"; };
-		016CE6C9186D8C7E00E83DD1 /* FODTextInputCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODTextInputCell2.xib; sourceTree = "<group>"; };
-		016CE6DC186D8F8700E83DD1 /* FODFormRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODFormRow.h; sourceTree = "<group>"; };
-		016CE6DD186D8F8700E83DD1 /* FODFormRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODFormRow.m; sourceTree = "<group>"; };
-		016CE6E5186D93AE00E83DD1 /* FODSelectionRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODSelectionRow.h; sourceTree = "<group>"; };
-		016CE6E6186D93AE00E83DD1 /* FODSelectionRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODSelectionRow.m; sourceTree = "<group>"; };
-		016CE6E9186D93C100E83DD1 /* FODDateSelectionRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODDateSelectionRow.h; sourceTree = "<group>"; };
-		016CE6EA186D93C100E83DD1 /* FODDateSelectionRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODDateSelectionRow.m; sourceTree = "<group>"; };
-		016CE6ED186D93D200E83DD1 /* FODBooleanRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODBooleanRow.h; sourceTree = "<group>"; };
-		016CE6EE186D93D200E83DD1 /* FODBooleanRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODBooleanRow.m; sourceTree = "<group>"; };
-		016CE6F1186D93E300E83DD1 /* FODTextInputRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODTextInputRow.h; sourceTree = "<group>"; };
-		016CE6F2186D93E300E83DD1 /* FODTextInputRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODTextInputRow.m; sourceTree = "<group>"; };
-		016CE6F5186D96DC00E83DD1 /* NSDate+Dateutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Dateutils.h"; sourceTree = "<group>"; };
-		016CE6F6186D96DC00E83DD1 /* NSDate+Dateutils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Dateutils.m"; sourceTree = "<group>"; };
-		0188EDB718717D3100443D33 /* FODExpandingSubformCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODExpandingSubformCell.h; sourceTree = "<group>"; };
-		0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODExpandingSubformCell.m; sourceTree = "<group>"; };
-		0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODExpandingSubformCell.xib; sourceTree = "<group>"; };
-		0188EDBF187241D700443D33 /* FODInlineDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODInlineDatePickerCell.h; sourceTree = "<group>"; };
-		0188EDC0187241D700443D33 /* FODInlineDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODInlineDatePickerCell.m; sourceTree = "<group>"; };
-		0188EDC3187241FD00443D33 /* FODInlineDatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODInlineDatePickerCell.xib; sourceTree = "<group>"; };
-		0188EDC61872431C00443D33 /* FODExpandingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODExpandingCell.h; sourceTree = "<group>"; };
-		0188EDC71872431C00443D33 /* FODExpandingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODExpandingCell.m; sourceTree = "<group>"; };
-		01BF2148186EF31700F979B8 /* FODCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODCellFactory.h; sourceTree = "<group>"; };
-		01BF2149186EF31700F979B8 /* FODCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODCellFactory.m; sourceTree = "<group>"; };
-		01BF214C186EF35800F979B8 /* FODFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODFormCell.h; sourceTree = "<group>"; };
-		01BF214D186EF35800F979B8 /* FODFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODFormCell.m; sourceTree = "<group>"; };
-		01BF2150186EF3B300F979B8 /* FODDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODDatePickerCell.h; sourceTree = "<group>"; };
-		01BF2151186EF3B300F979B8 /* FODDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODDatePickerCell.m; sourceTree = "<group>"; };
-		01BF2156186F071200F979B8 /* FODPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODPickerCell.h; sourceTree = "<group>"; };
-		01BF2157186F071200F979B8 /* FODPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODPickerCell.m; sourceTree = "<group>"; };
-		01BF215A186F1CE200F979B8 /* FODFormBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODFormBuilder.h; sourceTree = "<group>"; };
-		01BF215B186F1CE200F979B8 /* FODFormBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODFormBuilder.m; sourceTree = "<group>"; };
+		79BFEF85C63545E3BC28BB80 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Project/Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		FB85ACE72E3B4C67A71D15E7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +79,7 @@
 				016CE65F186CCBFD00E83DD1 /* CoreGraphics.framework in Frameworks */,
 				016CE661186CCBFD00E83DD1 /* UIKit.framework in Frameworks */,
 				016CE65D186CCBFD00E83DD1 /* Foundation.framework in Frameworks */,
+				7EAEAE66BF394ED6A4D65AF2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,55 +109,6 @@
 			name = podspec;
 			sourceTree = "<group>";
 		};
-		016B725518741BFD00ECF8FF /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				01BF2148186EF31700F979B8 /* FODCellFactory.h */,
-				01BF2149186EF31700F979B8 /* FODCellFactory.m */,
-				01BF2150186EF3B300F979B8 /* FODDatePickerCell.h */,
-				01BF2151186EF3B300F979B8 /* FODDatePickerCell.m */,
-				0188EDC61872431C00443D33 /* FODExpandingCell.h */,
-				0188EDC71872431C00443D33 /* FODExpandingCell.m */,
-				0188EDB718717D3100443D33 /* FODExpandingSubformCell.h */,
-				0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */,
-				0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */,
-				01BF214C186EF35800F979B8 /* FODFormCell.h */,
-				01BF214D186EF35800F979B8 /* FODFormCell.m */,
-				0188EDBF187241D700443D33 /* FODInlineDatePickerCell.h */,
-				0188EDC0187241D700443D33 /* FODInlineDatePickerCell.m */,
-				0188EDC3187241FD00443D33 /* FODInlineDatePickerCell.xib */,
-				016B724A18740B0800ECF8FF /* FODInlineEditorCell.h */,
-				016B724B18740B0800ECF8FF /* FODInlineEditorCell.m */,
-				016B724E1874105300ECF8FF /* FODInlinePickerCell.h */,
-				016B724F1874105300ECF8FF /* FODInlinePickerCell.m */,
-				016B72521874106500ECF8FF /* FODInlinePickerCell.xib */,
-				01BF2156186F071200F979B8 /* FODPickerCell.h */,
-				01BF2157186F071200F979B8 /* FODPickerCell.m */,
-				010763FB18703513006949DE /* FODSubformCell.h */,
-				010763FC18703513006949DE /* FODSubformCell.m */,
-				016CE6C3186D8C7E00E83DD1 /* FODSwitchCell.h */,
-				016CE6C4186D8C7E00E83DD1 /* FODSwitchCell.m */,
-				016CE6C5186D8C7E00E83DD1 /* FODSwitchCell.xib */,
-				016CE6C6186D8C7E00E83DD1 /* FODTextInputCell.h */,
-				016CE6C7186D8C7E00E83DD1 /* FODTextInputCell.m */,
-				016CE6C8186D8C7E00E83DD1 /* FODTextInputCell.xib */,
-				016CE6C9186D8C7E00E83DD1 /* FODTextInputCell2.xib */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
-		016B725618741C3300ECF8FF /* Editors */ = {
-			isa = PBXGroup;
-			children = (
-				016CE6BC186D8C7E00E83DD1 /* FODDatePickerViewController.h */,
-				016CE6BD186D8C7E00E83DD1 /* FODDatePickerViewController.m */,
-				016CE6BE186D8C7E00E83DD1 /* FODDatePickerViewController.xib */,
-				016CE6C1186D8C7E00E83DD1 /* FODPickerViewController.h */,
-				016CE6C2186D8C7E00E83DD1 /* FODPickerViewController.m */,
-			);
-			name = Editors;
-			sourceTree = "<group>";
-		};
 		016B725718742EEE00ECF8FF /* screenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,11 +127,11 @@
 			isa = PBXGroup;
 			children = (
 				016B72431874043400ECF8FF /* podspec */,
-				016CE691186CCE3800E83DD1 /* Classes */,
 				016CE662186CCBFD00E83DD1 /* FormKitDemo */,
 				016CE681186CCBFD00E83DD1 /* FormKitDemoTests */,
 				016CE65B186CCBFD00E83DD1 /* Frameworks */,
 				016CE65A186CCBFD00E83DD1 /* Products */,
+				79BFEF85C63545E3BC28BB80 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -313,6 +151,7 @@
 				016CE65E186CCBFD00E83DD1 /* CoreGraphics.framework */,
 				016CE660186CCBFD00E83DD1 /* UIKit.framework */,
 				016CE67B186CCBFD00E83DD1 /* XCTest.framework */,
+				FB85ACE72E3B4C67A71D15E7 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -361,73 +200,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		016CE691186CCE3800E83DD1 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				01BF2147186EF2B600F979B8 /* common */,
-				016CE692186CCE3800E83DD1 /* ios */,
-				016CE694186CCE3800E83DD1 /* osx */,
-			);
-			name = Classes;
-			path = ../Classes;
-			sourceTree = "<group>";
-		};
-		016CE692186CCE3800E83DD1 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				016B725618741C3300ECF8FF /* Editors */,
-				016B725518741BFD00ECF8FF /* Cells */,
-				016CE6BF186D8C7E00E83DD1 /* FODFormViewController.h */,
-				016CE6C0186D8C7E00E83DD1 /* FODFormViewController.m */,
-			);
-			path = ios;
-			sourceTree = "<group>";
-		};
-		016CE694186CCE3800E83DD1 /* osx */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = osx;
-			sourceTree = "<group>";
-		};
-		016CE6E4186D8FE600E83DD1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				016CE6ED186D93D200E83DD1 /* FODBooleanRow.h */,
-				016CE6EE186D93D200E83DD1 /* FODBooleanRow.m */,
-				016CE6E9186D93C100E83DD1 /* FODDateSelectionRow.h */,
-				016CE6EA186D93C100E83DD1 /* FODDateSelectionRow.m */,
-				016CE698186CCE7900E83DD1 /* FODForm.h */,
-				016CE699186CCE7900E83DD1 /* FODForm.m */,
-				01BF215A186F1CE200F979B8 /* FODFormBuilder.h */,
-				01BF215B186F1CE200F979B8 /* FODFormBuilder.m */,
-				016CE6DC186D8F8700E83DD1 /* FODFormRow.h */,
-				016CE6DD186D8F8700E83DD1 /* FODFormRow.m */,
-				016B7266187436B500ECF8FF /* FODFormSection.h */,
-				016B7267187436B500ECF8FF /* FODFormSection.m */,
-				016CE6E5186D93AE00E83DD1 /* FODSelectionRow.h */,
-				016CE6E6186D93AE00E83DD1 /* FODSelectionRow.m */,
-				016CE6F1186D93E300E83DD1 /* FODTextInputRow.h */,
-				016CE6F2186D93E300E83DD1 /* FODTextInputRow.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		0188EDBE18723E6800443D33 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = iPad;
-			sourceTree = "<group>";
-		};
-		01BF2147186EF2B600F979B8 /* common */ = {
-			isa = PBXGroup;
-			children = (
-				016CE6E4186D8FE600E83DD1 /* Model */,
-				016CE6F5186D96DC00E83DD1 /* NSDate+Dateutils.h */,
-				016CE6F6186D96DC00E83DD1 /* NSDate+Dateutils.m */,
-			);
-			name = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 016CE68B186CCBFD00E83DD1 /* Build configuration list for PBXNativeTarget "FormKitDemo" */;
 			buildPhases = (
+				672C2E8970B046A3ACBF5517 /* Check Pods Manifest.lock */,
 				016CE655186CCBFD00E83DD1 /* Sources */,
 				016CE656186CCBFD00E83DD1 /* Frameworks */,
 				016CE657186CCBFD00E83DD1 /* Resources */,
+				4180CA06B80F43C195C267CD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -508,16 +287,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				016B72461874046400ECF8FF /* Podfile in Resources */,
-				016CE6CC186D8C7E00E83DD1 /* FODDatePickerViewController.xib in Resources */,
-				016B72531874106500ECF8FF /* FODInlinePickerCell.xib in Resources */,
-				0188EDBC18717D5000443D33 /* FODExpandingSubformCell.xib in Resources */,
 				016CE675186CCBFD00E83DD1 /* Images.xcassets in Resources */,
 				016CE667186CCBFD00E83DD1 /* InfoPlist.strings in Resources */,
-				016CE6D8186D8C7E00E83DD1 /* FODTextInputCell.xib in Resources */,
-				0188EDC4187241FD00443D33 /* FODInlineDatePickerCell.xib in Resources */,
 				016CE670186CCBFD00E83DD1 /* Main.storyboard in Resources */,
-				016CE6DA186D8C7E00E83DD1 /* FODTextInputCell2.xib in Resources */,
-				016CE6D4186D8C7E00E83DD1 /* FODSwitchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,51 +297,53 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				016CE6CD186D8C7E00E83DD1 /* FODDatePickerViewController.xib in Resources */,
-				0188EDC5187241FD00443D33 /* FODInlineDatePickerCell.xib in Resources */,
-				0188EDBD18717D5000443D33 /* FODExpandingSubformCell.xib in Resources */,
-				016CE6D5186D8C7E00E83DD1 /* FODSwitchCell.xib in Resources */,
 				016CE686186CCBFD00E83DD1 /* InfoPlist.strings in Resources */,
-				016CE6DB186D8C7E00E83DD1 /* FODTextInputCell2.xib in Resources */,
-				016B72541874106500ECF8FF /* FODInlinePickerCell.xib in Resources */,
-				016CE6D9186D8C7E00E83DD1 /* FODTextInputCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4180CA06B80F43C195C267CD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Project/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		672C2E8970B046A3ACBF5517 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		016CE655186CCBFD00E83DD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0188EDC1187241D700443D33 /* FODInlineDatePickerCell.m in Sources */,
 				016CE66D186CCBFD00E83DD1 /* FODAppDelegate.m in Sources */,
-				01BF2155186F067100F979B8 /* FODDatePickerCell.m in Sources */,
-				010763FD18703513006949DE /* FODSubformCell.m in Sources */,
-				016CE6D6186D8C7E00E83DD1 /* FODTextInputCell.m in Sources */,
 				016CE669186CCBFD00E83DD1 /* main.m in Sources */,
-				016CE6CE186D8C7E00E83DD1 /* FODFormViewController.m in Sources */,
-				016CE6DE186D8F8700E83DD1 /* FODFormRow.m in Sources */,
-				0188EDB918717D3100443D33 /* FODExpandingSubformCell.m in Sources */,
-				0188EDC81872431C00443D33 /* FODExpandingCell.m in Sources */,
-				01BF214A186EF31700F979B8 /* FODCellFactory.m in Sources */,
-				01BF215C186F1CE200F979B8 /* FODFormBuilder.m in Sources */,
-				016CE6F7186D96DC00E83DD1 /* NSDate+Dateutils.m in Sources */,
-				01BF2158186F071200F979B8 /* FODPickerCell.m in Sources */,
-				016CE6D0186D8C7E00E83DD1 /* FODPickerViewController.m in Sources */,
-				016CE6E7186D93AE00E83DD1 /* FODSelectionRow.m in Sources */,
-				016B7268187436B500ECF8FF /* FODFormSection.m in Sources */,
 				016CE673186CCBFD00E83DD1 /* FODViewController.m in Sources */,
-				016CE6D2186D8C7E00E83DD1 /* FODSwitchCell.m in Sources */,
-				016CE69A186CCE7900E83DD1 /* FODForm.m in Sources */,
-				016CE6EF186D93D200E83DD1 /* FODBooleanRow.m in Sources */,
-				016B72501874105300ECF8FF /* FODInlinePickerCell.m in Sources */,
-				016CE6F3186D93E300E83DD1 /* FODTextInputRow.m in Sources */,
-				016CE6EB186D93C100E83DD1 /* FODDateSelectionRow.m in Sources */,
-				016CE6CA186D8C7E00E83DD1 /* FODDatePickerViewController.m in Sources */,
-				01BF214E186EF35800F979B8 /* FODFormCell.m in Sources */,
-				016B724C18740B0800ECF8FF /* FODInlineEditorCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,31 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0188EDC2187241D700443D33 /* FODInlineDatePickerCell.m in Sources */,
 				016CE688186CCBFD00E83DD1 /* FormKitDemoTests.m in Sources */,
-				016CE6D7186D8C7E00E83DD1 /* FODTextInputCell.m in Sources */,
-				016CE6CB186D8C7E00E83DD1 /* FODDatePickerViewController.m in Sources */,
-				01BF2153186EF3B300F979B8 /* FODDatePickerCell.m in Sources */,
-				0188EDBA18717D3100443D33 /* FODExpandingSubformCell.m in Sources */,
-				016CE6CF186D8C7E00E83DD1 /* FODFormViewController.m in Sources */,
-				016CE6F8186D96DC00E83DD1 /* NSDate+Dateutils.m in Sources */,
-				01BF214F186EF35800F979B8 /* FODFormCell.m in Sources */,
-				01BF2159186F071200F979B8 /* FODPickerCell.m in Sources */,
-				01BF214B186EF31700F979B8 /* FODCellFactory.m in Sources */,
-				016CE6EC186D93C100E83DD1 /* FODDateSelectionRow.m in Sources */,
-				016CE6DF186D8F8700E83DD1 /* FODFormRow.m in Sources */,
-				016CE6D3186D8C7E00E83DD1 /* FODSwitchCell.m in Sources */,
-				016CE6F0186D93D200E83DD1 /* FODBooleanRow.m in Sources */,
-				016CE6D1186D8C7E00E83DD1 /* FODPickerViewController.m in Sources */,
-				016CE6F4186D93E300E83DD1 /* FODTextInputRow.m in Sources */,
-				016CE6E8186D93AE00E83DD1 /* FODSelectionRow.m in Sources */,
-				01BF215D186F1CE200F979B8 /* FODFormBuilder.m in Sources */,
-				016B72511874105300ECF8FF /* FODInlinePickerCell.m in Sources */,
-				010763FE18703513006949DE /* FODSubformCell.m in Sources */,
-				0188EDC91872431C00443D33 /* FODExpandingCell.m in Sources */,
-				016CE69B186CCE7900E83DD1 /* FODForm.m in Sources */,
-				016B724D18740B0800ECF8FF /* FODInlineEditorCell.m in Sources */,
-				016B7269187436B500ECF8FF /* FODFormSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +467,7 @@
 		};
 		016CE68C186CCBFD00E83DD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79BFEF85C63545E3BC28BB80 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -732,6 +483,7 @@
 		};
 		016CE68D186CCBFD00E83DD1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79BFEF85C63545E3BC28BB80 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
