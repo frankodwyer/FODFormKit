@@ -41,6 +41,10 @@
     return section;
 }
 
+- (FODFormSection*) section {
+    return [self section:nil];
+}
+
 - (FODFormRow*) rowWithKey:(NSString*)key
                    ofClass:(Class)klass
                   andTitle:(NSString*)title

@@ -24,6 +24,8 @@
 
 - (FODFormSection*) section:(NSString*)title;
 
+- (FODFormSection*) section;
+
 - (FODFormRow*) rowWithKey:(NSString*)key
                    ofClass:(Class)klass
                   andTitle:(NSString*)title

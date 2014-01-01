@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4nM-Ix-vd3">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYY-IY-U63">
-                                <rect key="frame" x="56" y="182" width="209" height="30"/>
+                                <rect key="frame" x="56" y="175" width="209" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Form with Expanding Subform">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,12 +37,36 @@
                                     <action selector="formWithExpandingSubform:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="66s-yH-OEb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDX-xx-bKL">
+                                <rect key="frame" x="79" y="213" width="162" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Form with Inline Editors">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="formWithInlineEditors:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Q87-Gk-486"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJZ-yV-uQR">
+                                <rect key="frame" x="77" y="251" width="167" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Long form with Subform">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="longFormWithSubform:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DAW-bs-j7B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tYY-IY-U63" firstAttribute="top" secondItem="ube-rE-UbJ" secondAttribute="bottom" constant="15" id="Ag9-32-NKs"/>
+                            <constraint firstItem="bDX-xx-bKL" firstAttribute="top" secondItem="tYY-IY-U63" secondAttribute="bottom" constant="8" symbolic="YES" id="3lV-BU-iaO"/>
+                            <constraint firstItem="tYY-IY-U63" firstAttribute="top" secondItem="ube-rE-UbJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Ag9-32-NKs"/>
+                            <constraint firstAttribute="centerX" secondItem="wJZ-yV-uQR" secondAttribute="centerX" id="Ccr-Jy-aAT"/>
                             <constraint firstAttribute="centerX" secondItem="tYY-IY-U63" secondAttribute="centerX" id="Cp0-PX-Cou"/>
                             <constraint firstAttribute="centerX" secondItem="ube-rE-UbJ" secondAttribute="centerX" id="Pyn-Yr-B7k"/>
+                            <constraint firstAttribute="centerX" secondItem="bDX-xx-bKL" secondAttribute="centerX" id="YwC-Hb-fUj"/>
+                            <constraint firstItem="wJZ-yV-uQR" firstAttribute="top" secondItem="bDX-xx-bKL" secondAttribute="bottom" constant="8" symbolic="YES" id="aeZ-Nv-f9F"/>
                             <constraint firstItem="ube-rE-UbJ" firstAttribute="top" secondItem="01N-4B-KFA" secondAttribute="bottom" constant="73" id="tbJ-Tz-PYv"/>
                         </constraints>
                     </view>
