@@ -7,17 +7,18 @@
 //
 
 #import "FODFormCell.h"
+#import "FODCellFactory.h"
 
 @interface FODFormCell ()
-
 @end
+
 
 @implementation FODFormCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.detailTextLabel.textColor = [UIColor blueColor];
+        self.detailTextLabel.textColor = [FODCellFactory editableItemColor];
     }
     return self;
 }

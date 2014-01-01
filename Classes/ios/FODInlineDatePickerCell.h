@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
 //
 
-#import "FODExpandingCell.h"
+#import "FODInlineEditorCell.h"
 
-@interface FODInlineDatePickerCell : FODExpandingCell
+@interface FODInlineDatePickerCell : FODInlineEditorCell
 
 @end

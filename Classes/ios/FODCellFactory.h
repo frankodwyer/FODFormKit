@@ -18,4 +18,6 @@
 
 - (FODFormCell*) cellForRow:(FODFormRow*)row;
 
++ (UIColor*) editableItemColor;
+
 @end

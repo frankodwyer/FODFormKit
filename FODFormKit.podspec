@@ -7,21 +7,34 @@
 Pod::Spec.new do |s|
   s.name         = "FODFormKit"
   s.version      = "0.1.0"
-  s.summary      = "A short description of FODFormKit."
+  s.summary      = "A toolkit for creating dynamic forms on iOS."
   s.description  = <<-DESC
-                    An optional longer description of FODFormKit
+                    Dynamic forms on iOS with support for:
 
-                    * Markdown format.
-                    * Don't worry about the indent, we strip it!
+                    * Programmatically building forms
+                    * Save/load static forms to and from plists
+                    * Text input fields (with or without labels)
+                    * Pick list input
+                    * Switches
+                    * Date input with shortcuts
+                    * Nested subforms
+                    * Expandable/collapsible subfroms
+                    * Expandable/collapsible inline editors for fields
+                    * Save/Cancel of edits (including subforms)
+                    * Previous/next buttons to navigate text fields
+                    * Automatic handling of first responder when text fields scroll out of sight
+                    * Automatic scrolling of active text fields to middle of visible area
+                    * Handling of keyboard show and hide
+                    * Extensible with new field types
                    DESC
-  s.homepage     = "http://EXAMPLE/NAME"
+  s.homepage     = "https://github.com/frankodwyer/FODFormKit"
   s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license      = 'MIT'
   s.author       = { "Frank O'Dwyer" => "frankodwyer@netscape.net" }
-  s.source       = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/frankodwyer/FODFormKit.git", :tag => s.version.to_s }
 
-  # s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
+  s.platform     = :ios, '7.0'
+  s.ios.deployment_target = '7.0'
   # s.osx.deployment_target = '10.7'
   s.requires_arc = true
 

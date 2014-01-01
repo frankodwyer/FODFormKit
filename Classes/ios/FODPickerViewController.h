@@ -13,10 +13,10 @@
 
 @interface FODPickerViewController : UITableViewController
 
-@property (nonatomic) NSArray *items;
-@property (nonatomic) NSArray *initialSelection;
-@property (nonatomic) BOOL multipleSelection;
-@property (nonatomic) id userInfo;
+@property (nonatomic,strong) NSArray *items;
+@property (nonatomic,strong) NSArray *initialSelection;
+@property (nonatomic,assign) BOOL multipleSelection;
+@property (nonatomic,strong) id userInfo;
 @property (nonatomic, weak) id<FODPickerViewControllerDelegate> delegate;
 
 @end

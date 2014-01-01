@@ -39,11 +39,16 @@
         [_tableView registerNib:self.nibForSwitchCell forCellReuseIdentifier:self.reuseIdentifierForFODBooleanRow];
         [_tableView registerNib:self.nibForExpandingSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODExpandingSubform];
         [_tableView registerNib:self.nibForInlineDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODInlineDatePicker];
+        [_tableView registerNib:self.nibForInlinePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODInlinePicker];
         [_tableView registerClass:self.classForSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODForm];
         [_tableView registerClass:self.classForDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODDateSelectionRow];
         [_tableView registerClass:self.classForPickerCell forCellReuseIdentifier:self.reuseIdentifierForFODSelectionRow];
     }
     return self;
+}
+
++ (UIColor*) editableItemColor {
+    return [UIColor blueColor];
 }
 
 - (FODFormCell*) cellForRow:(FODFormRow*)row {
@@ -64,20 +69,30 @@
             [_tableView registerNib:self.nibForTextInputCellNoTitle forCellReuseIdentifier:reuseIdentifier];
             return reuseIdentifier;
         }
-    } else if ([row isKindOfClass:[FODForm class]]) {
+    }
+    else if ([row isKindOfClass:[FODForm class]]) {
         FODForm *form = (FODForm*)row;
         if (form.displayInline) {
             return self.reuseIdentifierForFODExpandingSubform;
         } else {
             return self.reuseIdentifierForFODForm;
         }
-    } else if ([row isKindOfClass:[FODDateSelectionRow class]]) {
+    }
+    else if ([row isKindOfClass:[FODDateSelectionRow class]]) {
         if (row.displayInline) {
             return self.reuseIdentifierForFODInlineDatePicker;
         } else {
             return self.reuseIdentifierForFODDateSelectionRow;
-       }
-    } else {
+        }
+    }
+    else if ([row isKindOfClass:[FODSelectionRow class]]) {
+        if (row.displayInline) {
+            return self.reuseIdentifierForFODInlinePicker;
+        } else {
+            return self.reuseIdentifierForFODSelectionRow;
+        }
+    }
+    else {
         NSString *className = NSStringFromClass([row class]);
         SEL selector = NSSelectorFromString([NSString stringWithFormat:@"reuseIdentifierFor%@", className]);
         IMP imp = [self methodForSelector:selector];
@@ -106,6 +121,10 @@
 
 - (UINib*) nibForInlineDatePickerCell {
     return [UINib nibWithNibName:@"FODInlineDatePickerCell" bundle:nil];
+}
+
+- (UINib*) nibForInlinePickerCell {
+    return [UINib nibWithNibName:@"FODInlinePickerCell" bundle:nil];
 }
 
 - (UINib*) nibForTextInputCellNoTitle {
@@ -140,6 +159,10 @@
 
 - (NSString*)reuseIdentifierForFODInlineDatePicker {
     return @"FODInlineDatePickerCell";
+}
+
+- (NSString*)reuseIdentifierForFODInlinePicker {
+    return @"FODInlinePickerCell";
 }
 
 - (NSString *)reuseIdentifierForFODBooleanRow {

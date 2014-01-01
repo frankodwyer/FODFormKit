@@ -7,6 +7,7 @@
 //
 
 #import "FODExpandingCell.h"
+#import "FODCellFactory.h"
 
 #define DegreesToRadians(x) ((x) * M_PI / 180.0)
 
@@ -25,6 +26,7 @@
     [super configureCellForRow:row withDelegate:delegate];
 
     self.titleLabel.text = row.title;
+    self.valueLabel.textColor = [FODCellFactory editableItemColor];
 }
 
 - (void)cellAction:(UINavigationController *)navController {

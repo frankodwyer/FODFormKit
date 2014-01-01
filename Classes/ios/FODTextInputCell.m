@@ -6,6 +6,7 @@
 //
 
 #import "FODTextInputCell.h"
+#import "FODCellFactory.h"
 
 @implementation FODTextInputCell
 
@@ -31,6 +32,7 @@
     self.delegate = delegate;
     self.textField.inputAccessoryView = [self.delegate textInputAccessoryView];
     self.textField.text = (NSString*)row.workingValue;
+    self.textField.textColor = [FODCellFactory editableItemColor];
     self.textField.placeholder = (NSString*)row.placeHolder;
     self.titleLabel.text = row.title;
 }
