@@ -109,6 +109,13 @@
 		016B724E1874105300ECF8FF /* FODInlinePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FODInlinePickerCell.h; sourceTree = "<group>"; };
 		016B724F1874105300ECF8FF /* FODInlinePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FODInlinePickerCell.m; sourceTree = "<group>"; };
 		016B72521874106500ECF8FF /* FODInlinePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FODInlinePickerCell.xib; sourceTree = "<group>"; };
+		016B725F18742F8300ECF8FF /* inline-date-editor-expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inline-date-editor-expanded.png"; path = "../screenshots/inline-date-editor-expanded.png"; sourceTree = "<group>"; };
+		016B726018742F8300ECF8FF /* inline-picker-expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inline-picker-expanded.png"; path = "../screenshots/inline-picker-expanded.png"; sourceTree = "<group>"; };
+		016B726118742F8300ECF8FF /* inline-subform-expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inline-subform-expanded.png"; path = "../screenshots/inline-subform-expanded.png"; sourceTree = "<group>"; };
+		016B726218742F8300ECF8FF /* inline-subform-collapsed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inline-subform-collapsed.png"; path = "../screenshots/inline-subform-collapsed.png"; sourceTree = "<group>"; };
+		016B726318742F8300ECF8FF /* textfield-navigation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "textfield-navigation.png"; path = "../screenshots/textfield-navigation.png"; sourceTree = "<group>"; };
+		016B726418742F8300ECF8FF /* form-with-subform-pushed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "form-with-subform-pushed.png"; path = "../screenshots/form-with-subform-pushed.png"; sourceTree = "<group>"; };
+		016B726518742F8300ECF8FF /* form-with-subform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "form-with-subform.png"; path = "../screenshots/form-with-subform.png"; sourceTree = "<group>"; };
 		016CE659186CCBFD00E83DD1 /* FormKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		016CE65C186CCBFD00E83DD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		016CE65E186CCBFD00E83DD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -205,6 +212,7 @@
 		016B72431874043400ECF8FF /* podspec */ = {
 			isa = PBXGroup;
 			children = (
+				016B725718742EEE00ECF8FF /* screenshots */,
 				016B72471874048700ECF8FF /* CHANGELOG.md */,
 				016B72481874048700ECF8FF /* FODFormKit.podspec */,
 				016B72491874048700ECF8FF /* LICENSE */,
@@ -261,6 +269,20 @@
 				016CE6C2186D8C7E00E83DD1 /* FODPickerViewController.m */,
 			);
 			name = Editors;
+			sourceTree = "<group>";
+		};
+		016B725718742EEE00ECF8FF /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				016B725F18742F8300ECF8FF /* inline-date-editor-expanded.png */,
+				016B726018742F8300ECF8FF /* inline-picker-expanded.png */,
+				016B726118742F8300ECF8FF /* inline-subform-expanded.png */,
+				016B726218742F8300ECF8FF /* inline-subform-collapsed.png */,
+				016B726318742F8300ECF8FF /* textfield-navigation.png */,
+				016B726418742F8300ECF8FF /* form-with-subform-pushed.png */,
+				016B726518742F8300ECF8FF /* form-with-subform.png */,
+			);
+			name = screenshots;
 			sourceTree = "<group>";
 		};
 		016CE650186CCBFD00E83DD1 = {
