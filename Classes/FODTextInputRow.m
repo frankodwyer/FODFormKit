@@ -10,4 +10,8 @@
 
 @implementation FODTextInputRow
 
+- (BOOL)isEditable {
+    return YES;
+}
+
 @end

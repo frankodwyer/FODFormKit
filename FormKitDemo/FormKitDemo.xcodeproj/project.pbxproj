@@ -214,6 +214,55 @@
 			name = podspec;
 			sourceTree = "<group>";
 		};
+		016B725518741BFD00ECF8FF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				01BF2148186EF31700F979B8 /* FODCellFactory.h */,
+				01BF2149186EF31700F979B8 /* FODCellFactory.m */,
+				01BF2150186EF3B300F979B8 /* FODDatePickerCell.h */,
+				01BF2151186EF3B300F979B8 /* FODDatePickerCell.m */,
+				0188EDC61872431C00443D33 /* FODExpandingCell.h */,
+				0188EDC71872431C00443D33 /* FODExpandingCell.m */,
+				0188EDB718717D3100443D33 /* FODExpandingSubformCell.h */,
+				0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */,
+				0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */,
+				01BF214C186EF35800F979B8 /* FODFormCell.h */,
+				01BF214D186EF35800F979B8 /* FODFormCell.m */,
+				0188EDBF187241D700443D33 /* FODInlineDatePickerCell.h */,
+				0188EDC0187241D700443D33 /* FODInlineDatePickerCell.m */,
+				0188EDC3187241FD00443D33 /* FODInlineDatePickerCell.xib */,
+				016B724A18740B0800ECF8FF /* FODInlineEditorCell.h */,
+				016B724B18740B0800ECF8FF /* FODInlineEditorCell.m */,
+				016B724E1874105300ECF8FF /* FODInlinePickerCell.h */,
+				016B724F1874105300ECF8FF /* FODInlinePickerCell.m */,
+				016B72521874106500ECF8FF /* FODInlinePickerCell.xib */,
+				01BF2156186F071200F979B8 /* FODPickerCell.h */,
+				01BF2157186F071200F979B8 /* FODPickerCell.m */,
+				010763FB18703513006949DE /* FODSubformCell.h */,
+				010763FC18703513006949DE /* FODSubformCell.m */,
+				016CE6C3186D8C7E00E83DD1 /* FODSwitchCell.h */,
+				016CE6C4186D8C7E00E83DD1 /* FODSwitchCell.m */,
+				016CE6C5186D8C7E00E83DD1 /* FODSwitchCell.xib */,
+				016CE6C6186D8C7E00E83DD1 /* FODTextInputCell.h */,
+				016CE6C7186D8C7E00E83DD1 /* FODTextInputCell.m */,
+				016CE6C8186D8C7E00E83DD1 /* FODTextInputCell.xib */,
+				016CE6C9186D8C7E00E83DD1 /* FODTextInputCell2.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		016B725618741C3300ECF8FF /* Editors */ = {
+			isa = PBXGroup;
+			children = (
+				016CE6BC186D8C7E00E83DD1 /* FODDatePickerViewController.h */,
+				016CE6BD186D8C7E00E83DD1 /* FODDatePickerViewController.m */,
+				016CE6BE186D8C7E00E83DD1 /* FODDatePickerViewController.xib */,
+				016CE6C1186D8C7E00E83DD1 /* FODPickerViewController.h */,
+				016CE6C2186D8C7E00E83DD1 /* FODPickerViewController.m */,
+			);
+			name = Editors;
+			sourceTree = "<group>";
+		};
 		016CE650186CCBFD00E83DD1 = {
 			isa = PBXGroup;
 			children = (
@@ -304,43 +353,10 @@
 		016CE692186CCE3800E83DD1 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				01BF2148186EF31700F979B8 /* FODCellFactory.h */,
-				01BF2149186EF31700F979B8 /* FODCellFactory.m */,
-				01BF2150186EF3B300F979B8 /* FODDatePickerCell.h */,
-				01BF2151186EF3B300F979B8 /* FODDatePickerCell.m */,
-				016CE6BC186D8C7E00E83DD1 /* FODDatePickerViewController.h */,
-				016CE6BD186D8C7E00E83DD1 /* FODDatePickerViewController.m */,
-				016CE6BE186D8C7E00E83DD1 /* FODDatePickerViewController.xib */,
-				0188EDC61872431C00443D33 /* FODExpandingCell.h */,
-				0188EDC71872431C00443D33 /* FODExpandingCell.m */,
-				0188EDB718717D3100443D33 /* FODExpandingSubformCell.h */,
-				0188EDB818717D3100443D33 /* FODExpandingSubformCell.m */,
-				0188EDBB18717D5000443D33 /* FODExpandingSubformCell.xib */,
-				01BF214C186EF35800F979B8 /* FODFormCell.h */,
-				01BF214D186EF35800F979B8 /* FODFormCell.m */,
+				016B725618741C3300ECF8FF /* Editors */,
+				016B725518741BFD00ECF8FF /* Cells */,
 				016CE6BF186D8C7E00E83DD1 /* FODFormViewController.h */,
 				016CE6C0186D8C7E00E83DD1 /* FODFormViewController.m */,
-				0188EDBF187241D700443D33 /* FODInlineDatePickerCell.h */,
-				0188EDC0187241D700443D33 /* FODInlineDatePickerCell.m */,
-				0188EDC3187241FD00443D33 /* FODInlineDatePickerCell.xib */,
-				016B724A18740B0800ECF8FF /* FODInlineEditorCell.h */,
-				016B724B18740B0800ECF8FF /* FODInlineEditorCell.m */,
-				016B724E1874105300ECF8FF /* FODInlinePickerCell.h */,
-				016B724F1874105300ECF8FF /* FODInlinePickerCell.m */,
-				016B72521874106500ECF8FF /* FODInlinePickerCell.xib */,
-				01BF2156186F071200F979B8 /* FODPickerCell.h */,
-				01BF2157186F071200F979B8 /* FODPickerCell.m */,
-				016CE6C1186D8C7E00E83DD1 /* FODPickerViewController.h */,
-				016CE6C2186D8C7E00E83DD1 /* FODPickerViewController.m */,
-				010763FB18703513006949DE /* FODSubformCell.h */,
-				010763FC18703513006949DE /* FODSubformCell.m */,
-				016CE6C3186D8C7E00E83DD1 /* FODSwitchCell.h */,
-				016CE6C4186D8C7E00E83DD1 /* FODSwitchCell.m */,
-				016CE6C5186D8C7E00E83DD1 /* FODSwitchCell.xib */,
-				016CE6C6186D8C7E00E83DD1 /* FODTextInputCell.h */,
-				016CE6C7186D8C7E00E83DD1 /* FODTextInputCell.m */,
-				016CE6C8186D8C7E00E83DD1 /* FODTextInputCell.xib */,
-				016CE6C9186D8C7E00E83DD1 /* FODTextInputCell2.xib */,
 			);
 			path = ios;
 			sourceTree = "<group>";

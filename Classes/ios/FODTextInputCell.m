@@ -37,10 +37,6 @@
     self.titleLabel.text = row.title;
 }
 
-- (BOOL) isEditable {
-    return YES;
-}
-
 - (BOOL) canBecomeFirstResponder {
     return YES;
 }

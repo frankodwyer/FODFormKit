@@ -165,8 +165,8 @@
 #pragma mark handle moving from one text field to another
 
 - (BOOL) isEditableAtIndexPath:(NSIndexPath*)indexPath {
-    FODFormCell* cell = (FODFormCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-    return cell.isEditable;
+    FODFormRow *row = self.form[indexPath];
+    return [row isEditable];
 }
 
 - (void) scrollToIndexPath:(NSIndexPath*)indexPath {
