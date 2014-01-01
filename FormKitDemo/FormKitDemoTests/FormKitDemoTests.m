@@ -132,4 +132,40 @@
     XCTAssertTrue([fromPlist.toPlist isEqual:form.toPlist], @"Serialization to and from plist doesn't yield the same form");
 }
 
+- (void)testValueRetrieval
+{
+    [self.builder startFormWithTitle:@"Main Form"];
+
+    [self.builder section:@"Section 1"];
+
+    [self.builder rowWithKey:@"foo"
+                     ofClass:[FODBooleanRow class]
+                    andTitle:@"Foo option"
+                    andValue:@YES];
+
+    { // start subform
+        [self.builder startFormWithTitle:@"Sub Form"
+                                  andKey:@"subform"];
+
+        [self.builder section:@"Section 1"];
+
+        [self.builder rowWithKey:@"bar"
+                         ofClass:[FODTextInputRow class]
+                        andTitle:@"Bar"
+                        andValue:@"bar"
+                  andPlaceHolder:@"Fooby baz"];
+        [self.builder finishForm];
+    } // finish subform
+
+
+    FODForm *form = [self.builder finishForm];
+
+    XCTAssertTrue([[form valueForKey:@"foo"] isEqual:@YES], @"Expected 'foo' key to have value YES");
+    XCTAssertTrue([[form valueForKey:@"foo"] isKindOfClass:[NSNumber class]], @"Expected 'foo' key to be a number");
+    XCTAssertTrue([[form valueForKeyPath:@"foo"] isEqual:@YES], @"Expected 'foo' key to have value YES");
+    XCTAssertTrue([[form valueForKeyPath:@"foo"] isKindOfClass:[NSNumber class]], @"Expected 'foo' key to be a number");
+    XCTAssertTrue([[form valueForKeyPath:@"subform.bar"] isEqual:@"bar"], @"Expected 'bar' key to have value 'bar'");
+    XCTAssertTrue([[form valueForKeyPath:@"subform.bar"] isKindOfClass:[NSString class]], @"Expected 'bar' key to be a string");
+}
+
 @end
