@@ -11,11 +11,22 @@ To run the example project; clone the repo, and run `pod install` from the Proje
 
 ## Screeenshots
 
+###Form with subform:
+
 <img src="https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/form-with-subform.png" width="25%" height="25%""/>&nbsp;
-<img src="https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/form-with-subform-pushed.png" width="25%" height="25%"/>&nbsp;
+<img src="https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/form-with-subform-pushed.png" width="25%" height="25%"/>
+
+###Inline (expandable) subform:
+
 <img src="https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/inline-subform-collapsed.png" width="25%" height="25%"/>&nbsp;
 <img src="https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/inline-subform-expanded.png" width="25%" height="25%"/>&nbsp;
+
+###Textfield navigation:
+
 <img src="https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/textfield-navigation.png" width="25%" height="25%"/>&nbsp;
+
+###Inline (expandable) editors
+
 <img src="https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/inline-picker-expanded.png" width="25%" height="25%"/>&nbsp;
 <img src="https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/inline-date-editor-expanded.png" width="25%" height="25%"/>
 
