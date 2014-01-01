@@ -30,12 +30,12 @@
 }
 
 - (void)cellAction:(UINavigationController *)navController {
-    self.row.expanded = !self.row.expanded;
     self.expanded = !self.expanded;
 }
 
 - (void) setExpanded:(BOOL)expanded {
     _expanded = expanded;
+    self.row.expanded = expanded;
     [UIView beginAnimations:@"rotate" context:nil];
     [UIView setAnimationDuration:0.5];
     if (expanded) {

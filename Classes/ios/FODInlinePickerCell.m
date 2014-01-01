@@ -29,6 +29,7 @@
     vc.delegate = self;
     vc.items = ((FODSelectionRow*)self.row).items;
     vc.title = self.row.title;
+    vc.itemAlignment = NSTextAlignmentRight;
     if (self.row.workingValue) {
         vc.initialSelection = @[self.row.workingValue];
     }
@@ -41,6 +42,9 @@
 
 - (void) selectionMade:(NSArray*)selectedItems userInfo:(id)userInfo {
     self.valueLabel.text = selectedItems[0];
+    FODFormRow *row = (FODFormRow*)userInfo;
+    row.workingValue = selectedItems[0];
+    self.expanded = NO;
 }
 
 @end

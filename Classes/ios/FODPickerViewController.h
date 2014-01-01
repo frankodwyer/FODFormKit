@@ -13,6 +13,7 @@
 
 @interface FODPickerViewController : UITableViewController
 
+@property (nonatomic,assign) NSTextAlignment itemAlignment;
 @property (nonatomic,strong) NSArray *items;
 @property (nonatomic,strong) NSArray *initialSelection;
 @property (nonatomic,assign) BOOL multipleSelection;

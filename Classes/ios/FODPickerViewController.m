@@ -52,10 +52,14 @@
     }
 
     cell.textLabel.text = self.items[indexPath.row];
-
+    cell.textLabel.textAlignment = self.itemAlignment;
+    
     if ([self.selectedItemsSet containsObject:self.items[indexPath.row]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
+        if (self.itemAlignment == NSTextAlignmentRight) {
+            cell.accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        }
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
