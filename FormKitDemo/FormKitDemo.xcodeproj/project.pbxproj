@@ -499,6 +499,7 @@
 		};
 		016CE68F186CCBFD00E83DD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79BFEF85C63545E3BC28BB80 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FormKitDemo.app/FormKitDemo";
