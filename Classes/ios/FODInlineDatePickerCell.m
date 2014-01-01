@@ -26,6 +26,7 @@
 - (UIViewController *)createEditorController {
     FODDatePickerViewController *vc = [[FODDatePickerViewController alloc] init];
     vc.delegate = self;
+    vc.usedInline = YES;
     return vc;
 }
 
