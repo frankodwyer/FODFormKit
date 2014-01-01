@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
                     * Extensible with new field types
                    DESC
   s.homepage     = "https://github.com/frankodwyer/FODFormKit"
-  s.screenshots  = "https://github.com/frankodwyer/FODFormKit/blob/master/screenshots/form-with-subform.png", "https://github.com/frankodwyer/FODFormKit/blob/master/screenshots/form-with-subform-pushed.png", "https://github.com/frankodwyer/FODFormKit/blob/master/screenshots/inline-subform-collapsed.png", "https://github.com/frankodwyer/FODFormKit/blob/master/screenshots/inline-subform-expanded.png", "https://github.com/frankodwyer/FODFormKit/blob/master/screenshots/textfield-navigation.png", "https://github.com/frankodwyer/FODFormKit/blob/master/screenshots/inline-picker-expanded.png", "https://github.com/frankodwyer/FODFormKit/blob/master/screenshots/inline-date-editor-expanded.png"
+  s.screenshots  = "https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/form-with-subform.png", "https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/form-with-subform-pushed.png", "https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/inline-subform-collapsed.png", "https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/inline-subform-expanded.png", "https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/textfield-navigation.png", "https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/inline-picker-expanded.png", "https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/inline-date-editor-expanded.png"
   s.license      = 'MIT'
   s.author       = { "Frank O'Dwyer" => "frankodwyer@netscape.net" }
   s.source       = { :git => "https://github.com/frankodwyer/FODFormKit.git", :tag => s.version.to_s }
