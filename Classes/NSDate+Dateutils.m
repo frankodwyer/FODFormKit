@@ -7,6 +7,8 @@
 
 @implementation NSDate (Dateutils)
 
+// [NSCalendar currentCalendar] is extremely slow, but also not thread safe.
+// This caches it per thread.
 - (NSCalendar*) fod_currentCalendarForThread {
     NSCalendar *result = [[NSThread currentThread] threadDictionary][@"com.frankodwyer.NSCalendar.currentCalendar"];
     if (!result) {

@@ -321,10 +321,10 @@
     if ([self.delegate respondsToSelector:@selector(validateForm:inFormViewController:)]) {
         NSString *errorMessage = [self.delegate validateForm:self.form inFormViewController:self];
         if (errorMessage) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", @"Alert title")
                                                             message:errorMessage
                                                            delegate:self
-                                                  cancelButtonTitle:@"OK"
+                                                  cancelButtonTitle:NSLocalizedString(@"OK", @"OK Button")
                                                   otherButtonTitles:nil];
             [alert show];
             return;
@@ -495,11 +495,11 @@
 - (void) selectionMade:(NSArray*)selectedItems userInfo:(id)userInfo {
     FODFormRow *row = (FODFormRow*)userInfo;
     row.workingValue = selectedItems[0];
-    if ([self.delegate respondsToSelector:@selector(pickerValueChanged:value:row:inForm:)]) {
+    if ([self.delegate respondsToSelector:@selector(pickerValueChanged:selectedItems:row:inFormViewController:)]) {
         [self.delegate pickerValueChanged:row.key
-                                    value:selectedItems[0]
+                            selectedItems:selectedItems
                                       row:row
-                                   inForm:self];
+                     inFormViewController:self];
     }
     [self.tableView reloadData];
     [self.navigationController popViewControllerAnimated:YES];

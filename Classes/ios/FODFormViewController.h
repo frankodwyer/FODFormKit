@@ -26,9 +26,9 @@
 
 @optional
 - (void) pickerValueChanged:(NSString*)key
-                      value:(NSString*)value
+              selectedItems:(NSArray*)selectedItems
                         row:(FODFormRow*)row
-                     inForm:(FODFormViewController*)form;
+       inFormViewController:(FODFormViewController*)form;
 
 - (NSString*) validateForm:(FODForm*)form
       inFormViewController:(FODFormViewController*)formViewController;
