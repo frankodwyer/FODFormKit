@@ -23,7 +23,7 @@
 @property (nonatomic,copy) id<NSCopying> placeHolder;
 @property (nonatomic,assign) BOOL expanded;
 @property (nonatomic,strong) NSMutableDictionary *viewState;
-@property (nonatomic) BOOL displayInline; // the row should be displayed inline (currently only date picker and subforms can do this)
+@property (nonatomic,assign) BOOL displayInline; // display the editor or subform inline if possible
 
 // serializes to a property list format (array or dictionary)
 - (id) toPlist;

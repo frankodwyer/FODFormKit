@@ -7,6 +7,7 @@
 //
 
 #import "FODFormBuilder.h"
+#import "FODSelectionRow.h"
 
 @interface FODFormBuilder ()
 @property (nonatomic, strong) NSMutableArray *formStack;
@@ -82,6 +83,19 @@
                    ofClass:(Class)klass {
 
     return [self rowWithKey:key ofClass:klass andTitle:nil andValue:nil andPlaceHolder:nil];
+}
+
+- (FODSelectionRow*) selectionRowWithKey:(NSString*)key
+                                andTitle:(NSString*)title
+                                andValue:(id)defaultValue
+                                andItems:(NSArray*)items {
+
+    FODSelectionRow *row = (FODSelectionRow*)[self rowWithKey:key
+                                                      ofClass:[FODSelectionRow class]
+                                                     andTitle:title
+                                                     andValue:defaultValue];
+    row.items = items;
+    return row;
 }
 
 - (FODForm*) finishForm {

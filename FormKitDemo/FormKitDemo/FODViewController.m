@@ -23,28 +23,63 @@
     FODFormBuilder *builder = [[FODFormBuilder alloc] init];
 
     [builder startFormWithTitle:@"Main Form"];
+
     [builder section:@"Section 1"];
-    [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@YES];
+
+    [builder rowWithKey:@"foo"
+                ofClass:[FODBooleanRow class]
+               andTitle:@"Foo option"
+               andValue:@YES];
+
     [builder section];
-    [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
-    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+
+    [builder rowWithKey:@"bar"
+                ofClass:[FODTextInputRow class]
+               andTitle:@"Bar"
+               andValue:@"bar"
+         andPlaceHolder:@"Fooby baz"];
+    [builder rowWithKey:@"date"
+                ofClass:[FODDateSelectionRow class]
+               andTitle:@"When"
+               andValue:nil];
 
     { // start subform
-        [builder startFormWithTitle:@"Sub Form" andKey:@"subform"];
+        [builder startFormWithTitle:@"Sub Form"
+                             andKey:@"subform"];
+
         [builder section:@"Section 1"];
-        [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@NO];
-        [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
+
+        [builder rowWithKey:@"foo"
+                    ofClass:[FODBooleanRow class]
+                   andTitle:@"Foo option"
+                   andValue:@NO];
+        [builder rowWithKey:@"bar"
+                    ofClass:[FODTextInputRow class]
+                   andTitle:@"Bar"
+                   andValue:@"bar"
+             andPlaceHolder:@"Fooby baz"];
         for (int i = 0 ; i < 4; i++) {
             NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
-            [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
+            [builder rowWithKey:foobar
+                        ofClass:[FODTextInputRow class]
+                       andTitle:nil
+                       andValue:foobar
+                 andPlaceHolder:@"Fooby baz"];
         }
-        [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+        [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class]
+                   andTitle:@"When"
+                   andValue:nil];
+
         [builder finishForm];
     } // finish subform
 
     for (int i = 0 ; i < 3; i++) {
         NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
-        [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
+        [builder rowWithKey:foobar
+                    ofClass:[FODTextInputRow class]
+                   andTitle:nil
+                   andValue:foobar
+             andPlaceHolder:@"Fooby baz"];
     }
 
     FODForm *form = [builder finishForm];
@@ -58,25 +93,52 @@
     FODFormBuilder *builder = [[FODFormBuilder alloc] init];
 
     [builder startFormWithTitle:@"Main Form"];
+
     [builder section:@"Section 1"];
-    [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@YES];
+
+    [builder rowWithKey:@"foo"
+                ofClass:[FODBooleanRow class]
+               andTitle:@"Foo option"
+               andValue:@YES];
 
     [builder section];
+
     { // start subform
-        [builder startFormWithTitle:@"Advanced" andKey:@"advanced"].displayInline = YES;
+        [builder startFormWithTitle:@"Advanced"
+                             andKey:@"advanced"].displayInline = YES;
+
         [builder section:@"Section 1"];
-        [builder rowWithKey:@"advanced_foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@NO];
-        [builder rowWithKey:@"advanced_foobar" ofClass:[FODTextInputRow class] andTitle:@"Foobar" andValue:@"foobar" andPlaceHolder:@"Fooby baz"];
+
+        [builder rowWithKey:@"advanced_foo"
+                    ofClass:[FODBooleanRow class]
+                   andTitle:@"Foo option"
+                   andValue:@NO];
+        [builder rowWithKey:@"advanced_foobar"
+                    ofClass:[FODTextInputRow class]
+                   andTitle:@"Foobar"
+                   andValue:@"foobar"
+             andPlaceHolder:@"Fooby baz"];
+
         [builder finishForm];
     } // finish subform
 
-    [builder rowWithKey:@"date2" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+    [builder rowWithKey:@"date2"
+                ofClass:[FODDateSelectionRow class]
+               andTitle:@"When"
+               andValue:nil];
+
     [builder section];
-    [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
+
+    [builder rowWithKey:@"bar"
+                ofClass:[FODTextInputRow class]
+               andTitle:@"Bar"
+               andValue:@"bar"
+         andPlaceHolder:@"Fooby baz"];
 
     FODForm *form = [builder finishForm];
 
-    FODFormViewController *vc = [[FODFormViewController alloc] initWithForm:form userInfo:nil];
+    FODFormViewController *vc = [[FODFormViewController alloc] initWithForm:form
+                                                                   userInfo:nil];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -85,18 +147,29 @@
     FODFormBuilder *builder = [[FODFormBuilder alloc] init];
 
     [builder startFormWithTitle:@"Main Form"];
+
     [builder section:@"Section 1"];
 
-    FODSelectionRow *row = (FODSelectionRow*)[builder rowWithKey:@"picker" ofClass:[FODSelectionRow class] andTitle:@"Select a wibble" andValue:nil];
-    row.items = @[@"wibble1", @"wibble2", @"wibble3"];
+    [builder selectionRowWithKey:@"picker"
+                        andTitle:@"Select a wibble"
+                        andValue:nil
+                        andItems:@[@"wibble1", @"wibble2", @"wibble3"]];
 
-    FODSelectionRow *row2 = (FODSelectionRow*)[builder rowWithKey:@"picker2" ofClass:[FODSelectionRow class] andTitle:@"Select a fooby" andValue:nil];
-    row2.items = @[@"fooby1", @"fooby2", @"fooby3"];
-    row2.displayInline = YES;
+    [builder selectionRowWithKey:@"picker2"
+                        andTitle:@"Select a fooby"
+                        andValue:nil
+                        andItems:@[@"fooby1", @"fooby2", @"fooby3"]].displayInline = YES;
 
     [builder section];
-    [builder rowWithKey:@"date2" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
-    [builder rowWithKey:@"date1" ofClass:[FODDateSelectionRow class] andTitle:@"When Inline" andValue:nil].displayInline = YES;
+
+    [builder rowWithKey:@"date2"
+                ofClass:[FODDateSelectionRow class]
+               andTitle:@"When"
+               andValue:nil];
+    [builder rowWithKey:@"date1"
+                ofClass:[FODDateSelectionRow class]
+               andTitle:@"When Inline"
+               andValue:nil].displayInline = YES;
 
     FODForm *form = [builder finishForm];
 
@@ -109,35 +182,73 @@
     FODFormBuilder *builder = [[FODFormBuilder alloc] init];
 
     [builder startFormWithTitle:@"Main Form"];
+
     [builder section:@"Section 1"];
-    [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@YES];
+
+    [builder rowWithKey:@"foo"
+                ofClass:[FODBooleanRow class]
+               andTitle:@"Foo option"
+               andValue:@YES];
+
     [builder section];
-    [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
-    [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+
+    [builder rowWithKey:@"bar"
+                ofClass:[FODTextInputRow class]
+               andTitle:@"Bar"
+               andValue:@"bar"
+         andPlaceHolder:@"Fooby baz"];
+    [builder rowWithKey:@"date"
+                ofClass:[FODDateSelectionRow class]
+               andTitle:@"When" andValue:nil];
 
     { // start subform
-        [builder startFormWithTitle:@"Sub Form" andKey:@"subform"];
+        [builder startFormWithTitle:@"Sub Form"
+                             andKey:@"subform"];
+
         [builder section:@"Section 1"];
-        [builder rowWithKey:@"foo" ofClass:[FODBooleanRow class] andTitle:@"Foo option" andValue:@NO];
-        [builder rowWithKey:@"bar" ofClass:[FODTextInputRow class] andTitle:@"Bar" andValue:@"bar" andPlaceHolder:@"Fooby baz"];
+
+        [builder rowWithKey:@"foo"
+                    ofClass:[FODBooleanRow class]
+                   andTitle:@"Foo option"
+                   andValue:@NO];
+        [builder rowWithKey:@"bar"
+                    ofClass:[FODTextInputRow class]
+                   andTitle:@"Bar"
+                   andValue:@"bar"
+             andPlaceHolder:@"Fooby baz"];
         for (int i = 0 ; i < 4; i++) {
             NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
-            [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
+            [builder rowWithKey:foobar
+                        ofClass:[FODTextInputRow class]
+                       andTitle:nil
+                       andValue:foobar
+                 andPlaceHolder:@"Fooby baz"];
         }
-        [builder rowWithKey:@"date" ofClass:[FODDateSelectionRow class] andTitle:@"When" andValue:nil];
+        [builder rowWithKey:@"date"
+                    ofClass:[FODDateSelectionRow class]
+                   andTitle:@"When" andValue:nil];
+        
         [builder finishForm];
     } // finish subform
 
     for (int i = 0 ; i < 10; i++) {
         NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
-        [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
+        [builder rowWithKey:foobar
+                    ofClass:[FODTextInputRow class]
+                   andTitle:nil
+                   andValue:foobar
+             andPlaceHolder:@"Fooby baz"];
     }
 
     [builder section];
 
     for (int i = 10 ; i < 20; i++) {
         NSString *foobar = [NSString stringWithFormat:@"foobar%@", @(i)];
-        [builder rowWithKey:foobar ofClass:[FODTextInputRow class] andTitle:nil andValue:foobar andPlaceHolder:@"Fooby baz"];
+        [builder rowWithKey:foobar
+                    ofClass:[FODTextInputRow class]
+                   andTitle:nil
+                   andValue:foobar
+             andPlaceHolder:@"Fooby baz"];
     }
 
     FODForm *form = [builder finishForm];

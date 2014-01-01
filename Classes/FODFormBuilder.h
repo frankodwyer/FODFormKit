@@ -26,6 +26,11 @@
 
 - (FODFormSection*) section;
 
+- (FODSelectionRow*) selectionRowWithKey:(NSString*)key
+                                andTitle:(NSString*)title
+                                andValue:(id)defaultValue
+                                andItems:(NSArray*)items;
+
 - (FODFormRow*) rowWithKey:(NSString*)key
                    ofClass:(Class)klass
                   andTitle:(NSString*)title
