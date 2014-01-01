@@ -10,7 +10,8 @@ FODFormKit is a library for creating dynamic forms for iOS.
 To run the example project; clone the repo, and run `pod install` from the Project directory first.
 
 ## Screeenshots
-![Form with subform](https://github.com/frankodwyer/FODFormKit/blob/master/screenshots/form-with-subform.png)
+<img src="https://github.com/frankodwyer/FODFormKit/raw/master/screenshots/form-with-subform.png" width="50%" height="50%"/>
+
 ## Requirements
 
 FODFormKit currently requires iOS7. It mostly works on iOS6 with cosmetic issues, but I don't have a need for this currently so I'm unlikely to fix them myself. Pull requests with iOS6 fixes are welcome, though.
