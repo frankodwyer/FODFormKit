@@ -1,4 +1,4 @@
 language: objective-c
-xcode_workspace: FormKitDemo/FormKitDemo.xcworkspace
+xcode_workspace: Project/FormKitDemo.xcworkspace
 xcode_scheme: FormKitDemo
 xcode_sdk: iphonesimulator
