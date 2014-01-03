@@ -3,3 +3,4 @@ install: (gem install cocoapods; cd Project;pod install)
 xcode_workspace: Project/FormKitDemo.xcworkspace
 xcode_scheme: FormKitDemo
 xcode_sdk: iphonesimulator
+xctool_args: -freshSimulator -freshInstall
