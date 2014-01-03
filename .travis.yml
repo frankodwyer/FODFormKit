@@ -1,5 +1,5 @@
 language: objective-c
-install: (cd Project;pod install)
+install: (gem install cocoapods; cd Project;pod install)
 xcode_workspace: Project/FormKitDemo.xcworkspace
 xcode_scheme: FormKitDemo
 xcode_sdk: iphonesimulator
