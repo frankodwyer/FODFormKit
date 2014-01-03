@@ -67,6 +67,7 @@
 		016CE683186CCBFD00E83DD1 /* FormKitDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FormKitDemoTests-Info.plist"; sourceTree = "<group>"; };
 		016CE685186CCBFD00E83DD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		016CE687186CCBFD00E83DD1 /* FormKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormKitDemoTests.m; sourceTree = "<group>"; };
+		01869A541876E02B0058FC5B /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		79BFEF85C63545E3BC28BB80 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Project/Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FB85ACE72E3B4C67A71D15E7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +127,7 @@
 		016CE650186CCBFD00E83DD1 = {
 			isa = PBXGroup;
 			children = (
+				01869A541876E02B0058FC5B /* .travis.yml */,
 				016B72431874043400ECF8FF /* podspec */,
 				016CE662186CCBFD00E83DD1 /* FormKitDemo */,
 				016CE681186CCBFD00E83DD1 /* FormKitDemoTests */,

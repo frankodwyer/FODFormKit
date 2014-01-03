@@ -1,0 +1,3 @@
+language: objective-c
+xcode_project: FormKitDemo/FormKitDemo.xcodeproj
+xcode_scheme: FormKitDemoTests
