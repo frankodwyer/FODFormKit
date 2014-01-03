@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FODFormKit"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "A toolkit for creating dynamic forms on iOS."
   s.description  = <<-DESC
                     Dynamic forms on iOS with support for:
