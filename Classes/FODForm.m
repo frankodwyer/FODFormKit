@@ -145,7 +145,7 @@ FODForm
     for (FODFormSection *section in form.sections) {
         for (FODFormRow *row in section.rows) {
             [indexPaths addObject:deletionPoint];
-            [rowsToRemove addObject:self[deletionPoint]];
+            [rowsToRemove addObject:row];
             deletionPoint = [NSIndexPath indexPathForRow:deletionPoint.row+1 inSection:deletionPoint.section];
         }
     }
