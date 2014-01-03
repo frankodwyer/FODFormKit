@@ -116,7 +116,7 @@ FODForm
     for (FODFormSection *section in form.sections) {
         for (FODFormRow *row in section.rows) {
             [indexPaths addObject:insertionPoint];
-            FODFormRow *newRow = [row copy];
+            FODFormRow *newRow = row;
             newRow.indexPath = insertionPoint;
             [affectedSection insertRow:newRow atIndex:insertionPoint.row];
             insertionPoint = [NSIndexPath indexPathForRow:insertionPoint.row+1 inSection:insertionPoint.section];
