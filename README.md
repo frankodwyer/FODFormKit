@@ -1,6 +1,6 @@
 # FODFormKit
 
-[![Build Status](https://travis-ci.org/frankodwyer/FODFormKit.png?branch=develop)](https://travis-ci.org/frankodwyer/FODFormKit)
+[![Build Status](https://travis-ci.org/frankodwyer/FODFormKit.png?branch=master)](https://travis-ci.org/frankodwyer/FODFormKit)
 <!-- [![Version](http://cocoapod-badges.herokuapp.com/v/FODFormKit/badge.png)](http://cocoadocs.org/docsets/FODFormKit)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/FODFormKit/badge.png)](http://cocoadocs.org/docsets/FODFormKit) -->
 
