@@ -319,15 +319,17 @@
 
 - (void) savePressed:(id)sender {
     if ([self.delegate respondsToSelector:@selector(validateForm:inFormViewController:)]) {
-        NSString *errorMessage = [self.delegate validateForm:self.form inFormViewController:self];
-        if (errorMessage) {
+        id result = [self.delegate validateForm:self.form inFormViewController:self];
+        if ([result isKindOfClass:[NSString class]]) { // if the validator returns a simple string, display it as an error message
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", @"Alert title")
-                                                            message:errorMessage
+                                                            message:result
                                                            delegate:self
                                                   cancelButtonTitle:NSLocalizedString(@"OK", @"OK Button")
                                                   otherButtonTitles:nil];
             [alert show];
             return;
+        } else if ([result isEqualToNumber:@NO]) {
+            return; // if the validator returns a boolean @NO then the form is invalid, and the validator handled UI.
         }
     }
     [[self.view fod_findFirstResponder] resignFirstResponder];
