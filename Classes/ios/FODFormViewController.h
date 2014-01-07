@@ -30,8 +30,10 @@
                         row:(FODFormRow*)row
        inFormViewController:(FODFormViewController*)form;
 
-- (NSString*) validateForm:(FODForm*)form
-      inFormViewController:(FODFormViewController*)formViewController;
+// if the validator returns a string, the form will be considered invalid, and the result will be treated as a simple localized error message and displayed.
+// if the validator returns @NO, the form will be considered invalid and it will be assumed the delegate handled UI.
+// any other result will be treated as meaning the form is valid and the form will be saved.
+- (id) validateForm:(FODForm*)form inFormViewController:(FODFormViewController*)formViewController;
 
 @end
 
