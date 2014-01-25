@@ -20,4 +20,8 @@
 
 + (UIColor*) editableItemColor;
 
+- (void) registerReuseIdentifiersForTableView:(UITableView*)tableView;
+
+- (NSString*)reuseIdentifierForRow:(FODFormRow*)row;
+
 @end

@@ -21,10 +21,8 @@
 #import "FODExpandingSubformCell.h"
 
 @interface FODCellFactory()
-
 @property (weak, nonatomic) UITableView *tableView;
 @property (weak, nonatomic) FODFormViewController *formViewController;
-
 @end
 
 
@@ -36,15 +34,19 @@
     if (self) {
         _tableView = tableView;
         _formViewController = formViewController;
-        [_tableView registerNib:self.nibForSwitchCell forCellReuseIdentifier:self.reuseIdentifierForFODBooleanRow];
-        [_tableView registerNib:self.nibForExpandingSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODExpandingSubform];
-        [_tableView registerNib:self.nibForInlineDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODInlineDatePicker];
-        [_tableView registerNib:self.nibForInlinePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODInlinePicker];
-        [_tableView registerClass:self.classForSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODForm];
-        [_tableView registerClass:self.classForDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODDateSelectionRow];
-        [_tableView registerClass:self.classForPickerCell forCellReuseIdentifier:self.reuseIdentifierForFODSelectionRow];
+        [self registerReuseIdentifiersForTableView:_tableView];
     }
     return self;
+}
+
+- (void) registerReuseIdentifiersForTableView:(UITableView*)tableView {
+    [tableView registerNib:self.nibForSwitchCell forCellReuseIdentifier:self.reuseIdentifierForFODBooleanRow];
+    [tableView registerNib:self.nibForExpandingSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODExpandingSubform];
+    [tableView registerNib:self.nibForInlineDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODInlineDatePicker];
+    [tableView registerNib:self.nibForInlinePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODInlinePicker];
+    [tableView registerClass:self.classForSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODForm];
+    [tableView registerClass:self.classForDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODDateSelectionRow];
+    [tableView registerClass:self.classForPickerCell forCellReuseIdentifier:self.reuseIdentifierForFODSelectionRow];
 }
 
 + (UIColor*) editableItemColor {
