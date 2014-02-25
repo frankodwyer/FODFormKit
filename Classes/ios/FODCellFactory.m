@@ -62,7 +62,7 @@
 
 - (NSString*)reuseIdentifierForRow:(FODFormRow*)row {
     if ([row isKindOfClass:[FODTextInputRow class]]) {
-        if (row.title) {
+        if (row.title.length > 0) {
             NSString *reuseIdentifier = [self reuseIdentifierForTextInputRowWithTitle:row];
             [_tableView registerNib:self.nibForTextInputCellWithTitle forCellReuseIdentifier:reuseIdentifier];
             return reuseIdentifier;
@@ -172,11 +172,11 @@
 }
 
 - (NSString*)reuseIdentifierForTextInputRowWithoutTitle:(FODFormRow*)row {
-    return [NSString stringWithFormat:@"FODTextInputCell2_%@_%@", @(row.indexPath.section), @(row.indexPath.row)];
+    return [NSString stringWithFormat:@"FODTextInputCell_%@_%@", @(row.indexPath.section), @(row.indexPath.row)];
 }
 
 - (NSString*)reuseIdentifierForTextInputRowWithTitle:(FODFormRow*)row {
-    return [NSString stringWithFormat:@"FODTextInputCell_%@_%@", @(row.indexPath.section), @(row.indexPath.row)];
+    return [NSString stringWithFormat:@"FODTextInputCell2_%@_%@", @(row.indexPath.section), @(row.indexPath.row)];
 }
 
 @end
