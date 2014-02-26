@@ -25,6 +25,7 @@
 @property (nonatomic,strong) NSMutableDictionary *viewState;
 @property (nonatomic,assign) BOOL displayInline; // display the editor or subform inline if possible
 
+
 // serializes to a property list format (array or dictionary)
 - (id) toPlist;
 
