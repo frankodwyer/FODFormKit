@@ -507,4 +507,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+#pragma mark - image picker delegate -
+- (void)imageSelected:(UIImage *)image withUserInfo:(id)userinfo
+{
+    FODFormRow *row = (FODFormRow *)userinfo;
+    row.workingValue = UIImagePNGRepresentation(image);
+
+    NSLog(@"");
+}
+
 @end

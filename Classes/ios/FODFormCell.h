@@ -15,8 +15,9 @@
 @class FODFormViewController;
 @protocol FODSwitchCellDelegate;
 @protocol FODTextInputCellDelegate;
+@protocol FODImagePickerCellDelegate;
 
-@protocol FODFormCellDelegate<FODDatePickerDelegate, FODPickerViewControllerDelegate, FODSwitchCellDelegate, FODTextInputCellDelegate>
+@protocol FODFormCellDelegate<FODDatePickerDelegate, FODPickerViewControllerDelegate, FODSwitchCellDelegate, FODTextInputCellDelegate, FODImagePickerCellDelegate>
 - (void)adjustHeight:(CGFloat)newHeight forRowAtIndexPath:(NSIndexPath*)indexPath;
 @end
 

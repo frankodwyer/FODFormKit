@@ -13,6 +13,7 @@
 #import "FODDatePickerViewController.h"
 #import "FODForm.h"
 #import "FODCellFactory.h"
+#import "FODImagePickerCell.h"
 
 @class FODFormViewController;
 
