@@ -95,7 +95,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.rowHeights = [[NSMutableDictionary alloc] init];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", @"Button label")
                                                                               style:UIBarButtonItemStyleDone
                                                                              target:self
