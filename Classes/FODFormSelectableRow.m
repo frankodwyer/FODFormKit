@@ -1,5 +1,5 @@
 //
-//  FODDateSelectionRow.h
+//  FODFormRow.m
 //  FormKitDemo
 //
 //  Created by Frank on 27/12/2013.
@@ -7,9 +7,8 @@
 //
 
 #import "FODFormRow.h"
-#import "FODFormSelectableRow.h"
+#import "FODFormBuilder.h"
 
-
-@interface FODDateSelectionRow : FODFormSelectableRow
+@implementation FODFormSelectableRow
 
 @end

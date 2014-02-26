@@ -7,8 +7,10 @@
 //
 
 #import "FODFormRow.h"
+#import "FODFormSelectableRow.h"
 
-@interface FODSelectionRow : FODFormRow
+
+@interface FODSelectionRow : FODFormSelectableRow
 
 @property (nonatomic,strong) NSArray *items;
 

@@ -442,7 +442,7 @@
 
 - (BOOL) tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     FODFormRow *row = self.form[indexPath];
-    return [row isKindOfClass:[FODDateSelectionRow class]] || [row isKindOfClass:[FODSelectionRow class]] || [row isKindOfClass:[FODForm class]];
+    return [row isKindOfClass:[FODFormSelectableRow class]];
 }
 
 #pragma mark form delegates

@@ -11,8 +11,10 @@
 #import "FODFormRow.h"
 #import "FODFormSection.h"
 #import "FODFormRow.h"
+#import "FODFormSelectableRow.h"
 
-@interface FODForm : FODFormRow
+
+@interface FODForm : FODFormSelectableRow
 
 @property (nonatomic, weak) FODForm *parentForm;
 @property (nonatomic, copy) NSMutableArray *sections;
