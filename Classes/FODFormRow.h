@@ -29,6 +29,9 @@
 // serializes to a property list format (array or dictionary)
 - (id) toPlist;
 
+- (NSDictionary *)extractValues;
+- (void)applyValue:(id)value;
+
 // constructs from an in memory plist
 + (FODFormRow*) fromPlist:(id)plist
               withBuilder:(FODFormBuilder*)builder;

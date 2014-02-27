@@ -197,4 +197,32 @@ FODForm
                          withBuilder:[[FODFormBuilder alloc] init]];
 }
 
+- (NSDictionary *)extractValues
+{
+    NSMutableDictionary *dictionary = [NSMutableDictionary new];
+
+    for (FODFormSection *section in self.sections) {
+        NSArray *rows = section.rows;
+        for (FODFormRow *row in rows) {
+            [dictionary addEntriesFromDictionary:[row extractValues]];
+        }
+    }
+
+    return dictionary;
+}
+
+- (void)applyValue:(id)value
+{
+    for (FODFormSection *section in self.sections) {
+        NSArray *rows = section.rows;
+        for (FODFormRow *row in rows) {
+            id rowValue = value[row.key];
+
+            if (rowValue) {
+                [row applyValue:rowValue];
+            }
+        }
+    }
+}
+
 @end

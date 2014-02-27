@@ -49,6 +49,24 @@
              @"displayInline":@(self.displayInline)};
 }
 
+- (NSDictionary *)extractValues
+{
+    NSDictionary *dictionary;
+
+    if (self.key.length > 0) {
+        id value = self.initialValue ? self.initialValue : @"";
+        dictionary = @{self.key : value};
+    }
+
+    return dictionary;
+}
+
+- (void)applyValue:(id)value
+{
+    self.workingValue = value;
+    self.initialValue = value;
+}
+
 // constructs from an in memory plist
 + (FODFormRow*) fromPlist:(id)plist
               withBuilder:(FODFormBuilder*)builder {
