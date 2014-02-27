@@ -170,14 +170,11 @@
 }
 
 - (void) scrollToIndexPath:(NSIndexPath*)indexPath {
-    CGRect currentCellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-    CGFloat currentCellRectMiddleY = currentCellRect.origin.y + currentCellRect.size.height/2;
-    CGFloat visRectHeight = self.tableView.frame.size.height - self.tableView.contentInset.bottom - self.tableView.contentInset.top;
-
-    CGFloat newOffsetY = currentCellRectMiddleY - visRectHeight/2 - self.tableView.contentInset.top;
 
     [UIView animateWithDuration:0.1 animations:^{
-        self.tableView.contentOffset = CGPointMake(0, newOffsetY);
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionMiddle
+                                      animated:NO];
     } completion:^(BOOL finished) {
         if (finished) {
             if (self.programmaticallyTransitioningCurrentEdit) {
@@ -452,10 +449,20 @@
         return;
     }
     self.rowHeights[indexPath.fod_indexPathKey] = @(newHeight);
-    [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];
-    if (newHeight != self.tableView.rowHeight) {
+    [self.tableView reloadData];
+}
+
+- (void)adjustHeight:(CGFloat)newHeight animated:(BOOL)animated forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!animated) {
+        [self adjustHeight:newHeight forRowAtIndexPath:indexPath];
+    } else {
+        if ([self tableView:self.tableView heightForRowAtIndexPath:indexPath] == newHeight) {
+            return;
+        }
+        self.rowHeights[indexPath.fod_indexPathKey] = @(newHeight);
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                              withRowAnimation:UITableViewRowAnimationAutomatic];
         [self scrollToIndexPath:indexPath];
     }
 }

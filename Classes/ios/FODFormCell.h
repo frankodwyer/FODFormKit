@@ -19,6 +19,7 @@
 
 @protocol FODFormCellDelegate<FODDatePickerDelegate, FODPickerViewControllerDelegate, FODSwitchCellDelegate, FODTextInputCellDelegate, FODImagePickerCellDelegate>
 - (void)adjustHeight:(CGFloat)newHeight forRowAtIndexPath:(NSIndexPath*)indexPath;
+- (void)adjustHeight:(CGFloat)newHeight animated:(BOOL)animated forRowAtIndexPath:(NSIndexPath*)indexPath;
 @end
 
 
