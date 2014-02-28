@@ -46,7 +46,8 @@
              @"key":self.key ?: @"",
              @"initialValue":self.initialValue ?: @"",
              @"placeHolder":self.placeHolder ?: @"",
-             @"displayInline":@(self.displayInline)};
+             @"displayInline":@(self.displayInline),
+    @"dependency":self.dependency ?: @""};
 }
 
 - (NSDictionary *)extractValues
@@ -82,6 +83,10 @@
                                      andValue:plist[@"initialValue"]
                                andPlaceHolder:plist[@"placeHolder"]];
         row.displayInline = [plist[@"displayInline"] boolValue];
+
+        if ([plist[@"dependency"] isKindOfClass:[NSDictionary class]]) {
+            row.dependency = plist[@"dependency"];
+        }
 
         [row configureWithPlist:plist];
 

@@ -78,6 +78,9 @@
     if (self.title) {
         result[@"title"] = self.title;
     }
+    if (self.dependency) {
+        result[@"dependency"] = self.dependency;
+    }
     NSMutableArray *rows = [NSMutableArray arrayWithCapacity:self.mutRows.count];
     [self.rows enumerateObjectsUsingBlock:^(FODFormRow* row, NSUInteger idx, BOOL *stop) {
         [rows addObject:row.toPlist];
@@ -91,6 +94,8 @@
            withBuilder:(FODFormBuilder*)builder {
 
     FODFormSection *section = [builder section:plist[@"title"]];
+
+    section.dependency = plist[@"dependency"];
 
     NSArray *rows = plist[@"rows"];
     for (id rowPlist in rows) {
