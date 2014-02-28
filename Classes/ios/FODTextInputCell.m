@@ -35,6 +35,9 @@
     self.textField.textColor = [FODCellFactory editableItemColor];
     self.textField.placeholder = (NSString*)row.placeHolder;
     self.titleLabel.text = row.title;
+    if (self.titleLabel.text.length > 0) {
+        [self.delegate adjustHeight:73 forRowAtIndexPath:row.indexPath];
+    }
 }
 
 - (BOOL) canBecomeFirstResponder {
