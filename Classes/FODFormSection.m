@@ -38,7 +38,11 @@
 
 - (NSArray *)visibleRows
 {
-    return [self.mutRows filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"hidden == NO"]];
+    NSArray *visibleRows = [self.mutRows filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(FODFormRow * evaluatedObject, NSDictionary *bindings) {
+        return !evaluatedObject.hidden;
+    }]];
+
+    return visibleRows;
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len {
