@@ -18,6 +18,7 @@
 
 @property (nonatomic, weak) FODForm *parentForm;
 @property (nonatomic, copy) NSMutableArray *sections;
+@property (nonatomic, readonly) NSArray *visibleSections;
 
 - (id)objectForKeyedSubscript:(id <NSCopying>)key;
 - (id)objectAtIndexedSubscript: (NSInteger) index;

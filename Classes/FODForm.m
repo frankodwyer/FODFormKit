@@ -13,6 +13,7 @@
 
 @property (nonatomic,strong) NSMutableDictionary *keysToRows;
 
+
 @end
 
 @implementation
@@ -33,17 +34,23 @@ FODForm
         return [self valueForKeyPath:key];
     } else {
         NSIndexPath *idx = (NSIndexPath*)key;
-        FODFormSection *section = self.sections[idx.section];
+        FODFormSection *section = self.visibleSections[idx.section];
         return section[idx.row];
     }
 }
 
 - (id) objectAtIndexedSubscript:(NSInteger)index {
-    return self.sections[index];
+    return self.visibleSections[index];
 }
 
 - (NSUInteger)numberOfSections {
-    return self.sections.count;
+
+    return self.visibleSections.count;
+}
+
+- (NSArray *)visibleSections
+{
+    return  [self.sections filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"hidden == NO"]];
 }
 
 - (void) row:(FODFormRow*)row wasAddedInSection:(FODFormSection*)section {

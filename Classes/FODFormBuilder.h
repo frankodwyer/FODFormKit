@@ -21,7 +21,7 @@
 
 - (FODForm*) startFormWithTitle:(NSString*)title
                          andKey:(NSString*)key;
-
+- (FODFormSection*) section:(NSString*)title dependency:(NSDictionary *)dependency;
 - (FODFormSection*) section:(NSString*)title;
 
 - (FODFormSection*) section;
@@ -30,6 +30,13 @@
                                 andTitle:(NSString*)title
                                 andValue:(id)defaultValue
                                 andItems:(NSArray*)items;
+
+- (FODFormRow*) rowWithKey:(NSString*)key
+                   ofClass:(Class)klass
+                  andTitle:(NSString*)title
+                  andValue:(id)defaultValue
+            andPlaceHolder:(NSString*)placeHolder
+                dependency:(NSDictionary *)dependency;
 
 - (FODFormRow*) rowWithKey:(NSString*)key
                    ofClass:(Class)klass

@@ -54,7 +54,7 @@
     NSDictionary *dictionary;
 
     if (self.key.length > 0) {
-        id value = self.initialValue ? self.initialValue : @"";
+        id value = self.workingValue ? self.workingValue : @"";
         dictionary = @{self.key : value};
     }
 

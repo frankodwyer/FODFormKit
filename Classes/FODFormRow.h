@@ -17,6 +17,9 @@
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,copy) NSIndexPath *indexPath;
 
+@property (nonatomic) NSDictionary *dependency;
+@property (nonatomic) BOOL hidden;
+
 @property (nonatomic,readonly) BOOL isEditable;
 @property (nonatomic,copy) id<NSCopying> initialValue;
 @property (nonatomic,copy) id<NSCopying> workingValue;

@@ -13,6 +13,7 @@
 @interface FODFormSection()
 @property (nonatomic,strong) NSMutableArray *mutRows;
 @property (nonatomic,weak) FODForm *form;
+@property (nonatomic, readonly) NSArray * visibleRows;
 @end
 
 @implementation FODFormSection
@@ -28,15 +29,20 @@
 }
 
 - (id) objectAtIndexedSubscript:(NSInteger)index {
-    return self.mutRows[index];
+    return self.visibleRows[index];
 }
 
 - (NSUInteger) numberOfRows {
-    return self.mutRows.count;
+    return self.visibleRows.count;
+}
+
+- (NSArray *)visibleRows
+{
+    return [self.mutRows filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"hidden == NO"]];
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len {
-    return [self.mutRows countByEnumeratingWithState:state objects:buffer count:len];
+    return [self.visibleRows countByEnumeratingWithState:state objects:buffer count:len];
 }
 
 - (void)addRow:(FODFormRow *)row {

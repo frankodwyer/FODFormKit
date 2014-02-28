@@ -16,6 +16,8 @@
 
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,readonly) NSArray *rows;
+@property (nonatomic) BOOL hidden;
+@property (nonatomic) NSDictionary *dependency;
 
 - (id)initWithForm:(FODForm*)form;
 
