@@ -28,17 +28,20 @@
 {
     self = [super init];
     if (self) {
-        _shortCutItems = @[
+        /*_shortCutItems = @[
                                NSLocalizedString(@"Yesterday", @"Label in date picker"),
                                NSLocalizedString(@"Today", @"Label in date picker"),
                                NSLocalizedString(@"Tomorrow", @"Label in date picker"),
                                ];
+                               */
         _today = [NSDate date].fod_startOfDay;
+        /*
         _shortCutDates = @[
                                [_today fod_dateByAddingDays:-1],
                                _today,
                                [_today fod_dateByAddingDays:1],
                                ];
+                               */
 
     }
     return self;
