@@ -60,8 +60,8 @@
         self.row.workingValue = textView.text;
 
     }
-    if (textView.contentSize.height != self.bounds.size.height) {
-        [self.delegate adjustHeight:(textView.contentSize.height + textView.frame.origin.y + 8) forRowAtIndexPath:self.row.indexPath];
+    if (textView.contentSize.height + textView.frame.origin.y + 10 != self.bounds.size.height) {
+        [self.delegate adjustHeight:(textView.contentSize.height + textView.frame.origin.y + 10) animated:YES forRowAtIndexPath:self.row.indexPath];
     }
 }
 

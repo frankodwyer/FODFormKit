@@ -18,6 +18,8 @@
 #import "FODDatePickerViewController.h"
 #import "FODPickerCell.h"
 #import "FODDatePickerCell.h"
+#import "FODMultiLineTextInputCell.h"
+
 
 @interface FODFormViewController ()
 
@@ -173,7 +175,7 @@
 - (void) scrollToIndexPath:(NSIndexPath*)indexPath {
     [UIView animateWithDuration:0.1 animations:^{
         [self.tableView scrollToRowAtIndexPath:indexPath
-                              atScrollPosition:UITableViewScrollPositionMiddle
+                              atScrollPosition:UITableViewScrollPositionBottom
                                       animated:NO];
     } completion:^(BOOL finished) {
         if (finished) {
@@ -370,6 +372,9 @@
     if ([cell isKindOfClass:[FODTextInputCell class]]) {
         FODTextInputCell *textCell = (FODTextInputCell*)cell;
         self.textFields[indexPath.fod_indexPathKey] = textCell.textField;
+    }  else if ([cell isKindOfClass:[FODMultiLineTextInputCell class]]) {
+        FODMultiLineTextInputCell *textCell = (FODMultiLineTextInputCell*)cell;
+        self.textFields[indexPath.fod_indexPathKey] = textCell.textView;
     } else {
         [self.textFields removeObjectForKey:indexPath.fod_indexPathKey];
     }
@@ -559,7 +564,16 @@
         return;
     }
     self.rowHeights[indexPath.fod_indexPathKey] = @(newHeight);
+
+    NSIndexPath *savedCurrentlyEditingIndexPath = self.currentlyEditingIndexPath;
     [self.tableView reloadData];
+    if (savedCurrentlyEditingIndexPath) {
+        self.programmaticallyTransitioningCurrentEdit = YES;
+        self.currentlyEditingIndexPath = savedCurrentlyEditingIndexPath;
+        [self makeCurrentlyEditingFieldFirstResponder];
+    } else {
+        [self scrollToIndexPath:indexPath];
+    }
 }
 
 - (void)adjustHeight:(CGFloat)newHeight animated:(BOOL)animated forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -571,9 +585,18 @@
             return;
         }
         self.rowHeights[indexPath.fod_indexPathKey] = @(newHeight);
+
+        NSIndexPath *savedCurrentlyEditingIndexPath = self.currentlyEditingIndexPath;
+        self.currentlyEditingIndexPath = nil;
         [self.tableView reloadRowsAtIndexPaths:@[indexPath]
                               withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self scrollToIndexPath:indexPath];
+        if (savedCurrentlyEditingIndexPath) {
+            self.programmaticallyTransitioningCurrentEdit = YES;
+            self.currentlyEditingIndexPath = savedCurrentlyEditingIndexPath;
+            [self makeCurrentlyEditingFieldFirstResponder];
+        } else {
+            [self scrollToIndexPath:indexPath];
+        }
     }
 }
 
