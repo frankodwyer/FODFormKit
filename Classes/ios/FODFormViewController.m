@@ -171,7 +171,6 @@
 }
 
 - (void) scrollToIndexPath:(NSIndexPath*)indexPath {
-
     [UIView animateWithDuration:0.1 animations:^{
         [self.tableView scrollToRowAtIndexPath:indexPath
                               atScrollPosition:UITableViewScrollPositionMiddle
@@ -532,7 +531,11 @@
     if (self.rowHeights[indexPath.fod_indexPathKey]) {
         return [self.rowHeights[indexPath.fod_indexPathKey] floatValue];
     } else {
-        return tableView.rowHeight;
+        if ([[self.form[indexPath] class] respondsToSelector:@selector(defaultHeight)]) {
+            return [[self.form[indexPath] class] defaultHeight];
+        }
+
+        return  tableView.rowHeight;
     }
 }
 
@@ -631,8 +634,6 @@
 {
     FODFormRow *row = (FODFormRow *)userinfo;
     row.workingValue = UIImagePNGRepresentation(image);
-
-    NSLog(@"");
 }
 
 @end

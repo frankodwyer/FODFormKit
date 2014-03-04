@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
 //
 
-#import "FODTextInputRow.h"
+#import "FODMultiLineTextInputRow.h"
 
-@implementation FODTextInputRow
+@implementation FODMultiLineTextInputRow
 
 - (BOOL)isEditable {
     return YES;

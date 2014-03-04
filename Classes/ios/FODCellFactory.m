@@ -40,6 +40,7 @@
 }
 
 - (void) registerReuseIdentifiersForTableView:(UITableView*)tableView {
+    [tableView registerNib:self.nibForMultiLineTextInputRow forCellReuseIdentifier:self.reuseIdentifierForFODMultiLineTextInputRow];
     [tableView registerNib:self.nibForImagePickerRow forCellReuseIdentifier:self.reuseIdentifierForFODImagePickerRow];
     [tableView registerNib:self.nibForSwitchCell forCellReuseIdentifier:self.reuseIdentifierForFODBooleanRow];
     [tableView registerNib:self.nibForExpandingSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODExpandingSubform];
@@ -146,6 +147,10 @@
     return [UINib nibWithNibName:@"FODImagePickerCell" bundle:nil];
 }
 
+- (UINib*) nibForMultiLineTextInputRow {
+    return [UINib nibWithNibName:@"FODMultiLineTextInputCell" bundle:nil];
+}
+
 #pragma  mark reuse identifiers
 
 - (NSString *)reuseIdentifierForFODSelectionRow {
@@ -178,6 +183,11 @@
 
 - (NSString *)reuseIdentifierForFODImagePickerRow {
     return @"FODImagePickerCell";
+}
+
+
+- (NSString *)reuseIdentifierForFODMultiLineTextInputRow {
+    return @"FODMultiLineTextInputCell";
 }
 
 - (NSString*)reuseIdentifierForTextInputRowWithoutTitle:(FODFormRow*)row {

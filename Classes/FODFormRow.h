@@ -28,6 +28,7 @@
 @property (nonatomic,strong) NSMutableDictionary *viewState;
 @property (nonatomic,assign) BOOL displayInline; // display the editor or subform inline if possible
 
++(CGFloat)defaultHeight;
 
 // serializes to a property list format (array or dictionary)
 - (id) toPlist;

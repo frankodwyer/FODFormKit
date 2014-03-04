@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="FODMultiLineTextInputCell" rowHeight="83" id="3" customClass="FODMultiLineTextInputCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3" id="qCD-kK-uf2">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30">
+                        <rect key="frame" x="16" y="8" width="288" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="udP-al-91U"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFL-d3-aqg">
+                        <rect key="frame" x="12" y="35" width="296" height="33"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="LFL-d3-aqg" secondAttribute="trailing" constant="12" id="28o-wH-jTc"/>
+                    <constraint firstItem="30" firstAttribute="centerX" secondItem="LFL-d3-aqg" secondAttribute="centerX" id="FyG-XV-I2b"/>
+                    <constraint firstItem="LFL-d3-aqg" firstAttribute="top" secondItem="30" secondAttribute="bottom" constant="8" symbolic="YES" id="G0g-Za-MVV"/>
+                    <constraint firstItem="30" firstAttribute="top" secondItem="qCD-kK-uf2" secondAttribute="top" constant="8" id="ODV-NK-SiS"/>
+                    <constraint firstItem="LFL-d3-aqg" firstAttribute="centerX" secondItem="qCD-kK-uf2" secondAttribute="centerX" id="QGp-l9-tv7"/>
+                    <constraint firstAttribute="bottom" secondItem="LFL-d3-aqg" secondAttribute="bottom" constant="8" id="X6l-HY-hme"/>
+                    <constraint firstItem="30" firstAttribute="leading" secondItem="qCD-kK-uf2" secondAttribute="leading" constant="16" id="hsO-WM-vWX"/>
+                    <constraint firstItem="LFL-d3-aqg" firstAttribute="leading" secondItem="qCD-kK-uf2" secondAttribute="leading" constant="12" id="uSr-no-JQD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textView" destination="LFL-d3-aqg" id="g6n-Ql-yhi"/>
+                <outlet property="titleLabel" destination="30" id="34"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
