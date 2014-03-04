@@ -18,8 +18,9 @@
     [self.delegate startedEditing:self.row];
 }
 
--(void)touchesBegan:(NSSet*)touches
-          withEvent:(UIEvent*)event {
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
 
     if (!self.textField.isFirstResponder) {
         [self.textField becomeFirstResponder];
