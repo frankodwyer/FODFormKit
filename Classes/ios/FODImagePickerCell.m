@@ -2,8 +2,7 @@
 //  FODInlinePickerCell.m
 //  FormKitDemo
 //
-//  Created by Frank on 01/01/2014.
-//  Copyright (c) 2014 Frank O'Dwyer. All rights reserved.
+//  Copyright 2014 Thimo Bess, arconsis IT-Solutions GmbH
 //
 
 #import "FODTextInputCell.h"
