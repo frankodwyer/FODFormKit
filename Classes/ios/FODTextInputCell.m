@@ -3,6 +3,8 @@
 //
 //  Created by Frank on 30/09/2012.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Jonas Stubenrauch, arconsis IT-Solutions GmbH
 //
 
 #import "FODTextInputCell.h"
@@ -18,8 +20,9 @@
     [self.delegate startedEditing:self.row];
 }
 
--(void)touchesBegan:(NSSet*)touches
-          withEvent:(UIEvent*)event {
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
 
     if (!self.textField.isFirstResponder) {
         [self.textField becomeFirstResponder];
@@ -35,6 +38,9 @@
     self.textField.textColor = [FODCellFactory editableItemColor];
     self.textField.placeholder = (NSString*)row.placeHolder;
     self.titleLabel.text = row.title;
+    if (self.titleLabel.text.length > 0) {
+        [self.delegate adjustHeight:73 forRowAtIndexPath:row.indexPath];
+    }
 }
 
 - (BOOL) canBecomeFirstResponder {

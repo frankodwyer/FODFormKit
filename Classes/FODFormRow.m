@@ -4,6 +4,9 @@
 //
 //  Created by Frank on 27/12/2013.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Thimo Bess, arconsis IT-Solutions GmbH
+//  Modified work Copyright 2014 Jonas Stubenrauch, arconsis IT-Solutions GmbH
 //
 
 #import "FODFormRow.h"
@@ -46,7 +49,26 @@
              @"key":self.key ?: @"",
              @"initialValue":self.initialValue ?: @"",
              @"placeHolder":self.placeHolder ?: @"",
-             @"displayInline":@(self.displayInline)};
+             @"displayInline":@(self.displayInline),
+    @"dependency":self.dependency ?: @""};
+}
+
+- (NSDictionary *)extractValues
+{
+    NSDictionary *dictionary;
+
+    if (self.key.length > 0) {
+        id value = self.workingValue ? self.workingValue : @"";
+        dictionary = @{self.key : value};
+    }
+
+    return dictionary;
+}
+
+- (void)applyValue:(id)value
+{
+    self.workingValue = value;
+    self.initialValue = value;
 }
 
 // constructs from an in memory plist
@@ -64,6 +86,10 @@
                                      andValue:plist[@"initialValue"]
                                andPlaceHolder:plist[@"placeHolder"]];
         row.displayInline = [plist[@"displayInline"] boolValue];
+
+        if ([plist[@"dependency"] isKindOfClass:[NSDictionary class]]) {
+            row.dependency = plist[@"dependency"];
+        }
 
         [row configureWithPlist:plist];
 

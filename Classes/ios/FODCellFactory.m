@@ -4,6 +4,8 @@
 //
 //  Created by Frank on 28/12/2013.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Thimo Bess, arconsis IT-Solutions GmbH
 //
 
 #import "FODCellFactory.h"
@@ -40,6 +42,8 @@
 }
 
 - (void) registerReuseIdentifiersForTableView:(UITableView*)tableView {
+    [tableView registerNib:self.nibForMultiLineTextInputRow forCellReuseIdentifier:self.reuseIdentifierForFODMultiLineTextInputRow];
+    [tableView registerNib:self.nibForImagePickerRow forCellReuseIdentifier:self.reuseIdentifierForFODImagePickerRow];
     [tableView registerNib:self.nibForSwitchCell forCellReuseIdentifier:self.reuseIdentifierForFODBooleanRow];
     [tableView registerNib:self.nibForExpandingSubformCell forCellReuseIdentifier:self.reuseIdentifierForFODExpandingSubform];
     [tableView registerNib:self.nibForInlineDatePickerCell forCellReuseIdentifier:self.reuseIdentifierForFODInlineDatePicker];
@@ -62,7 +66,7 @@
 
 - (NSString*)reuseIdentifierForRow:(FODFormRow*)row {
     if ([row isKindOfClass:[FODTextInputRow class]]) {
-        if (row.title) {
+        if (row.title.length > 0) {
             NSString *reuseIdentifier = [self reuseIdentifierForTextInputRowWithTitle:row];
             [_tableView registerNib:self.nibForTextInputCellWithTitle forCellReuseIdentifier:reuseIdentifier];
             return reuseIdentifier;
@@ -141,6 +145,14 @@
     return [UINib nibWithNibName:@"FODSwitchCell" bundle:nil];
 }
 
+- (UINib*) nibForImagePickerRow {
+    return [UINib nibWithNibName:@"FODImagePickerCell" bundle:nil];
+}
+
+- (UINib*) nibForMultiLineTextInputRow {
+    return [UINib nibWithNibName:@"FODMultiLineTextInputCell" bundle:nil];
+}
+
 #pragma  mark reuse identifiers
 
 - (NSString *)reuseIdentifierForFODSelectionRow {
@@ -171,12 +183,21 @@
     return @"FODSwitchCell";
 }
 
+- (NSString *)reuseIdentifierForFODImagePickerRow {
+    return @"FODImagePickerCell";
+}
+
+
+- (NSString *)reuseIdentifierForFODMultiLineTextInputRow {
+    return @"FODMultiLineTextInputCell";
+}
+
 - (NSString*)reuseIdentifierForTextInputRowWithoutTitle:(FODFormRow*)row {
-    return [NSString stringWithFormat:@"FODTextInputCell2_%@_%@", @(row.indexPath.section), @(row.indexPath.row)];
+    return [NSString stringWithFormat:@"FODTextInputCell_%@_%@", @(row.indexPath.section), @(row.indexPath.row)];
 }
 
 - (NSString*)reuseIdentifierForTextInputRowWithTitle:(FODFormRow*)row {
-    return [NSString stringWithFormat:@"FODTextInputCell_%@_%@", @(row.indexPath.section), @(row.indexPath.row)];
+    return [NSString stringWithFormat:@"FODTextInputCell2_%@_%@", @(row.indexPath.section), @(row.indexPath.row)];
 }
 
 @end

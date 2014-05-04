@@ -4,6 +4,8 @@
 //
 //  Created by Frank on 27/12/2013.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Jonas Stubenrauch, arconsis IT-Solutions GmbH
 //
 
 #import <Foundation/Foundation.h>
@@ -16,6 +18,8 @@
 
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,readonly) NSArray *rows;
+@property (nonatomic) BOOL hidden;
+@property (nonatomic) NSDictionary *dependency;
 
 - (id)initWithForm:(FODForm*)form;
 

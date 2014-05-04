@@ -4,6 +4,9 @@
 //
 //  Created by Frank on 26/12/2013.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Thimo Bess, arconsis IT-Solutions GmbH
+//  Modified work Copyright 2014 Jonas Stubenrauch, arconsis IT-Solutions GmbH
 //
 
 #import "FODForm.h"
@@ -12,6 +15,7 @@
 @interface FODForm()
 
 @property (nonatomic,strong) NSMutableDictionary *keysToRows;
+
 
 @end
 
@@ -33,17 +37,23 @@ FODForm
         return [self valueForKeyPath:key];
     } else {
         NSIndexPath *idx = (NSIndexPath*)key;
-        FODFormSection *section = self.sections[idx.section];
+        FODFormSection *section = self.visibleSections[idx.section];
         return section[idx.row];
     }
 }
 
 - (id) objectAtIndexedSubscript:(NSInteger)index {
-    return self.sections[index];
+    return self.visibleSections[index];
 }
 
 - (NSUInteger)numberOfSections {
-    return self.sections.count;
+
+    return self.visibleSections.count;
+}
+
+- (NSArray *)visibleSections
+{
+    return  [self.sections filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"hidden == NO"]];
 }
 
 - (void) row:(FODFormRow*)row wasAddedInSection:(FODFormSection*)section {
@@ -195,6 +205,34 @@ FODForm
 + (FODForm*) fromPlist:(id)plist {
     return (FODForm*)[self fromPlist:plist
                          withBuilder:[[FODFormBuilder alloc] init]];
+}
+
+- (NSDictionary *)extractValues
+{
+    NSMutableDictionary *dictionary = [NSMutableDictionary new];
+
+    for (FODFormSection *section in self.sections) {
+        NSArray *rows = section.rows;
+        for (FODFormRow *row in rows) {
+            [dictionary addEntriesFromDictionary:[row extractValues]];
+        }
+    }
+
+    return dictionary;
+}
+
+- (void)applyValue:(id)value
+{
+    for (FODFormSection *section in self.sections) {
+        NSArray *rows = section.rows;
+        for (FODFormRow *row in rows) {
+            id rowValue = value[row.key];
+
+            if (rowValue) {
+                [row applyValue:rowValue];
+            }
+        }
+    }
 }
 
 @end

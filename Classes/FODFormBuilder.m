@@ -4,6 +4,8 @@
 //
 //  Created by Frank on 28/12/2013.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Jonas Stubenrauch, arconsis IT-Solutions GmbH
 //
 
 #import "FODFormBuilder.h"
@@ -35,6 +37,13 @@
     return [self startFormWithTitle:title andKey:nil];
 }
 
+- (FODFormSection *)section:(NSString *)title dependency:(NSDictionary *)dependency
+{
+    FODFormSection *section = [self section:title];
+    section.dependency = dependency;
+    return section;
+}
+
 - (FODFormSection*) section:(NSString*)title {
     FODFormSection *section = [[FODFormSection alloc] initWithForm:self.currentForm];
     section.title = title;
@@ -44,6 +53,19 @@
 
 - (FODFormSection*) section {
     return [self section:nil];
+}
+
+- (FODFormRow*) rowWithKey:(NSString*)key
+                   ofClass:(Class)klass
+                  andTitle:(NSString*)title
+                  andValue:(id)defaultValue
+            andPlaceHolder:(NSString*)placeHolder
+                dependency:(NSDictionary *)dependency
+{
+    FODFormRow *row = [self rowWithKey:key ofClass:klass andTitle:title
+                              andValue:defaultValue andPlaceHolder:placeHolder];
+    row.dependency = dependency;
+    return row;
 }
 
 - (FODFormRow*) rowWithKey:(NSString*)key

@@ -4,6 +4,8 @@
 //
 //  Created by Frank on 28/12/2013.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Jonas Stubenrauch, arconsis IT-Solutions GmbH
 //
 
 #import <UIKit/UIKit.h>
@@ -15,9 +17,11 @@
 @class FODFormViewController;
 @protocol FODSwitchCellDelegate;
 @protocol FODTextInputCellDelegate;
+@protocol FODImagePickerCellDelegate;
 
-@protocol FODFormCellDelegate<FODDatePickerDelegate, FODPickerViewControllerDelegate, FODSwitchCellDelegate, FODTextInputCellDelegate>
+@protocol FODFormCellDelegate<FODDatePickerDelegate, FODPickerViewControllerDelegate, FODSwitchCellDelegate, FODTextInputCellDelegate, FODImagePickerCellDelegate>
 - (void)adjustHeight:(CGFloat)newHeight forRowAtIndexPath:(NSIndexPath*)indexPath;
+- (void)adjustHeight:(CGFloat)newHeight animated:(BOOL)animated forRowAtIndexPath:(NSIndexPath*)indexPath;
 @end
 
 

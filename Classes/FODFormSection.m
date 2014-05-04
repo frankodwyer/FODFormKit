@@ -4,6 +4,8 @@
 //
 //  Created by Frank on 27/12/2013.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Jonas Stubenrauch, arconsis IT-Solutions GmbH
 //
 
 #import "FODFormSection.h"
@@ -13,6 +15,7 @@
 @interface FODFormSection()
 @property (nonatomic,strong) NSMutableArray *mutRows;
 @property (nonatomic,weak) FODForm *form;
+@property (nonatomic, readonly) NSArray * visibleRows;
 @end
 
 @implementation FODFormSection
@@ -28,15 +31,24 @@
 }
 
 - (id) objectAtIndexedSubscript:(NSInteger)index {
-    return self.mutRows[index];
+    return self.visibleRows[index];
 }
 
 - (NSUInteger) numberOfRows {
-    return self.mutRows.count;
+    return self.visibleRows.count;
+}
+
+- (NSArray *)visibleRows
+{
+    NSArray *visibleRows = [self.mutRows filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(FODFormRow * evaluatedObject, NSDictionary *bindings) {
+        return !evaluatedObject.hidden;
+    }]];
+
+    return visibleRows;
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len {
-    return [self.mutRows countByEnumeratingWithState:state objects:buffer count:len];
+    return [self.visibleRows countByEnumeratingWithState:state objects:buffer count:len];
 }
 
 - (void)addRow:(FODFormRow *)row {
@@ -72,6 +84,9 @@
     if (self.title) {
         result[@"title"] = self.title;
     }
+    if (self.dependency) {
+        result[@"dependency"] = self.dependency;
+    }
     NSMutableArray *rows = [NSMutableArray arrayWithCapacity:self.mutRows.count];
     [self.rows enumerateObjectsUsingBlock:^(FODFormRow* row, NSUInteger idx, BOOL *stop) {
         [rows addObject:row.toPlist];
@@ -85,6 +100,8 @@
            withBuilder:(FODFormBuilder*)builder {
 
     FODFormSection *section = [builder section:plist[@"title"]];
+
+    section.dependency = plist[@"dependency"];
 
     NSArray *rows = plist[@"rows"];
     for (id rowPlist in rows) {

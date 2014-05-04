@@ -3,6 +3,9 @@
 //
 //  Created by Frank on 29/09/2012.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Thimo Bess, arconsis IT-Solutions GmbH
+//  Modified work Copyright 2014 Jonas Stubenrauch, arconsis IT-Solutions GmbH
 //
 
 
@@ -18,6 +21,8 @@
 #import "FODDatePickerViewController.h"
 #import "FODPickerCell.h"
 #import "FODDatePickerCell.h"
+#import "FODMultiLineTextInputCell.h"
+
 
 @interface FODFormViewController ()
 
@@ -95,7 +100,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.rowHeights = [[NSMutableDictionary alloc] init];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", @"Button label")
                                                                               style:UIBarButtonItemStyleDone
                                                                              target:self
@@ -116,7 +121,7 @@
     self.cellFactory = [[FODCellFactory alloc] initWithTableView:self.tableView
                                            andFormViewController:self];
     [self.view addSubview:self.tableView];
-    
+
     // create a toolbar to go above the textfield keyboard with previous/next navigators.
     self.toolbar= [[UIToolbar alloc] init];
     [self.toolbar sizeToFit];
@@ -159,6 +164,7 @@
     if (_form != form) {
         _form = form;
         [self.tableView reloadData];
+        [self checkDependencies];
     }
 }
 
@@ -170,14 +176,10 @@
 }
 
 - (void) scrollToIndexPath:(NSIndexPath*)indexPath {
-    CGRect currentCellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-    CGFloat currentCellRectMiddleY = currentCellRect.origin.y + currentCellRect.size.height/2;
-    CGFloat visRectHeight = self.tableView.frame.size.height - self.tableView.contentInset.bottom - self.tableView.contentInset.top;
-
-    CGFloat newOffsetY = currentCellRectMiddleY - visRectHeight/2 - self.tableView.contentInset.top;
-
     [UIView animateWithDuration:0.1 animations:^{
-        self.tableView.contentOffset = CGPointMake(0, newOffsetY);
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionBottom
+                                      animated:NO];
     } completion:^(BOOL finished) {
         if (finished) {
             if (self.programmaticallyTransitioningCurrentEdit) {
@@ -373,6 +375,9 @@
     if ([cell isKindOfClass:[FODTextInputCell class]]) {
         FODTextInputCell *textCell = (FODTextInputCell*)cell;
         self.textFields[indexPath.fod_indexPathKey] = textCell.textField;
+    }  else if ([cell isKindOfClass:[FODMultiLineTextInputCell class]]) {
+        FODMultiLineTextInputCell *textCell = (FODMultiLineTextInputCell*)cell;
+        self.textFields[indexPath.fod_indexPathKey] = textCell.textView;
     } else {
         [self.textFields removeObjectForKey:indexPath.fod_indexPathKey];
     }
@@ -422,13 +427,123 @@
     [self keyboardHeightChangedWithUserInfo:userInfo];
 }
 
+- (void)checkDependencies
+{
+    NSArray *visible = [self.form.visibleSections copy];
+    NSMutableArray *insertIndexPaths = [NSMutableArray new];
+    NSMutableArray *deleteIndexPaths = [NSMutableArray new];
+    NSMutableArray *insertSections = [NSMutableArray new];
+    NSMutableArray *deleteSections = [NSMutableArray new];
+    NSDictionary *values = [self.form extractValues];
+
+    NSInteger section = 0;
+    NSInteger row = 0;
+    for (FODFormSection *formSection in self.form.sections) {
+        row = 0;
+        for (FODFormRow *formRow in formSection.rows) {
+            if (formRow.dependency) {
+                BOOL showRow = NO;
+                BOOL needsReload = NO;
+
+                for (NSString *key in formRow.dependency) {
+                    NSArray *allowedValues = formRow.dependency[key];
+                    id value = values[key];
+                    if ([allowedValues containsObject:value]) {
+                        showRow = YES;
+                    }
+                }
+
+                if (formRow.hidden == showRow) {
+                    if (showRow) {
+                        [insertIndexPaths addObject:[NSIndexPath indexPathForRow:row inSection:section]];
+                    } else {
+                        [deleteIndexPaths addObject:formRow.indexPath];
+                    }
+                }
+
+                formRow.hidden = !showRow;
+//                if (!showRow) {
+//                    NSNumber *newHeight = @0;
+//                    needsReload = ![self.rowHeights[row.indexPath.fod_indexPathKey] isEqual:newHeight];
+//                    self.rowHeights[row.indexPath.fod_indexPathKey] = newHeight;
+//                } else {
+//                    needsReload = self.rowHeights[row.indexPath.fod_indexPathKey] != nil;
+//                    [self.rowHeights removeObjectForKey:row.indexPath.fod_indexPathKey];
+//                }
+
+//                if (needsReload) {
+//                    [reloadIndexPaths addObject:row.indexPath];
+//                }
+            }
+
+            formRow.indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+            if (!formRow.hidden) {
+                row++;
+            }
+        }
+
+        BOOL showSection = formSection.numberOfRows > 0;
+
+        if (showSection && formSection.dependency) {
+            showSection = NO;
+            for (NSString *key in formSection.dependency) {
+                NSArray *allowedValues = formSection.dependency[key];
+                id value = values[key];
+                if ([allowedValues containsObject:value]) {
+                    showSection = YES;
+                }
+            }
+
+        }
+
+
+        if (formSection.hidden == showSection) {
+            if (showSection) {
+                [insertSections addObject:@(section)];
+            } else {
+                [deleteSections addObject:@([visible indexOfObject:formSection])];
+            }
+        }
+        formSection.hidden = !showSection;
+
+        if (!formSection.hidden) {
+            section++;
+        }
+    }
+    [self.tableView beginUpdates];
+    if (insertIndexPaths.count > 0) {
+        [self.tableView insertRowsAtIndexPaths:insertIndexPaths
+                              withRowAnimation:UITableViewRowAnimationFade];
+    }
+
+    if (deleteIndexPaths.count > 0) {
+        [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths
+                              withRowAnimation:UITableViewRowAnimationFade];
+    }
+
+    for (NSNumber *insertSection in insertSections) {
+        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:[insertSection unsignedIntegerValue]]
+                      withRowAnimation:UITableViewRowAnimationFade];
+    }
+
+    for (NSNumber *deleteSection in deleteSections) {
+        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:[deleteSection unsignedIntegerValue]]
+                      withRowAnimation:UITableViewRowAnimationFade];
+    }
+    [self.tableView endUpdates];
+}
+
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.rowHeights[indexPath.fod_indexPathKey]) {
         return [self.rowHeights[indexPath.fod_indexPathKey] floatValue];
     } else {
-        return tableView.rowHeight;
+        if ([[self.form[indexPath] class] respondsToSelector:@selector(defaultHeight)]) {
+            return [[self.form[indexPath] class] defaultHeight];
+        }
+
+        return  tableView.rowHeight;
     }
 }
 
@@ -442,7 +557,7 @@
 
 - (BOOL) tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     FODFormRow *row = self.form[indexPath];
-    return [row isKindOfClass:[FODDateSelectionRow class]] || [row isKindOfClass:[FODSelectionRow class]] || [row isKindOfClass:[FODForm class]];
+    return [row isKindOfClass:[FODFormSelectableRow class]];
 }
 
 #pragma mark form delegates
@@ -452,11 +567,39 @@
         return;
     }
     self.rowHeights[indexPath.fod_indexPathKey] = @(newHeight);
-    [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];
-    if (newHeight != self.tableView.rowHeight) {
+
+    NSIndexPath *savedCurrentlyEditingIndexPath = self.currentlyEditingIndexPath;
+    [self.tableView reloadData];
+    if (savedCurrentlyEditingIndexPath) {
+        self.programmaticallyTransitioningCurrentEdit = YES;
+        self.currentlyEditingIndexPath = savedCurrentlyEditingIndexPath;
+        [self makeCurrentlyEditingFieldFirstResponder];
+    } else {
         [self scrollToIndexPath:indexPath];
+    }
+}
+
+- (void)adjustHeight:(CGFloat)newHeight animated:(BOOL)animated forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!animated) {
+        [self adjustHeight:newHeight forRowAtIndexPath:indexPath];
+    } else {
+        if ([self tableView:self.tableView heightForRowAtIndexPath:indexPath] == newHeight) {
+            return;
+        }
+        self.rowHeights[indexPath.fod_indexPathKey] = @(newHeight);
+
+        NSIndexPath *savedCurrentlyEditingIndexPath = self.currentlyEditingIndexPath;
+        self.currentlyEditingIndexPath = nil;
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                              withRowAnimation:UITableViewRowAnimationAutomatic];
+        if (savedCurrentlyEditingIndexPath) {
+            self.programmaticallyTransitioningCurrentEdit = YES;
+            self.currentlyEditingIndexPath = savedCurrentlyEditingIndexPath;
+            [self makeCurrentlyEditingFieldFirstResponder];
+        } else {
+            [self scrollToIndexPath:indexPath];
+        }
     }
 }
 
@@ -466,6 +609,7 @@
     row.workingValue = date;
     [self.tableView reloadData];
     [self.navigationController popViewControllerAnimated:YES];
+    [self checkDependencies];
 }
 
 #pragma mark text input delegate
@@ -474,6 +618,7 @@
                userInfo:(id)userInfo {
     FODFormRow *row = (FODFormRow*)userInfo;
     row.workingValue = newValue;
+    [self checkDependencies];
 }
 
 - (void) startedEditing:(id)userInfo {
@@ -490,6 +635,7 @@
     row.workingValue = @(newValue);
     self.currentlyEditingIndexPath = nil;
     [self.tableView reloadData];
+    [self checkDependencies];
 }
 
 #pragma mark picker delegate
@@ -505,6 +651,15 @@
     }
     [self.tableView reloadData];
     [self.navigationController popViewControllerAnimated:YES];
+    [self checkDependencies];
+}
+
+
+#pragma mark - image picker delegate -
+- (void)imageSelected:(UIImage *)image withUserInfo:(id)userinfo
+{
+    FODFormRow *row = (FODFormRow *)userinfo;
+    row.workingValue = UIImagePNGRepresentation(image);
 }
 
 @end

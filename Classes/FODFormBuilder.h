@@ -4,6 +4,8 @@
 //
 //  Created by Frank on 28/12/2013.
 //  Copyright (c) 2013 Frank O'Dwyer. All rights reserved.
+//  
+//  Modified work Copyright 2014 Jonas Stubenrauch, arconsis IT-Solutions GmbH
 //
 
 #import <Foundation/Foundation.h>
@@ -21,7 +23,7 @@
 
 - (FODForm*) startFormWithTitle:(NSString*)title
                          andKey:(NSString*)key;
-
+- (FODFormSection*) section:(NSString*)title dependency:(NSDictionary *)dependency;
 - (FODFormSection*) section:(NSString*)title;
 
 - (FODFormSection*) section;
@@ -30,6 +32,13 @@
                                 andTitle:(NSString*)title
                                 andValue:(id)defaultValue
                                 andItems:(NSArray*)items;
+
+- (FODFormRow*) rowWithKey:(NSString*)key
+                   ofClass:(Class)klass
+                  andTitle:(NSString*)title
+                  andValue:(id)defaultValue
+            andPlaceHolder:(NSString*)placeHolder
+                dependency:(NSDictionary *)dependency;
 
 - (FODFormRow*) rowWithKey:(NSString*)key
                    ofClass:(Class)klass
