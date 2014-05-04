@@ -10,10 +10,8 @@
 #import "FODFormCell.h"
 
 @protocol FODImagePickerCellDelegate <NSObject>
-
 @optional
 - (void)imageSelected:(UIImage *)image withUserInfo:(id)userinfo;
-
 @end
 
 

@@ -14,7 +14,12 @@
 @class FODForm;
 @class FODFormBuilder;
 
-@interface FODFormRow : NSObject<NSCopying>
+@protocol FODCellDefaultHeight <NSObject>
+@optional
++(CGFloat)defaultHeight;
+@end
+
+@interface FODFormRow : NSObject<NSCopying, FODCellDefaultHeight>
 
 @property (nonatomic,copy) NSString *key;
 @property (nonatomic,copy) NSString *title;
@@ -30,8 +35,6 @@
 @property (nonatomic,assign) BOOL expanded;
 @property (nonatomic,strong) NSMutableDictionary *viewState;
 @property (nonatomic,assign) BOOL displayInline; // display the editor or subform inline if possible
-
-+(CGFloat)defaultHeight;
 
 // serializes to a property list format (array or dictionary)
 - (id) toPlist;

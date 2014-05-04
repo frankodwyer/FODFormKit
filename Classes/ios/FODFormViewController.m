@@ -443,7 +443,7 @@
         for (FODFormRow *formRow in formSection.rows) {
             if (formRow.dependency) {
                 BOOL showRow = NO;
-                BOOL needsReload = NO;
+//              BOOL needsReload = NO;
 
                 for (NSString *key in formRow.dependency) {
                     NSArray *allowedValues = formRow.dependency[key];

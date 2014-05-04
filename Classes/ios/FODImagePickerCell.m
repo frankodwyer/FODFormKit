@@ -10,7 +10,7 @@
 #import "FODImagePickerCell.h"
 
 
-@interface FODImagePickerCell () <FODFormCellDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
+@interface FODImagePickerCell () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UIImageView *previewImage;
@@ -29,7 +29,7 @@
 
 
     self.title.text = row.title;
-    self.previewImage.image = [UIImage imageWithData:row.workingValue];
+    self.previewImage.image = [UIImage imageWithData:(NSData*)row.workingValue];
 }
 
 - (void)cellAction:(UINavigationController *)navController
@@ -86,7 +86,7 @@
 
 
 #pragma mark - Helper Methods -
-- (void)showImagePickerWithDataSource:(UIImagePickerControllerSourceType *)sourceType
+- (void)showImagePickerWithDataSource:(UIImagePickerControllerSourceType)sourceType
 {
     self.imagePickerController.sourceType = sourceType;
     [self.navController presentViewController:self.imagePickerController animated:YES completion:nil];
