@@ -18,7 +18,7 @@
 
 + (CGFloat)defaultHeight
 {
-    return self.frame.height;
+    return 73.0;
 }
 
 @end
