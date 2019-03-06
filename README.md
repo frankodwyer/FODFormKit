@@ -1,5 +1,7 @@
 # FODFormKit
 
+_Note: I'm no longer actively maintaining this. If you are looking for a form library meanwhile, I suggest [Eureka](https://github.com/xmartlabs/Eureka)_
+
 [![Build Status](https://travis-ci.org/frankodwyer/FODFormKit.png?branch=master)](https://travis-ci.org/frankodwyer/FODFormKit)
 <!-- [![Version](http://cocoapod-badges.herokuapp.com/v/FODFormKit/badge.png)](http://cocoadocs.org/docsets/FODFormKit)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/FODFormKit/badge.png)](http://cocoadocs.org/docsets/FODFormKit) -->
